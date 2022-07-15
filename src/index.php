@@ -1,4 +1,4 @@
-<?php include ('config/db.php')?>
+<?php include ('db.php')?>
 
 <?php
     $sql = 'SELECT * FROM Customer';
