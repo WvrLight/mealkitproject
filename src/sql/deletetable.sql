@@ -1,0 +1,3 @@
+DROP TABLE Customer;
+DROP TABLE Product;
+DROP TABLE Orders;
