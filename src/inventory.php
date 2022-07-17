@@ -49,23 +49,20 @@
 					$stmt = $pdo->prepare($sql);
 					$stmt->execute();
 
-					
 					while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-						echo "<div class='product-container'>
-							<form method='post' onsubmit='fnCheck(event)'>
-								<fieldset class='product-card'>";
-									echo("<img src=" . $row['productimgurl'] . " class='product-thumb' alt=''>");
-									echo "<div class='product-info'>";
-										echo("<input type='hidden' class='productID' value='" . $row['id'] . "'>");
-										echo("<h2 class='product-brand'>" . $row['productname'] . "</h2>");
-										echo("<p class='price'>Php " . $row['productPrice'] . "</p>");
-										echo "</div>";
-										echo "<div class='view'>
-										<a href='subscribing.html' class='button'>View</a>
-									</div>";
-								echo "</fieldset>
-							</form>
-						</div>";
+						echo "<form method='post' onsubmit='fnCheck(event)'>
+							<fieldset class='product-card'>";
+								echo("<img src=" . $row['productimgurl'] . " class='product-thumb' alt=''>");
+								echo "<div class='product-info'>";
+									echo("<input type='hidden' class='productID' value='" . $row['id'] . "'>");
+									echo("<h2 class='product-brand'>" . $row['productname'] . "</h2>");
+									echo("<p class='price'>Php " . $row['productprice'] . "</p>");
+									echo "</div>";
+									echo "<div class='view'>
+									<a href='subscribing.html' class='button'>View</a>
+								</div>";
+							echo "</fieldset>
+						</form>";
 					}
 			?>
 		</div>
