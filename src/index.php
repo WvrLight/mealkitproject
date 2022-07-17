@@ -7,5 +7,7 @@
     $rowCount = $stmt->rowCount();
     $details = $stmt->fetch();
 
-    print_r ($details);
+    foreach ($details as $row) {
+        print_r($row);
+    }
 ?>
