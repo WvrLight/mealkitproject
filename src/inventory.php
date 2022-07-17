@@ -32,12 +32,6 @@
 			<div class="product-header">
 				<a href="" class="product-cart"><img src="assets/img/cart.png"></a>
 				<p id="cart-num" class="cart-count">0</p>
-				<?php
-					echo ("<script>
-							var count = document.getElementById('cart-num');
-							count.innerText = '" . count($_SESSION['cart']) . "';
-						</script>");
-				?>
 				<h1>Products</h1>
 			</div>
 			<div class="card-container">
@@ -73,6 +67,13 @@
 		
     </body>
 </html>
+
+<?php
+	echo ("<script>
+			var count = document.getElementById('cart-num');
+			count.innerText = '" . count($_SESSION['cart']) . "';
+		</script>");
+?>
 
 <?php
 	if (isset($_POST['productId'])) {
