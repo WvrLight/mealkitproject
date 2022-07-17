@@ -1,7 +1,4 @@
 <?php include ('db.php')?>
-<?php
-    session_start();
-?>
 
 <!DOCTYPE html>
 <html>
@@ -56,26 +53,7 @@
 
 <?php
     if (isset($_POST['username'], $_POST['password'])) {
-		$sql = "SELECT * FROM Customer WHERE custUsername = '" . $_POST['username'] . "'";
-		$stmt = $pdo->prepare($sql);
-		$stmt->execute();
-		$data = $stmt->fetch(PDO::FETCH_ASSOC);
-        echo "<script>console.log('" . data['custpassword'] . "');</script>";
-		
-		if (strcmp($_POST['password'], $data['custpassword'])) {
-			$_SESSION['id'] = $check['id'];
-			$_SESSION['username']= $_POST['username'];
-            $_SESSION['cart'] = array();
-			echo "<script>alert('Login successful!');</script>";
-			echo "<script>window.location.href='inventory.php'</script>";
-
-			if ($data['isadmin'] == true) {
-				$_SESSION['isadmin'] = true;
-			}
-		}
-		else {
-			echo "<script>alert('Incorrect login details.');</script>";
-			echo "<script>window.location.href='login.php'</script>";		
-		}
+		$sqluser = "SELECT * FROM Customer WHERE custUsername = '" . $_POST['username'] . "'";
+		$stmt = $pdo->prepare($sqluser);
 	}
 ?>
