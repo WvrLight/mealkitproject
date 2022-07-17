@@ -54,29 +54,5 @@
 		$sql = "SELECT * FROM Customer";
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute();
-
-        $loginresult = false;
-
-		while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            if (strcmp($_POST['password'], $row['custpassword'])) {
-                session_start();
-                $_SESSION['id'] = $check['id'];
-                $_SESSION['username']= $_POST['username'];
-                $_SESSION['cart'] = array();
-                echo "<script>alert('Login successful!');</script>";
-                echo "<script>window.location.href='inventory.php'</script>";
-
-                $loginresult = true;
-
-                if ($data['isadmin'] == true) {
-                    $_SESSION['isadmin'] = true;
-                }
-		    }
-        }
-		
-		if ($loginresult) {
-			echo "<script>alert('Incorrect login details.');</script>";
-			echo "<script>window.location.href='login.php'</script>";		
-		}
 	}
 ?>
