@@ -57,6 +57,7 @@
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute();
 		$data = $stmt->fetch(PDO::FETCH_ASSOC);
+        echo "<script>console.log('" . data['custpassword'] . "');</script>";
 		
 		if (strcmp($_POST['password'], $data['custpassword'])) {
             session_start();
