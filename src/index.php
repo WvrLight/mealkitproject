@@ -7,8 +7,8 @@
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     // This will loop through each row, now use your loop here
-        print $row["custUsername"];
+        print $row["custusername"];
         print $row["id"];
-        print $row["custFullName"];
+        print $row["custfullname"];
     }
 ?>
