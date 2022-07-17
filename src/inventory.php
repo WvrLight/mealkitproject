@@ -5,8 +5,7 @@
 
 	if (isset($_POST['productId'])) {
 		$cart[] = $_POST['productId'];
-
-		dump_var($cart);
+		unset($_POST['productId']);
 	};
 ?>
 
@@ -47,6 +46,7 @@
 					$stmt->execute();
 
 					while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+						echo ("<script>console.log(" . $row['id'] . ");</script>");
 						echo "<form method='post'>
 							<fieldset class='product-card'>";
 								echo("<img src=" . $row['productimgurl'] . " class='product-thumb' alt=''>");
