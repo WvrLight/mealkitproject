@@ -51,9 +51,8 @@
 
 <?php
     if (isset($_POST['username'], $_POST['password'])) {
-        echo ("<script>console.log('" . $_POST['username'] . "');</script>");
-        echo ("<script>console.log('" . $_POST['password'] . "');</script>");
-		$sql = "SELECT * FROM Customer WHERE custUsername = '" . $_POST['username'] . "'";
+        $user = $_POST['username'];
+		$sql = "SELECT * FROM customer WHERE Custusername = '" . $user . "'";
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute();
 		$data = $stmt->fetch(PDO::FETCH_ASSOC);
