@@ -7,5 +7,8 @@
     $rowCount = $stmt->rowCount();
     $details = $stmt->fetch();
 
-    print_r ($details);
+    while ($row = $stmt->fetch(PDO::FETCH_OBJ)) {
+    // This will loop through each row, now use your loop here
+        print("<p>" . $row->custusername . "</p>\n");
+    }
 ?>
