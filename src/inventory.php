@@ -45,8 +45,9 @@
 				</form>
 			</div>
 			<?php
-					$result = pg_query('SELECT * FROM Product');
+					$result = pg_query("SELECT * FROM Product");
 
+					echo "aaaaa";
 					while ($row = pg_fetch_array($result)) {
 					// This will loop through each row, now use your loop here
 						echo "a";
