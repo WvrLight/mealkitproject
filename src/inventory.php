@@ -5,7 +5,6 @@
 
 	if (isset($_POST['productId'])) {
 		$cart[] = $_POST['productId'];
-		unset($_POST['productId']);
 
 		dump_var($cart);
 	};
