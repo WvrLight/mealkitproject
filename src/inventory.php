@@ -45,13 +45,13 @@
 				</form>
 			</div>
 			<?php
-					$result = pg_query("SELECT * FROM Product");
+					$sql = 'SELECT * FROM Product';
+					$stmt = $pdo->prepare($sql);
+					$stmt->execute();
 
-					echo "aaaaa";
-					while ($row = pg_fetch_array($result)) {
+					while ($row = $stmt->fetch()) {
 					// This will loop through each row, now use your loop here
-						echo "a";
-						echo "<p>" . $row['productName'] . "</p";
+						print("<p>" . $row->productName . "</p>");
 					}
 			?>
 		</div>
