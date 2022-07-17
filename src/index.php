@@ -1,13 +1,12 @@
 <?php include ('db.php')?>
 
 <?php
-    $sql = 'SELECT * FROM Customer';
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
-    $rowCount = $stmt->rowCount();
-    $details = $stmt->fetch();
+    $result = pg_query("SELECT * FROM Customer");
 
-    foreach ($details as $row) {
-        echo $row['custUsername'];
+    echo "aaaaa";
+    while ($row = pg_fetch_array($result)) {
+    // This will loop through each row, now use your loop here
+        echo "a";
+        echo "<p>" . $row['custUsername'] . "</p>";
     }
 ?>
