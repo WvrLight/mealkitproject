@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+
+body {
+    background-color:#fdfcf7;
+    color: #000000;
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.logo {
+    float: left;
+	height: 40px;
+    width: 40px;
+    margin: 15px;
+    z-index: 10;
+}
+
+.header {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    height: 400px;
+    color: #fff;
+    text-align: center;
+    background: #5f4600;
+    background-image: url("../img/background.png");
+    background-size: cover;
+}
+
+.headertext {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    transform: translateX(-50%) translateY(-50%);
+}
+
+.headertext h1 {
+    margin: 0;
+    font-size: 3.5em;
+    line-height: 1.2em;
+}
+
+.headertext p {
+    font-size: 1.5em;
+    color: rgb(234, 218, 177)
+}
+
+.btn {
+  font-size: 1em;
+  color: #fff;
+  background: #9f321c;
+  padding: 10px 30px;
+  margin-bottom: 30px;
+  text-decoration: none;
+  letter-spacing: 2px;
+  border-radius: 30px;
+  transition: 0.5s;
+}
+
+.btn:hover{
+    background: green;
+}
+
+.nav {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    background: rgba(17, 17, 17, 0.9);
+    padding: 25px 0 0;
+}
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+}
+
+.nav li {
+    float: left;
+}
+
+.nav .login{
+    list-style: none;
+    float: right;
+    padding: 0 50px;
+}
+
+.nav a {
+    font-size: 1.05em;
+    color: #fff;
+    text-decoration: none;
+    margin: 5px 0 0 20px;
+    display: block;
+}
+
+.nav a:hover {
+    transform: translateY(-3px);
+    color: green;
+}
+
+.content {
+    width: 100%;
+    margin: 25px auto;
+    padding: 20px;
+    max-width: 800px;
+    font-size: 1.5em;
+}
+
+#CoffeePic {
+    position: absolute;
+    right: 20px;
+}
+
+#footer {
+    position: relative;
+    background-color: #5e3a1e;
+    height: 100px;
+    text-align: center;
+    color: #fff;
+
+    margin-top: 320px;
+    padding-top: 10px;
+}
+
+#footer a:link {
+            color: #fff;
+}
+    
+#footer a:visited {
+        color: #fff;
+}
+
+#footer a:hover {
+        color: #fff;
+}
+
+#footer a:active {
+        color: #fff;
+}
+
+/* Responsive */
+@media screen and (max-width: 600px) {
+    .headertext h1 {
+        font-size: 2em;
+    }
+
+    .headertext p{
+        font-size: 1em;
+    }
+
+    .content {
+        font-size: 0.75em;
+    }
+}
+
+@media screen and (min-width: 600px) {
+    .headertext h1 {
+        font-size: 3em;
+    }
+
+
+    .content {
+        font-size: 1em;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .headertext h1 {
+        font-size: 3.5em;
+    }
+
+    .content {
+        font-size: 1.2em;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .headertext h1 {
+        font-size: 3.5em;
+    }
+    
+    .content {
+        font-size: 1.5em;
+    }
+}

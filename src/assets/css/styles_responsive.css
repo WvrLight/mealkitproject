@@ -1,0 +1,139 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+body{
+	background-color: whitesmoke;
+}
+.wholecontainer{
+	font-family: arial;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+h1 {
+	margin-left: 20px;
+}
+
+/*Meal-kit Name*/
+.product-brand {
+	height: 50px;
+}
+
+fieldset .product-thumb {
+	height: 200px;
+	width: 200px;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/* Collection of fieldsets (inventory)*/
+.product-container{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	border-collapse: collapse;
+	width: 100%;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+/* fieldsets of each meal-kit (inventory)*/
+.product-card {
+	display: inline-block;
+	height: 420px;
+	width: 250px;
+	border: 0;
+	border-radius: 10px;
+	background-color: white;
+	margin-top: 23px;
+	margin-right: 20px;
+	text-align: center;
+	transition: transform .2s; /* Animation */
+	opacity: .8;
+	box-shadow:0 0 5px #999;
+}
+
+.product-card img {
+	width: 110%;
+	margin-left: -5%;
+	margin-top: -4%;
+	object-fit: cover;
+	border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.product-card:hover{
+	
+	transform: scale(1.1);
+	background-color: burlywood;
+	opacity: 1;
+}
+
+.price{
+    font-weight: 900;
+    font-size: 20px;
+	color: red;
+}
+
+.old-price{
+    margin-right: 170px;
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.view {
+	font-size:1.2em;
+}
+/*fieldset below subscription package page*/
+.option{ 
+	width:900px;
+	margin:auto; 
+	background-color:white; 
+}
+.confirm{
+	height: 30px;
+	width: 90px;
+	background-color: burlywood;
+	color: blue;
+	margin-left: 800px;
+	
+}
+
+/********************************************/
+/*subscribing/description page*/
+
+.viewPic {
+	display: block;
+	height: 400px;
+	width: 300px;
+	margin-top: 50px;
+	margin-left: 50px;
+}
+
+.viewDesc{
+	margin-top: 50px;
+	margin-left: 20px;
+}
+
+
+.viewProduct {
+	display:flex;
+	height: 450px;
+	width: 1200px;
+}
+
+
+.paraTxt {
+	font-size:1.5em;
+	margin-right: 60px;
+}
+
+.button{
+	width: 100px;
+      padding: 10px;
+      background-color: #FF8C00;
+      font-weight:bold;
+      text-decoration:none;
+}
+
+
