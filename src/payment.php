@@ -17,13 +17,13 @@
     <div class="nav">
         <img class="logo" src="assets/css/logo.png" id="MealKitLogo" alt="Meal Kit Logo">
         <ul class="home">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="inventory.html">Subscriptions</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="inventory.php">Meal Kits</a></li>
             <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="about.html">About Us</a></li>
         </ul>
         <ul class="login">
-            <li><a href="paymentpage.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbspCart</a></li>
+            <li><a href="payment.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbspCart</a></li>
             <li><a href="login.html">Log In </a></li>
             <li><a href="signup.html">Sign Up </a></li>
         </ul>
@@ -32,6 +32,8 @@
         <div class="cart_payment">
             <h1>Shopping cart</h1>
             <?php
+                $totalPrice = 0.0;
+
                 foreach($_SESSION['cart'] as $ITEM) {
                     $sql = "SELECT * FROM Product WHERE id = " . $ITEM;
                     $stmt = $pdo->prepare($sql);
@@ -41,21 +43,27 @@
                         echo "<div class='mealkit_cart'>";
                         echo        "<img src='" . $row['productimgurl'] . "' class='meal_pic'>";
                         echo        "<p class='mealkit_title'>" . $row['productname'] . "</p>";
-                        echo        "<p class='mealkit_price'>P" . $row['productprice'] . "</p>";
+                        echo        "<p class='mealkit_price'>₱" . $row['productprice'] . "</p>";
                         echo "</div>";
+
+                        $totalPrice += $row['productprice'];
                     }
                 }
                 
             ?>
             <p class="mealkit_total">Total:</p>
-            <p class="mealkit_totalprice"> ₱1080.00</p>
+            <p class="mealkit_totalprice">₱
+                <?php
+                    echo $totalPrice;
+                ?>
+            </p>
             <h3>Payment method</h3>
             <label class="method_radio" for="method_cod">
-                <input type="radio" class="radio_input" name="method_cod" id="radio_id">
+                <input type="radio" class="radio_input" name="method_cod" id="radio_cod">
                 &nbspCash on Delivery
               </label>
               <label class="method_radio" for="method_card">
-                <input type="radio" class="radio_input" name="method_card" id="radio_id">
+                <input type="radio" class="radio_input" name="method_card" id="radio_card">
                 &nbspDebit / Credit Card
               </label>
         </div>

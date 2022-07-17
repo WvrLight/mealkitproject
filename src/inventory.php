@@ -1,11 +1,6 @@
 <?php include ('db.php')?>
 <?php 
 	session_start();
-
-	echo ("<script>
-			var count = document.getElementById('cart-num');
-			count.innerText = '" . count($_SESSION['cart']) . "';
-		</script>");
 ?>
 
 <!DOCTYPE html>
@@ -21,12 +16,13 @@
 		<div class="nav">
             <img class="logo" src="assets/img/logo.png" id="Logo" alt="Meal Kit Logo">
             <ul class="home">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="inventory.html">Subscriptions</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="inventory.php">Meal Kits</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="about.html">About Us</a></li>
             </ul>
             <ul class="login">
+				<li><a href="payment.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbspCart</a></li>
                 <li><a href="login.html">Log In </a></li>
                 <li><a href="signup.html">Sign Up </a></li>
             </ul>
@@ -36,6 +32,12 @@
 			<div class="product-header">
 				<a href="" class="product-cart"><img src="assets/img/cart.png"></a>
 				<p id="cart-num" class="cart-count">0</p>
+				<?php
+					echo ("<script>
+							var count = document.getElementById('cart-num');
+							count.innerText = '" . count($_SESSION['cart']) . "';
+						</script>");
+				?>
 				<h1>Products</h1>
 			</div>
 			<div class="card-container">
