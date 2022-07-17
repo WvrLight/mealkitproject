@@ -9,12 +9,8 @@
     // This will loop through each row, now use your loop here
         print $row["custusername"];
         print "\n-------\n";
-        print $row["custUsername"];
-        print "\n-------\n";
         print $row["id"];
         print "\n-------\n";
         print $row["custfullname"];
-        print "\n-------\n";
-        print $row["custFullName"];
     }
 ?>
