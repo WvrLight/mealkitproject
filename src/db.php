@@ -12,6 +12,7 @@
         $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE,PDO::FETCH_OBJ);
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
     }
     catch (PDOException $e) {
         echo 'Connection failed: ' . $e->getMessage();
