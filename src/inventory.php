@@ -32,14 +32,11 @@
 			<div class="product-container">
 				<form method="post" onsubmit="fnCheck(event)">
 				<?php
-					$sql = 'SELECT * FROM Product';
-					$stmt = $pdo->prepare($sql);
-					$stmt->execute();
-					$rowCount = $stmt->rowCount();
-					$details = $stmt->fetch();
+					$result = pg_query('SELECT * FROM Product');
 
-					foreach ($details as $row) {
+					while ($row = pg_fetch_array($result)) {
 					// This will loop through each row, now use your loop here
+						echo "a";
 						echo "<p>" . $row['productName'] . "</p";
 					}
 				?>
