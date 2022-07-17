@@ -3,19 +3,6 @@
 	session_start(); 
 	$cart = array();
 	$_SESSION['cart'] = $cart;
-
-	if (isset($_POST['productId'])) {
-		echo ("<script>console.log('id -');</script>");
-		echo ("<script>console.log('" . $_POST['productId'] . "');</script>");
-		$cart[] = $_POST['productId'];
-		$_SESSION['cart'] = $cart;
-		unset($_POST['productId']);
-
-		echo ("<script>
-			var count = document.getElementById('cart-num');
-			count.innerText = '" . count($_SESSION['cart']) . "';
-		</script>");
-	};
 ?>
 
 <!DOCTYPE html>
@@ -81,3 +68,18 @@
 		
     </body>
 </html>
+
+<?php
+	if (isset($_POST['productId'])) {
+		echo ("<script>console.log('id -');</script>");
+		echo ("<script>console.log('" . $_POST['productId'] . "');</script>");
+		$cart[] = $_POST['productId'];
+		$_SESSION['cart'] = $cart;
+		unset($_POST['productId']);
+
+		echo ("<script>
+			var count = document.getElementById('cart-num');
+			count.innerText = '" . count($_SESSION['cart']) . "';
+		</script>");
+	};
+?>
