@@ -197,13 +197,13 @@ fieldset .product-thumb {
 	text-align: center;
 }
 
-.username-login {
+.username {
 	height: 35px;
 	width: 84%;
 	margin-left: -4px;
 }
 
-.pass-login {
+.pass {
 	height: 35px;
 	width: 84%;
 	margin-left: -7px;

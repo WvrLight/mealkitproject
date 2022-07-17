@@ -29,9 +29,9 @@
                 <div>
                     <h1 align="center"> Login Form </h1>
                         <i class="fa fa-user icon"></i>
-                            <input type="text" class="username-login" name="username" placeholder="Enter Username" required><br><br>
+                            <input type="text" class="username" name="username" placeholder="Enter Username" required><br><br>
                         <i class="fa fa-key icon"></i>
-                            <input type="password" class="pass-login" name="password" placeholder="Enter Password" required><br><br>
+                            <input type="password" class="password" name="password" placeholder="Enter Password" required><br><br>
                         <p><a href="signup.html" class="signuplink">Don't have an account?</a> 
                         <br>
                         <div align="right">
@@ -50,16 +50,17 @@
 </html>
 
 <?php
+    echo ("<script>console.log('b');</script>");
     if (isset($_POST['username'], $_POST['password'])) {
-		$sql = "SELECT * FROM Customer WHERE custUsername = '" . $_POST['username'] . "' AND custPassword = '" . $_POST['password'] . "'";
+        echo ("<script>console.log('a');</script>");
+		$sql = "SELECT * FROM Customer WHERE custUsername = '" . $_POST['username'] . "'";
 		$stmt = $pdo->prepare($sqluser);
 		$stmt->execute();
-		$check = stmt->rowCount();
         echo ("<script>console.log('" . $check . "');</script>");
 
 		$data = $stmt->fetch(PDO::FETCH_ASSOC);
 		
-		if ($check == 1)
+		if ($_POST['password'] == $data['custpassword'])
 		{
             session_start();
 			$_SESSION['id'] = $check['id'];
