@@ -31,7 +31,7 @@
 			<div class="product-container">
 				<form method="post" onsubmit="fnCheck(event)">
 				<fieldset class="product-card">
-						<img src="assets/img/pinakbet.jpg" class="product-thumb" alt="">
+					<img src="assets/img/pinakbet.jpg" class="product-thumb" alt="">
 					<div class="product-info">
 						<input type="hidden" class="productID" value="Product ID here">
 						<h2 class="product-brand">Pinakbet Meal-kit</h2>
@@ -49,9 +49,23 @@
 					$stmt = $pdo->prepare($sql);
 					$stmt->execute();
 
-					while ($row = $stmt->fetch()) {
-					// This will loop through each row, now use your loop here
-						print("<p>" . $row->productName . "</p>");
+					
+					while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+						echo "<div class='product-container'>
+							<form method='post' onsubmit='fnCheck(event)'>
+								<fieldset class='product-card'>";
+									echo("<img src=" . $row['productimgurl'] . " class='product-thumb' alt=''>");
+									echo "<div class='product-info'>";
+										echo("<input type='hidden' class='productID' value='" . $row['id'] . "'>");
+										echo("<h2 class='product-brand'>" . $row['productname'] . "</h2>");
+										echo("<p class='price'>Php " . $row['productPrice'] . "</p>");
+										echo "</div>";
+										echo "<div class='view'>
+										<a href='subscribing.html' class='button'>View</a>
+									</div>";
+								echo "</fieldset>
+							</form>
+						</div>";
 					}
 			?>
 		</div>
