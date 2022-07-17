@@ -1,8 +1,7 @@
 <?php include ('db.php')?>
 <?php 
 	session_start(); 
-	$cart = array();
-	$_SESSION['cart'] = $cart;
+	$_SESSION['cart'] = array();
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +72,7 @@
 	if (isset($_POST['productId'])) {
 		echo ("<script>console.log('id -');</script>");
 		echo ("<script>console.log('" . $_POST['productId'] . "');</script>");
-		$_SESSION['cart'][] = $_POST['productId'];
+		array_push($_SESSION['cart'], $_POST['productId']);
 		unset($_POST['productId']);
 
 		echo ("<script>
