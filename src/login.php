@@ -57,7 +57,7 @@
 </html>
 
 <?php
-    	if (isset($_POST['username']) && isset($_POST['password'])) {
+    	if (isset($_POST['username'], $_POST['password'])) {
 		$sql = "SELECT * FROM Customer WHERE custUsername = '" . $_REQUEST['username'] . "' AND custPassword = '" . $_REQUEST['password'] . "'";
 		$stmt = $pdo->prepare($sqluser);
 		$stmt->execute();
