@@ -9,12 +9,12 @@
     echo "a";
     print "b\n";
     foreach($details as $row) {
-        print $test->custusername;
+        print $row->custusername;
         echo "-----";
-        print $test->custUsername;
+        print $row->custUsername;
         echo "-----";
-        print $test["custusername"];
+        print $row["custusername"];
         echo "-----";
-        print $test["custUsername"];
+        print $row["custUsername"];
     }
 ?>
