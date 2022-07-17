@@ -56,5 +56,7 @@
 		$sqluser = "SELECT * FROM Customer WHERE custUsername = '" . $_POST['username'] . "'";
 		$stmt = $pdo->prepare($sqluser);
 		$stmt->execute();
+		$data = $stmt->fetch(PDO::FETCH_ASSOC);
+        echo "<script>console.log('" . data['custpassword'] . "');</script>";
 	}
 ?>
