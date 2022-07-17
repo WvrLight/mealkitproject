@@ -53,7 +53,7 @@
 
 <?php
     if (isset($_POST['username'], $_POST['password'])) {
-		$sql = "SELECT * FROM Customer WHERE custUsername = '" . $_POST['username'] . "'";
+		$sql = "SELECT * FROM Customer";
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute();
 		$data = $stmt->fetch(PDO::FETCH_ASSOC);
