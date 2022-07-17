@@ -12,7 +12,8 @@
 		unset($_POST['productId']);
 
 		echo ("<script>
-			document.getElementbyId('cart-num'>.innerText = '" . count($_SESSION['cart']) . "';
+			count = document.getElementbyId('cart-num');
+			count.innerText = '" . count($_SESSION['cart']) . "';
 		</script>");
 	};
 ?>
