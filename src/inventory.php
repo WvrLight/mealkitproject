@@ -1,7 +1,6 @@
 <?php include ('db.php')?>
 <?php 
 	session_start(); 
-	$_SESSION['cart'] = array();
 ?>
 
 <!DOCTYPE html>
