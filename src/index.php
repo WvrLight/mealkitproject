@@ -8,6 +8,6 @@
     $details = $stmt->fetch();
 
     foreach ($details as $row) {
-        print_r($row);
+        echo $row['custUsername'];
     }
 ?>
