@@ -12,7 +12,7 @@
 		unset($_POST['productId']);
 
 		echo ("<script>
-			document.getElementbyId('cart-num'>.innerText = " . count($_SESSION['cart']) . ";
+			document.getElementbyId('cart-num'>.innerText = '" . count($_SESSION['cart']) . "';
 		</script>");
 	};
 ?>
@@ -58,7 +58,7 @@
 							<fieldset class='product-card'>";
 								echo("<img src=" . $row['productimgurl'] . " class='product-thumb' alt=''>");
 								echo "<div class='product-info'>";
-									echo("<input type='hidden' class='productID' name='productId' value='" . $row['id'] . ">'");
+									echo("<input type='hidden' class='productID' name='productId' value='" . $row['id'] . "'");
 									echo("<h2 class='product-brand'>" . $row['productname'] . "</h2>");
 									echo("<p class='price'>Php " . $row['productprice'] . "</p>");
 									echo "</div>";
