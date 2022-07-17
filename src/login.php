@@ -56,9 +56,11 @@
 		$sqluser = "SELECT * FROM Customer WHERE custUsername = '" . $_POST['username'] . "'";
 		$stmt = $pdo->prepare($sqluser);
 		$stmt->execute();
+        $loginResult = false;
 		
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             if (strcmp($_POST['password'], $row['custpassword'])) {
+                $loginResult = true;
                 session_start();
                 $_SESSION['id'] = $check['id'];
                 $_SESSION['username']= $_POST['username'];
@@ -70,10 +72,11 @@
                     $_SESSION['isadmin'] = true;
                 }
 		    }
-            else {
-                echo "<script>alert('Incorrect login details.');</script>";
-                echo "<script>window.location.href='login.php'</script>";		
-            }
+        }
+
+        if (!$loginResult) {
+            echo "<script>alert('Incorrect login details.');</script>";
+            echo "<script>window.location.href='login.php'</script>";		
         }
 		
 	}
