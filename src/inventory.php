@@ -36,8 +36,9 @@
 					$stmt = $pdo->prepare($sql);
 					$stmt->execute();
 					$rowCount = $stmt->rowCount();
+					$details = $stmt->fetch();
 
-					while($row = pg_fetch_array($stmt)) {
+					foreach ($details as $row) {
 					// This will loop through each row, now use your loop here
 						echo "<p>" . $row['productName'] . "</p";
 					}
