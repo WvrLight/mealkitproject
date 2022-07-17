@@ -39,7 +39,7 @@
 
 					while($row = pg_fetch_array($stmt)) {
 					// This will loop through each row, now use your loop here
-						echo "<p>" . $row['productName'];
+						echo "<p>" . $row['productName'] . "</p";
 					}
 				?>
 				<fieldset class="product-card">
