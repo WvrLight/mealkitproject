@@ -2,10 +2,16 @@
 <?php 
 	session_start(); 
 	$cart = array();
+	$_SESSION['cart'] = $cart;
 
 	if (isset($_POST['productId'])) {
 		$cart[] = $_POST['productId'];
+		$_SESSION['cart'] = $cart;
 		unset($_POST['productId']);
+
+		echo ("<script>
+			document.getElementbyId('cart-num'>.innerText = " . count($_SESSION['cart']) . ";
+		</script>");
 	};
 ?>
 
@@ -36,7 +42,7 @@
 		<div class="wholecontainer">
 			<div class="product-header">
 				<a href="" class="product-cart"><img src="assets/img/cart.png"></a>
-				<p class="cart-count">0</p>
+				<p id="cart-num" class="cart-count">0</p>
 				<h1>Products</h1>
 			</div>
 			<div class="card-container">
