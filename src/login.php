@@ -59,8 +59,9 @@
         $loginResult = false;
 		
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo "<script>console.log('" . $row['custusername'] . "');</script>";
+            echo "<script>console.log('" . $_POST['password'] . "');</script>";
             echo "<script>console.log('" . $row['custpassword'] . "');</script>";
+            echo "<script>console.log('" . strcmp($_POST['password'], $row['custpassword']) . "');</script>";
             if (strcmp($_POST['password'], $row['custpassword'])) {
                 $loginResult = true;
                 session_start();
