@@ -1,4 +1,15 @@
 <?php include ('db.php')?>
+<?php 
+	session_start(); 
+	$cart = array();
+
+	if (isset($_POST['productId'])) {
+		$cart[] = $_POST['productId'];
+		session_unset($_POST['productId']);
+
+		dump_var($cart);
+	};
+?>
 
 <!DOCTYPE html>
 <html>
@@ -23,47 +34,35 @@
                 <li><a href="signup.html">Sign Up </a></li>
             </ul>
         </div>
-	
+
 		<div class="wholecontainer">
-			<br><br><br><br><br><br><br><b>
-			<div> <h1>Products</h1>
+			<div class="product-header">
+				<a href="" class="product-cart"><img src="assets/img/cart.png"></a>
+				<p class="cart-count">0</p>
+				<h1>Products</h1>
 			</div>
 			<div class="card-container">
-				<form method="post" onsubmit="fnCheck(event)">
-				<fieldset class="product-card">
-					<img src="assets/img/pinakbet.jpg" class="product-thumb" alt="">
-					<div class="product-info">
-						<input type="hidden" class="productID" value="Product ID here">
-						<h2 class="product-brand">Pinakbet Meal-kit</h2>
-						<p class="price">Php 190.00</p>
-						<p class="old-price">Php 210.00</p>
-					</div>
-					<div class="view">
-						<a href="subscribing.html" class="button">View</a>
-					</div>
-				</fieldset>
-				</form>
-			<?php
-				$sql = 'SELECT * FROM Product';
-				$stmt = $pdo->prepare($sql);
-				$stmt->execute();
+				<?php
+					$sql = 'SELECT * FROM Product';
+					$stmt = $pdo->prepare($sql);
+					$stmt->execute();
 
-				while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-					echo "<form method='post' onsubmit='fnCheck(event)'>
-						<fieldset class='product-card'>";
-							echo("<img src=" . $row['productimgurl'] . " class='product-thumb' alt=''>");
-							echo "<div class='product-info'>";
-								echo("<input type='hidden' class='productID' value='" . $row['id'] . "'>");
-								echo("<h2 class='product-brand'>" . $row['productname'] . "</h2>");
-								echo("<p class='price'>Php " . $row['productprice'] . "</p>");
-								echo "</div>";
-								echo "<div class='view'>
-								<a href='subscribing.html' class='button'>Add to Cart</a>
-							</div>";
-						echo "</fieldset>
-					</form>";
-				}
-			?>
+					while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+						echo "<form method='post'>
+							<fieldset class='product-card'>";
+								echo("<img src=" . $row['productimgurl'] . " class='product-thumb' alt=''>");
+								echo "<div class='product-info'>";
+									echo("<input type='hidden' class='productID' name='productId' value=" . $row['id'] . ">");
+									echo("<h2 class='product-brand'>" . $row['productname'] . "</h2>");
+									echo("<p class='price'>Php " . $row['productprice'] . "</p>");
+									echo "</div>";
+									echo "<div class='view'>
+									<input type='submit' class='button' value='Add to Cart'>
+								</div>";
+							echo "</fieldset>
+						</form>";
+					}
+				?>
 			</div>
 		</div>
 		

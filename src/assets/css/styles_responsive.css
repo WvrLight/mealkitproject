@@ -3,10 +3,29 @@
 body{
 	background-color: whitesmoke;
 }
-.wholecontainer{
+
+.wholecontainer {
 	font-family: arial;
 	margin-left: 10%;
 	margin-right: 10%;
+}
+
+.product-header {
+	display: block;
+	margin-top: 10%;
+}
+
+.cart-count {
+	position: relative;
+	float: right;
+}
+
+.product-cart img {
+	position: relative;
+	float: right;
+	height: 50px;
+	width: 50px;
+	object-fit: contain;
 }
 
 h1 {

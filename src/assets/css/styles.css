@@ -65,6 +65,7 @@ body {
 
 .nav {
     position: fixed;
+    margin-top: -8%;
     width: 100%;
     z-index: 10;
     background: rgba(17, 17, 17, 0.9);
