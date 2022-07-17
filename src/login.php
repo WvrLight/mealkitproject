@@ -51,8 +51,6 @@
 
 <?php
     if (isset($_POST['username'], $_POST['password'])) {
-		$sql = "SELECT * FROM Customer";
-		$stmt = $pdo->prepare($sql);
-		$stmt->execute();
+		echo "<script>alert('Login successful!');</script>";
 	}
 ?>
