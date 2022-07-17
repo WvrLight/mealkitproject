@@ -20,9 +20,9 @@
                 <li><a href="about.html">About Us</a></li>
             </ul>
             <ul class="login">
-                <li><a href="payment.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbspCart</a></li>
-                <li><a href="login.html">Log In </a></li>
-                <li><a href="signup.html">Sign Up </a></li>
+                <li><a href="payment.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbspCart</a></li>
+                <li><a href="login.php">Log In </a></li>
+                <li><a href="signup.php">Sign Up </a></li>
             </ul>
         </div>
         <div class="header">

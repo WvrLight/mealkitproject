@@ -22,9 +22,9 @@
                 <li><a href="about.html">About Us</a></li>
             </ul>
             <ul class="login">
-				<li><a href="payment.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbspCart</a></li>
-                <li><a href="login.html">Log In </a></li>
-                <li><a href="signup.html">Sign Up </a></li>
+				<li><a href="payment.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbspCart</a></li>
+            	<li><a href="login.php">Log In </a></li>
+            	<li><a href="signup.php">Sign Up </a></li>
             </ul>
         </div>
 
@@ -47,7 +47,7 @@
 								echo "<div class='product-info'>";
 									echo("<input type='hidden' class='productID' name='productId' value='" . $row['id'] . "'");
 									echo("<h2 class='product-brand'>" . $row['productname'] . "</h2>");
-									echo("<p class='price'>Php " . $row['productprice'] . "</p>");
+									echo("<p class='price'>₱" . $row['productprice'] . "</p>");
 									echo "</div>";
 									echo "<div class='view'>
 									<input type='submit' class='button' value='Add to Cart'>
@@ -64,7 +64,6 @@
             <a href="mailto:fmk@filipinomealkits.com">fmk@filipinomealkits.com</a>
             <p> <a href="termsandconditions.html">Terms and Conditions.</a>&nbsp&nbsp&nbsp&nbsp<a href="privacypolicy.html">Privacy Policy.</a></p>
         </div>	
-		
     </body>
 </html>
 
