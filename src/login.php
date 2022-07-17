@@ -1,30 +1,5 @@
 <?php
 	session_start();
-
-	if (isset($_POST['username']) && isset($_POST['password'])) {
-		$sql = "SELECT * FROM Customer WHERE custUsername = '" . $_REQUEST['username'] . "' AND custPassword = '" . $_REQUEST['password'] . "'";
-		$stmt = $pdo->prepare($sqluser);
-		$stmt->execute();
-		$check = stmt->rowCount();
-		$data = $stmt->fetch(PDO::FETCH_ASSOC);
-		
-		if ($check == 1)
-		{
-			$_SESSION['id'] = $check['id'];
-			$_SESSION['username']= $_REQUEST['username'];
-            $_SESSION['cart'] = array();
-			echo "<script>alert('Login successful!');</script>";
-			echo "<script>window.location.href='inventory.php'</script>";
-
-			if ($data['isadmin'] == true) {
-				$_SESSION['isadmin'] = true;
-			}
-		}
-		else {
-			echo "<script>alert('Incorrect login details.');</script>";
-			echo "<script>window.location.href='login.php'</script>";		
-		}
-	}
 ?>
 
 <!DOCTYPE html>
@@ -54,7 +29,7 @@
         </div>
 		<br><br><br><br><br><br><br><br>
 			<fieldset class="login-form">
-			<form method="post" onsubmit="fnCheck(event)" name="login-form">
+			<form method="post" name="login-form">
 					<div>
 						<h1 align="center"> Login Form </h1>
 							<i class="fa fa-user icon"></i>
@@ -81,3 +56,30 @@
 		
     </body>
 </html>
+
+<?php
+    	if (isset($_POST['username']) && isset($_POST['password'])) {
+		$sql = "SELECT * FROM Customer WHERE custUsername = '" . $_REQUEST['username'] . "' AND custPassword = '" . $_REQUEST['password'] . "'";
+		$stmt = $pdo->prepare($sqluser);
+		$stmt->execute();
+		$check = stmt->rowCount();
+		$data = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+		if ($check == 1)
+		{
+			$_SESSION['id'] = $check['id'];
+			$_SESSION['username']= $_REQUEST['username'];
+            $_SESSION['cart'] = array();
+			echo "<script>alert('Login successful!');</script>";
+			echo "<script>window.location.href='inventory.php'</script>";
+
+			if ($data['isadmin'] == true) {
+				$_SESSION['isadmin'] = true;
+			}
+		}
+		else {
+			echo "<script>alert('Incorrect login details.');</script>";
+			echo "<script>window.location.href='login.php'</script>";		
+		}
+	}
+?>
