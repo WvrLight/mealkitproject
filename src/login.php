@@ -1,7 +1,3 @@
-<?php
-	session_start();
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -65,6 +61,7 @@
 		
 		if ($check == 1)
 		{
+            session_start();
 			$_SESSION['id'] = $check['id'];
 			$_SESSION['username']= $_POST['username'];
             $_SESSION['cart'] = array();
