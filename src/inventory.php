@@ -73,7 +73,6 @@
 		echo ("<script>console.log('id -');</script>");
 		echo ("<script>console.log('" . $_POST['productId'] . "');</script>");
 		array_push($_SESSION['cart'], $_POST['productId']);
-		unset($_POST['productId']);
 
 		echo ("<script>
 			var count = document.getElementById('cart-num');
