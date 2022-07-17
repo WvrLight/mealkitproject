@@ -73,8 +73,7 @@
 	if (isset($_POST['productId'])) {
 		echo ("<script>console.log('id -');</script>");
 		echo ("<script>console.log('" . $_POST['productId'] . "');</script>");
-		$cart[] = $_POST['productId'];
-		$_SESSION['cart'] = $cart;
+		$_SESSION['cart'][] = $_POST['productId'];
 		unset($_POST['productId']);
 
 		echo ("<script>
