@@ -1,3 +1,8 @@
+<?php include ('db.php')?>
+<?php 
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +15,7 @@
 </head>
 <body>
     <div class="nav">
-        <img class="logo" src="assets/css/logo.png" id="CoffeeShopLogo" alt="Meal Kit Logo">
+        <img class="logo" src="assets/css/logo.png" id="MealKitLogo" alt="Meal Kit Logo">
         <ul class="home">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Us</a></li>
@@ -25,33 +30,23 @@
     </div>
     <div class="cart-wrapper">
         <div class="cart_payment">
-            <h1>My subscription cart</h1>
-            <p class="mealkit_package"> Subscription Package 1</p>
-            <div class="mealkit_cart">
-                <img src="assets/img/pinakbet.jpg" alt="Pinakbet"  class="meal_pic">
-                <p class="mealkit_title"> Pinakbet Meal-kit</p>
-                <p class="mealkit_price"> ₱190.00</p>  
-            </div>
-            <div class="mealkit_cart">
-                <img src="assets/img/tinola.jpg" alt="Tinola"  class="meal_pic">
-                <p class="mealkit_title"> Tinola Meal-kit</p>
-                <p class="mealkit_price"> ₱260.00</p>  
-            </div>
-            <div class="mealkit_cart">
-                <img src="assets/img/adobo.jpg" alt="Adobo" class="meal_pic">
-                <p class="mealkit_title"> Chicken Adobo Meal-kit</p>
-                <p class="mealkit_price"> ₱200.00</p>  
-            </div>
-            <div class="mealkit_cart">
-                <img src="assets/img/bicol-express.jpg" alt="Bicol Express" class="meal_pic">
-                <p class="mealkit_title"> Bicol Express Meal-kit</p>
-                <p class="mealkit_price"> ₱250.00</p>  
-            </div>
-            <div class="mealkit_cart">
-                <img src="assets/img/gabi.jpg" alt="Gabi" class="meal_pic">
-                <p class="mealkit_title"> Ginataang Gabi Meal-kit</p>
-                <p class="mealkit_price"> ₱180.00</p>  
-            </div>
+            <h1>Shopping cart</h1>
+            <?php
+                foreach($_SESSION['cart'] as $ITEM) {
+                    $sql = "SELECT * FROM Product WHERE id = " . $ITEM;
+                    $stmt = $pdo->prepare($sql);
+                    $stmt->execute();
+
+                    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        echo "<div class='mealkit_cart'>";
+                        echo        "<img src='" . $row['productimgurl'] . "' class='meal_pic'>";
+                        echo        "<p class='mealkit_title'>" . $row['productname'] . "</p>";
+                        echo        "<p class='mealkit_price'>P" . $row['productprice'] . "</p>";
+                        echo "</div>";
+                    }
+                }
+                
+            ?>
             <p class="mealkit_total">Total:</p>
             <p class="mealkit_totalprice"> ₱1080.00</p>
             <h3>Payment method</h3>

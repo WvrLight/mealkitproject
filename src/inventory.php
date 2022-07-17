@@ -1,6 +1,11 @@
 <?php include ('db.php')?>
 <?php 
-	session_start(); 
+	session_start();
+
+	echo ("<script>
+			var count = document.getElementById('cart-num');
+			count.innerText = '" . count($_SESSION['cart']) . "';
+		</script>");
 ?>
 
 <!DOCTYPE html>
