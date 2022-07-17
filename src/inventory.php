@@ -5,6 +5,8 @@
 	$_SESSION['cart'] = $cart;
 
 	if (isset($_POST['productId'])) {
+		echo ("<script>console.log('id -');</script>");
+		echo ("<script>console.log('" . $_POST['productId'] . "');</script>");
 		$cart[] = $_POST['productId'];
 		$_SESSION['cart'] = $cart;
 		unset($_POST['productId']);
@@ -52,7 +54,6 @@
 					$stmt->execute();
 
 					while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-						echo ("<script>console.log(" . $row['id'] . ");</script>");
 						echo "<form method='post'>
 							<fieldset class='product-card'>";
 								echo("<img src=" . $row['productimgurl'] . " class='product-thumb' alt=''>");
