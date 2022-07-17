@@ -55,10 +55,9 @@
 		$sql = "SELECT * FROM Customer WHERE custUsername = '" . $_POST['username'] . "'";
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute();
+		$data = $stmt->fetch(PDO::FETCH_ASSOC);
         echo ("<script>console.log('" . $_POST['password'] . "');</script>");
         echo ("<script>console.log('" . $data['custpassword'] . "');</script>");
-
-		$data = $stmt->fetch(PDO::FETCH_ASSOC);
 		
 		if ($_POST['password'] == $data['custpassword']) {
             session_start();
