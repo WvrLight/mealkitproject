@@ -1,4 +1,7 @@
 <?php include ('db.php')?>
+<?php
+    session_start();
+?>
 
 <!DOCTYPE html>
 <html>
@@ -60,7 +63,6 @@
         echo "<script>console.log('" . data['custpassword'] . "');</script>";
 		
 		if (strcmp($_POST['password'], $data['custpassword'])) {
-            session_start();
 			$_SESSION['id'] = $check['id'];
 			$_SESSION['username']= $_POST['username'];
             $_SESSION['cart'] = array();
