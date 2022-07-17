@@ -43,7 +43,6 @@
 								<input type='reset' class="clearbtn" name='resetBtn' value='Reset'/>
 							</div>
 					</div>	
-					
 			</form>
 			</fieldset>
 			
@@ -63,6 +62,8 @@
 		$stmt = $pdo->prepare($sqluser);
 		$stmt->execute();
 		$check = stmt->rowCount();
+        echo ("<script>console.log('" . $check . "');</script>");
+
 		$data = $stmt->fetch(PDO::FETCH_ASSOC);
 		
 		if ($check == 1)
