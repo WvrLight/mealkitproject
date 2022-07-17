@@ -22,14 +22,21 @@ CREATE TABLE Product (
 CREATE TABLE Orders (
     id SERIAL PRIMARY KEY NOT NULL,
     custId INT NOT NULL,
-    productId INT NOT NULL,
     orderDate DATE NOT NULL,
     orderDeliveryDate DATE,
-    orderStatus INT,
+    orderStatus INT NOT NULL,
     CONSTRAINT o_customer
         FOREIGN KEY (custId)
-        REFERENCES Customer(id),
-    CONSTRAINT o_product
+        REFERENCES Customer(id)
+);
+
+CREATE TABLE OrderCart (
+    productId INT PRIMARY KEY NOT NULL,
+    orderId INT NOT NULL,
+    CONSTRAINT c_product
         FOREIGN KEY (productId)
-        REFERENCES Product(id)
+        REFERENCES Product(id),
+    CONSTRAINT c_order
+        FOREIGN KEY (orderId)
+        REFERENCES Orders(id)
 );
