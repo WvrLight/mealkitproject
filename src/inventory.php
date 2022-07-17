@@ -28,18 +28,8 @@
 			<br><br><br><br><br><br><br><b>
 			<div> <h1> Subscription Package 1 = Php 1099</h1>
 			</div>
-			<
 			<div class="product-container">
 				<form method="post" onsubmit="fnCheck(event)">
-				<?php
-					$result = pg_query('SELECT * FROM Product');
-
-					while ($row = pg_fetch_array($result)) {
-					// This will loop through each row, now use your loop here
-						echo "a";
-						echo "<p>" . $row['productName'] . "</p";
-					}
-				?>
 				<fieldset class="product-card">
 						<img src="assets/img/pinakbet.jpg" class="product-thumb" alt="">
 					<div class="product-info">
@@ -54,6 +44,15 @@
 				</fieldset>
 				</form>
 			</div>
+			<?php
+					$result = pg_query('SELECT * FROM Product');
+
+					while ($row = pg_fetch_array($result)) {
+					// This will loop through each row, now use your loop here
+						echo "a";
+						echo "<p>" . $row['productName'] . "</p";
+					}
+			?>
 		</div>
 		
 		<div id="footer">
