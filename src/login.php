@@ -55,5 +55,6 @@
     if (isset($_POST['username'], $_POST['password'])) {
 		$sqluser = "SELECT * FROM Customer WHERE custUsername = '" . $_POST['username'] . "'";
 		$stmt = $pdo->prepare($sqluser);
+		$stmt->execute();
 	}
 ?>
