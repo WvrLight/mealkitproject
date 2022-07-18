@@ -68,7 +68,7 @@
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             if (!strcmp($_POST['password'], $row['custpassword'])) {
                 $loginResult = true;
-                $_SESSION['id'] = $check['id'];
+                $_SESSION['id'] = $row['id'];
                 $_SESSION['username']= $_POST['username'];
                 $_SESSION['cart'] = array();
 
