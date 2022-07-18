@@ -1,4 +1,11 @@
 <?php include ('db.php')?>
+<?php
+    session_start();
+
+    if (isset($_SESSION['id'])) {
+        echo "<script>window.location.href='inventory.php'</script>";
+    }
+?>
 
 <!DOCTYPE html>
 <html>
@@ -59,21 +66,18 @@
         $loginResult = false;
 		
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            echo "<script>console.log('" . $_POST['password'] . "');</script>";
-            echo "<script>console.log('" . $row['custpassword'] . "');</script>";
-            echo "<script>console.log('" . strcmp($_POST['password'], $row['custpassword']) . "');</script>";
             if (!strcmp($_POST['password'], $row['custpassword'])) {
                 $loginResult = true;
-                session_start();
                 $_SESSION['id'] = $check['id'];
                 $_SESSION['username']= $_POST['username'];
                 $_SESSION['cart'] = array();
-                echo "<script>alert('Login successful!');</script>";
-                echo "<script>window.location.href='inventory.php'</script>";
 
                 if ($row['isadmin'] == true) {
                     $_SESSION['isadmin'] = true;
                 }
+                
+                echo "<script>alert('Login successful!');</script>";
+                echo "<script>window.location.href='inventory.php'</script>";
 		    }
         }
 

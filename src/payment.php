@@ -1,6 +1,10 @@
 <?php include ('db.php')?>
 <?php 
 	session_start();
+
+    if (!isset($_SESSION['id'])) {
+        echo "<script>window.location.href='login.php'</script>";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -24,8 +28,8 @@
         </ul>
         <ul class="login">
             <li><a href="payment.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbspCart</a></li>
-            <li><a href="login.php">Log In </a></li>
-            <li><a href="signup.php">Sign Up </a></li>
+            <li><a href='profile.php'>View Profile</a></li>
+            <li><a href='logout.php'>Logout</a></li>
         </ul>
     </div>
     <div class="cart-wrapper">

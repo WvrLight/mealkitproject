@@ -23,8 +23,16 @@
             </ul>
             <ul class="login">
 				<li><a href="payment.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbspCart</a></li>
-            	<li><a href="login.php">Log In </a></li>
-            	<li><a href="signup.php">Sign Up </a></li>
+            	<?php
+                    if (isset($_SESSION['id'])) {
+                        echo "<li><a href='profile.php'>View Profile</a></li>
+                        <li><a href='logout.php'>Logout</a></li>";
+                    }
+                    else {
+                        echo "<li><a href='login.php'>Log In</a></li>
+                        <li><a href='signup.php'>Sign Up</a></li>";
+                    }
+                ?>
             </ul>
         </div>
 
