@@ -124,9 +124,10 @@
 <?php
     if (isset($_POST['pay'])) {
         echo "<script>console.log('test')</script>";
-        $currentDate = new date();
+        $currentDate = new date("d/m/Y");
         $orderId += 1;
 
+        echo "<script>console.log('a')</script>";
         echo "<script>console.log($orderId)</script>";
         echo "<script>console.log($currentDate)</script>";
         echo ("<script>console.log('" . $_SESSION['id'] . "')</script>");
