@@ -21,15 +21,15 @@
         <div class="nav">
             <img class="logo" src="assets/img/logo.png" id="Logo" alt="Meal Kit Logo">
             <ul class="home">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="inventory.html">Subscriptions</a></li>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="inventory.php">Meal Kits</a></li>
                 <li><a href="contact.html">Contact Us</a></li>
+                <li><a href="about.html">About Us</a></li>
             </ul>
             <ul class="login">
-				<li><a href="paymentpage.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbspCart</a></li>
-                <li><a href="login.html">Log In </a></li>
-                <li><a href="signup.html">Sign Up </a></li>
+				<li><a href="payment.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbspCart</a></li>
+                <li><a href="login.php">Log In </a></li>
+                <li><a href="signup.php">Sign Up </a></li>
             </ul>
         </div>
 		<br><br><br><br><br><br><br><br>

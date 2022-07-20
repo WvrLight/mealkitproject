@@ -5,6 +5,12 @@
     if (!isset($_SESSION['id'])) {
         echo "<script>window.location.href='login.php'</script>";
     }
+    else {
+        $sql = 'SELECT * FROM Orders';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $orderId = $stmt->rowCount();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -75,42 +81,63 @@
     <div class="wrapper">
         <div class="payment">
             <h2>Payment Information</h2>
-            <div class="form">
-                <div class="card space icon-relative">
-                    <label class="label">Card holder:</label>
-                    <input type="text" class="input" name="card_holder" placeholder="Juan Dela Cruz">
-                    <i class="fa fa-user" aria-hidden="true"></i>
-                </div>
-                <div class="card space icon-relative">
-                    <label class="label">Card number:</label>
-                    <input type="text" class="input" name="card_number" placeholder="Card Number">
-                    <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
-                </div>
-                <div class="card_info space">
-                    <div class="card_data icon-relative">
-                        <label class="label">Expiration Date:</label>
-                        <input type="text" class="input" name="expiry_date" placeholder="00 / 00">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
+            <form method="post">
+                <div class="form">
+                    <div class="card space icon-relative">
+                        <label class="label">Card holder:</label>
+                        <input type="text" class="input" name="card_holder" placeholder="Name">
+                        <i class="fa fa-user" aria-hidden="true"></i>
                     </div>
-                    <div class="card_data icon-relative">
-                        <label class="label">CVV:</label>
-                        <input type="text" class="input" name="cvc" placeholder="00 / 00">
-                        <i class="fa fa-lock" aria-hidden="true"></i>
+                    <div class="card space icon-relative">
+                        <label class="label">Card number:</label>
+                        <input type="text" class="input" name="card_number" placeholder="Card Number">
+                        <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+                    </div>
+                    <div class="card_info space">
+                        <div class="card_data icon-relative">
+                            <label class="label">Expiration Date:</label>
+                            <input type="text" class="input" name="expiry_date" placeholder="00 / 00">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>
+                        </div>
+                        <div class="card_data icon-relative">
+                            <label class="label">CVV:</label>
+                            <input type="text" class="input" name="cvc" placeholder="00 / 00">
+                            <i class="fa fa-lock" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="button_pay">
+                        <input type="submit" value="Pay">
                     </div>
                 </div>
-                <div class="button_pay">
-                    <input type="submit" value="Pay">
-                </div>
-            </div>
+            </form>
         </div>
     </div>
     <div id="footer">
         Copyright &copy; 2022 <a href="index.html">Filipino Meal Kits.</a> Rights Reserved. <br>
         <a href="mailto:fmk@filipinomealkits.com">fmk@filipinomealkits.com</a>
         <p> <a href="termsandconditions.html">Terms and Conditions.</a>&nbsp&nbsp&nbsp&nbsp<a href="privacypolicy.html">Privacy Policy.</a></p>
-        
     </div>	
 </body>
-
-
 </html>
+
+<?php
+    if (isset($_POST['submit'])) {
+        $currentDate = new date();
+        $orderId += 1;
+
+        $sql = "INSERT INTO Orders(custId, orderDate, orderStatus)
+                VALUES (" . $_SESSION['id'] . ", '" . $currentDate . "', 0)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        $count = $stmt->rowCount();
+
+        foreach($_SESSION['cart'] as $ITEM) {
+            $sql = "INSERT INTO OrderCart(productId, orderId)
+                    VALUES (" . $ITEM . ", " . $orderId . ")";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+        }
+
+        echo "<script>alert('Order successful!');</script>";
+        echo "<script>window.location.href='inventory.php'</script>";
+    }
