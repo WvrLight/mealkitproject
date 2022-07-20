@@ -106,7 +106,7 @@
                         </div>
                     </div>
                     <div class="button_pay">
-                        <input type="submit" value="Pay">
+                        <input type="submit" name="submit" value="Pay">
                     </div>
                 </div>
             </form>
