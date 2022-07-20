@@ -10,6 +10,7 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         $orderId = $stmt->rowCount();
+        echo "<script>console.log($orderId)</script>";
     }
 ?>
 
@@ -126,11 +127,14 @@
         $currentDate = new date();
         $orderId += 1;
 
+        echo "<script>console.log($orderId)</script>";
+        echo "<script>console.log($currentDate)</script>";
+        echo ("<script>console.log('" . $_SESSION['id'] . "')</script>");
+
         $sql = "INSERT INTO Orders(custId, orderDate, orderStatus)
                 VALUES (" . $_SESSION['id'] . ", '" . $currentDate . "', 0)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
-        $count = $stmt->rowCount();
 
         foreach($_SESSION['cart'] as $ITEM) {
             $sql = "INSERT INTO OrderCart(productId, orderId)
