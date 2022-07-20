@@ -129,7 +129,8 @@
         echo "<script>console.log($orderId)</script>";
         echo ("<script>console.log('" . $_SESSION['id'] . "')</script>");
 
-        $currentDate = new date("d/m/Y");
+        date_default_timezone_set('Asia/Manila');
+        $currentDate = date("d/m/Y H:i:s");
         $orderId += 1;
 
         $sql = "INSERT INTO Orders(custId, orderDate, orderStatus)
