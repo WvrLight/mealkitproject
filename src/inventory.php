@@ -55,10 +55,17 @@
 								echo "<div class='product-info'>";
 									echo("<input type='hidden' class='productID' name='productId' value='" . $row['id'] . "'");
 									echo("<h2 class='product-brand'>" . $row['productname'] . "</h2>");
-									echo("<p class='price'>₱" . $row['productprice'] . "</p>");
+									if ($row['productsaleprice'] == null) {
+										echo("<p class='price'>₱" . $row['productprice'] . "</p>");	
+									}
+									else {
+										echo("<p class='price'>₱" . $row['productsaleprice'] . "</p>");
+										echo("<p class='old-price'>₱" . $row['productprice'] . "</p>");
+									}
 									echo "</div>";
 									echo "<div class='view'>
-									<input type='submit' class='button' value='Add to Cart'>
+									<input type='submit' class='button' name='view' value='View'>
+									<input type='submit' class='button' name='addtocart' value='Add to Cart'>
 								</div>";
 							echo "</fieldset>
 						</form>";
@@ -83,7 +90,11 @@
 ?>
 
 <?php
-	if (isset($_POST['productId'])) {
+	if (isset($_POST['view'])) {
+		$_SESSION['productViewId'] = $_POST['productId'];
+		echo "<script>window.location.href='viewproduct.php'</script>";
+	}
+	if (isset($_POST['addtocart'])) {
 		array_push($_SESSION['cart'], $_POST['productId']);
 
 		echo ("<script>
