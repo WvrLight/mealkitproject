@@ -106,7 +106,7 @@
                         </div>
                     </div>
                     <div class="button_pay">
-                        <input type="submit" name="submit" value="Pay">
+                        <input type="submit" name="pay" value="Pay">
                     </div>
                 </div>
             </form>
@@ -121,7 +121,8 @@
 </html>
 
 <?php
-    if (isset($_POST['submit'])) {
+    if (isset($_POST['pay'])) {
+        echo "<script>console.log('test')</script>";
         $currentDate = new date();
         $orderId += 1;
 
@@ -141,3 +142,4 @@
         echo "<script>alert('Order successful!');</script>";
         echo "<script>window.location.href='inventory.php'</script>";
     }
+?>
