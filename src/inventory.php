@@ -164,7 +164,7 @@
 
 <?php
 	if (isset($_POST['view'])) {
-		$sql = "SELECT * FROM Product WHERE productId = '" . $_POST['productId'] . "'";
+		$sql = "SELECT * FROM Product WHERE productId = " . $_POST['productId'];
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute();
 
