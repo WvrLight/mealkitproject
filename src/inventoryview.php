@@ -6,23 +6,44 @@
     $stmt->execute();
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        echo "<script>document.getElementById('viewProductName').innerHTML = '" . $row['productname'] . "'</script>";
-        echo "<script>document.getElementById('viewProductDesc').innerHTML = '" . $row['productdesc'] . "'</script>";
-        echo "<script>document.getElementById('viewProductUrl').innerHTML = '" . $row['productimgurl'] . "'</script>";
-        echo "<script>document.getElementById('viewProductSaleDate').innerHTML = '" . $row['productsaleend'] . "'</script>";
-
         if ($row['productsaleprice'] == null) {
-            echo "<script>document.getElementById('viewProductOldPrice').innerHTML = ''</script>";
-            echo "<script>document.getElementById('viewProductPrice').innerHTML = '" . $row['productprice'] . "'</script>";
+            echo "
+            <div class='popupView'>
+                <a class='close' href='#'>×</a>
+                <div class='viewProduct'>
+                    <img id='viewProductUrl' src='" . $row['productimgurl'] . "' class='viewPic'/>
+                    <div class='viewDesc'>
+                        <h2 id='viewProductName'>" . $row['productname'] ."</h2>
+                        <h5 id='viewProductSaleDate'>Sale until " . $row['productsaleend'] . "</h5>
+                        <div class='prices'>
+                            <p id='viewProductPrice' class='price'>Php " . $row['productprice'] . "</p>
+                        </div>
+                        <h3> Description: </h3>
+                        <p id='viewProductDesc' class='paraTxt'>" . $row['productdesc'] ."</p>
+                    </div>
+                </div>
+            </div>
+            ";
         }
         else {
-            echo "<script>document.getElementById('viewProductOldPrice').innerHTML = '" . $row['productprice'] . "'</script>";
-            echo "<script>document.getElementById('viewProductPrice').innerHTML = '" . $row['productsaleprice'] . "'</script>";
+            echo "
+            <div class='popupView'>
+                <a class='close' href='#'>×</a>
+                <div class='viewProduct'>
+                    <img id='viewProductUrl' src='" . $row['productimgurl'] . "' class='viewPic'/>
+                    <div class='viewDesc'>
+                        <h2 id='viewProductName'>" . $row['productname'] ."</h2>
+                        <h5 id='viewProductSaleDate'>Sale until " . $row['productsaleend'] . "</h5>
+                        <div class='prices'>
+                            <p id='viewProductOldPrice'class='old-price'>Php " . $row['productprice'] . "</p>
+                            <p id='viewProductPrice' class='price'>Php " . $row['productsaleprice'] . "</p>
+                        </div>
+                        <h3> Description: </h3>
+                        <p id='viewProductDesc' class='paraTxt'>" . $row['productdesc'] ."</p>
+                    </div>
+                </div>
+            </div>
+            ";
         }
     }
-
-    echo "<script>
-        var view = document.getElementById('formView');
-        view.focus();
-    </script>";
 ?>

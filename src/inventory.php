@@ -14,13 +14,12 @@
 		<script>
 			function viewProduct(id) {
 				var xmlhttp = new XMLHttpRequest();
-				xmlhttp.onreadystatechange = function() {
-					if (this.readyState == 4 && this.status == 200) {
-						document.getElementById("txtHint").innerHTML = this.responseText;
-					}
-				};
 				xmlhttp.open("GET", "inventoryview.php?id=" + id, true);
 				xmlhttp.send();
+
+				var view = document.getElementById('formView');
+				view.innerHTML = this.responseText;
+        		view.focus();
 			}
 		</script>
     </head>
@@ -141,7 +140,7 @@
 			<div id="formView" class="overlayView">
 				<div class="popupView">
 					<a class="close" href="#">×</a>
-					  <div class="viewProduct">
+					<div class="viewProduct">
 						<img id="viewProductUrl" src="assets/img/pinakbet.jpg" class="viewPic"/>
 						<div class="viewDesc">
 							<h2 id="viewProductName">Pinakbet Meal-kit</h2>
@@ -153,7 +152,7 @@
 							<h3> Description: </h3>
 							<p id="viewProductDesc" class="paraTxt"> </p>
 						</div>
-					  </div>
+					</div>
 				</div>			 
 			</div>
 		</div>
