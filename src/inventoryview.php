@@ -29,7 +29,7 @@
         else {
             echo "
             <div class='popupView'>
-                <input type='button' class='close' name='close' value='×' onclick='close(formView)>
+                <input type='button' class='close' name='close' value='×' onclick='close(formView)'>
                 <div class='viewProduct'>
                     <img id='viewProductUrl' src='" . $row['productimgurl'] . "' class='viewPic'/>
                     <div class='viewDesc'>
