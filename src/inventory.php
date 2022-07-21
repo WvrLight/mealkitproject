@@ -14,12 +14,15 @@
 		<script>
 			function viewProduct(id) {
 				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						var view = document.getElementById('formView');
+						view.innerHTML = this.responseText;
+						view.focus();
+					}
+				};
 				xmlhttp.open("GET", "inventoryview.php?id=" + id, true);
 				xmlhttp.send();
-
-				var view = document.getElementById('formView');
-				view.innerHTML = this.responseText;
-        		view.focus();
 			}
 		</script>
     </head>
