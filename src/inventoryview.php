@@ -5,12 +5,13 @@
     $sql = "SELECT * FROM Product WHERE id = " . $id;
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
+    $element = 'formView';
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         if ($row['productsaleprice'] == null) {
             echo "
             <div class='popupView'>
-                <input type='button' class='close' name='close' value='×' onclick='close(" . "'formView'" . ")'>
+                <input type='button' class='close' name='close' value='×' onclick='close($element)'>
                 <div class='viewProduct'>
                     <img id='viewProductUrl' src='" . $row['productimgurl'] . "' class='viewPic'/>
                     <div class='viewDesc'>
@@ -29,7 +30,7 @@
         else {
             echo "
             <div class='popupView'>
-                <input type='button' class='close' name='close' value='×' onclick='close(" . "'formView'" . ")'>>
+                <input type='button' class='close' name='close' value='×' onclick='close($element)>
                 <div class='viewProduct'>
                     <img id='viewProductUrl' src='" . $row['productimgurl'] . "' class='viewPic'/>
                     <div class='viewDesc'>
