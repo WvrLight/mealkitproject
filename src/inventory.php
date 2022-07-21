@@ -19,10 +19,13 @@
 						var view = document.getElementById('formView');
 						view.innerHTML = this.responseText;
 						view.focus();
+						console.log("a");
 					}
 				};
 				xmlhttp.open("GET", "inventoryview.php?id=" + id, true);
 				xmlhttp.send();
+
+				console.log("b");
 			}
 		</script>
     </head>
@@ -182,12 +185,17 @@
 
 <?php
 	if (isset($_POST['addtocart'])) {
-		array_push($_SESSION['cart'], $_POST['productId']);
+		if (isset($_POST['id'])) {
+			array_push($_SESSION['cart'], $_POST['productId']);
 
-		echo ("<script>
-			var count = document.getElementById('cart-num');
-			count.innerText = '" . count($_SESSION['cart']) . "';
-		</script>");
+			echo ("<script>
+				var count = document.getElementById('cart-num');
+				count.innerText = '" . count($_SESSION['cart']) . "';
+			</script>");
+		}
+		else {
+			echo "<script>window.location.href='login.php'</script>";
+		}
 	};
 
 	if (isset($_POST['view'])) {
