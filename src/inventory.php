@@ -163,6 +163,8 @@
 
 <?php
 	if (isset($_POST['view'])) {
+		echo "<script>console.log('a')</script";
+		echo "<script>console.log('" . $_POST['productId'] . "')</script";
 		$sql = "SELECT * FROM Product WHERE productId = " . $_POST['productId'];
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute();
