@@ -11,34 +11,6 @@
         <title>Meal-kit Shop</title>
         <link href="assets/css/styles_responsive.css" type="text/css" rel="stylesheet">
 		<link href="assets/css/styles.css" type="text/css" rel="stylesheet">
-		<script>
-			function ViewProduct(id) {
-				alert("<?php
-					$sql = "SELECT * FROM Product WHERE productId = " . $_POST['productId'];
-					$stmt = $pdo->prepare($sql);
-					$stmt->execute();
-
-					while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-						echo "<script>document.getElementById('viewProductName').innerHTML = '" . $row['productname'] . "'</script>";
-						echo "<script>document.getElementById('viewProductDesc').innerHTML = '" . $row['productdesc'] . "'</script>";
-						echo "<script>document.getElementById('viewProductUrl').innerHTML = '" . $row['productimgurl'] . "'</script>";
-						echo "<script>document.getElementById('viewProductSaleDate').innerHTML = '" . $row['productsaleend'] . "'</script>";
-
-						if ($row['productsaleprice'] == null) {
-							echo "<script>document.getElementById('viewProductOldPrice').innerHTML = ''</script>";
-							echo "<script>document.getElementById('viewProductPrice').innerHTML = '" . $row['productprice'] . "'</script>";
-						}
-						else {
-							echo "<script>document.getElementById('viewProductOldPrice').innerHTML = '" . $row['productprice'] . "'</script>";
-							echo "<script>document.getElementById('viewProductPrice').innerHTML = '" . $row['productsaleprice'] . "'</script>";
-						}
-					}
-				?>");
-
-				var view = document.getElementById('formView');
-				view.focus();
-			}
-		</script>
     </head>
     <body>
 		<div class="nav">
@@ -95,7 +67,7 @@
 									}
 									echo "</div>";
 									echo "<div class='view'>
-									<a href='#formView' onclick='ViewProduct(" . $row['id'] . ")' class='button'>View</a>
+									<input type='button' class='button' name='view' value='View' onclick='view(" . $row['id'] . "')>
 									<input type='submit' class='button' name='addtocart' value='Add to Cart'>";
 									if (isset($_SESSION['isadmin'])) {
 										echo "<input type='submit' class='button' name='edit' value='Edit'>
@@ -182,6 +154,11 @@
     </body>
 </html>
 
+<script>
+	function ViewProduct(id) {
+		
+	}
+
 <?php
 	echo ("<script>
 			var count = document.getElementById('cart-num');
@@ -199,10 +176,10 @@
 		</script>");
 	};
 
-	if (isset($_POST['view'])) {
+	function view($id) {
 		echo "<script>console.log('a')</script>";
-		echo "<script>console.log('" . $_POST['productId'] . "')</script>";
-		$sql = "SELECT * FROM Product WHERE productId = " . $_POST['productId'];
+		echo "<script>console.log('" . $id . "')</script>";
+		$sql = "SELECT * FROM Product WHERE productId = " . $id;
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute();
 
