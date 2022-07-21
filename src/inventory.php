@@ -13,11 +13,13 @@
 		<link href="assets/css/styles.css" type="text/css" rel="stylesheet">
 		<script>
 			function viewProduct(id) {
+				console.log("c");
 				var xmlhttp = new XMLHttpRequest();
 				xmlhttp.onreadystatechange = function() {
 					if (this.readyState == 4 && this.status == 200) {
 						var view = document.getElementById('formView');
 						view.innerHTML = this.responseText;
+						view.tabIndex = '-1';
 						view.focus();
 						console.log("a");
 					}
