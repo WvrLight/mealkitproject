@@ -67,7 +67,7 @@
 									}
 									echo "</div>";
 									echo "<div class='view'>
-									<input type='button' class='button' name='view' value='View' onclick='view(" . $row['id'] . ")>
+									<input type='button' class='button' name='view' value='View' onclick='view(" . $row['id'] . ")'>
 									<input type='submit' class='button' name='addtocart' value='Add to Cart'>";
 									if (isset($_SESSION['isadmin'])) {
 										echo "<input type='submit' class='button' name='edit' value='Edit'>
