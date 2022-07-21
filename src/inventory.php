@@ -162,9 +162,18 @@
 ?>
 
 <?php
+	if (isset($_POST['addtocart'])) {
+		array_push($_SESSION['cart'], $_POST['productId']);
+
+		echo ("<script>
+			var count = document.getElementById('cart-num');
+			count.innerText = '" . count($_SESSION['cart']) . "';
+		</script>");
+	};
+
 	if (isset($_POST['view'])) {
-		echo "<script>console.log('a')</script";
-		echo "<script>console.log('" . $_POST['productId'] . "')</script";
+		echo "<script>console.log('a')</script>";
+		echo "<script>console.log('" . $_POST['productId'] . "')</script>";
 		$sql = "SELECT * FROM Product WHERE productId = " . $_POST['productId'];
 		$stmt = $pdo->prepare($sql);
 		$stmt->execute();
@@ -187,22 +196,7 @@
 
 		echo "<script>
 			var view = document.getElementById('formView');
-			view.style.visibility = 'visible';
+			view.focus();
 		</script>";
 	}
-?>
-
-<?php
-	if (isset($_POST['view'])) {
-		$_SESSION['productViewId'] = $_POST['productId'];
-		echo "<script>window.location.href='viewproduct.php'</script>";
-	}
-	if (isset($_POST['addtocart'])) {
-		array_push($_SESSION['cart'], $_POST['productId']);
-
-		echo ("<script>
-			var count = document.getElementById('cart-num');
-			count.innerText = '" . count($_SESSION['cart']) . "';
-		</script>");
-	};
 ?>
