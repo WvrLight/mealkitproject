@@ -27,7 +27,7 @@
 			}
 
 			function close(elementId) {
-				console.log("a");
+				console.log('aaaa');
 				console.log(elementId);
 				var element = document.getElementById(elementId);
 				element.style.visibility = 'hidden';
