@@ -14,8 +14,6 @@
 		<script>
 			function ViewProduct(id) {
 				alert("<?php
-					echo "<script>console.log('a')</script>";
-					echo "<script>console.log('" . $_POST['productId'] . "')</script>";
 					$sql = "SELECT * FROM Product WHERE productId = " . $_POST['productId'];
 					$stmt = $pdo->prepare($sql);
 					$stmt->execute();
@@ -35,7 +33,7 @@
 							echo "<script>document.getElementById('viewProductPrice').innerHTML = '" . $row['productsaleprice'] . "'</script>";
 						}
 					}
-				?>")
+				?>");
 
 				var view = document.getElementById('formView');
 				view.focus();
