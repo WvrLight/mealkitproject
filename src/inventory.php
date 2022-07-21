@@ -20,7 +20,6 @@
 						view.innerHTML = this.responseText;
 						view.style.visibility = 'visible';
 						view.style.opacity = 1;
-						console.log("a");
 					}
 				};
 				xmlhttp.open("GET", "inventoryview.php?id=" + id, true);
@@ -28,9 +27,10 @@
 			}
 
 			function close(elementId) {
-				var view = document.getElementById(elementId);
-				view.style.visibility = 'hidden';
-				view.style.opacity = 0;
+				console.log("a");
+				var element = document.getElementById(elementId);
+				element.style.visibility = 'hidden';
+				element.style.opacity = 0;
 			}
 		</script>
     </head>
