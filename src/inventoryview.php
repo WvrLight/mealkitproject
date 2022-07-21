@@ -1,7 +1,7 @@
 <?php
-    $id = $_REQUEST['id'];
+    $id = $_GET['id'];
 
-    $sql = "SELECT * FROM Product WHERE productId = " . $id;
+    $sql = "SELECT * FROM Product WHERE id = " . $id;
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
 
