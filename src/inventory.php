@@ -26,7 +26,7 @@
 				xmlhttp.send();
 			}
 
-			function close(elementId) {
+			function closeView(elementId) {
 				console.log('aaaa');
 				console.log(elementId);
 				var element = document.getElementById(elementId);
