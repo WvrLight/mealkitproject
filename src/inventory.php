@@ -20,12 +20,17 @@
 						view.innerHTML = this.responseText;
 						view.style.visibility = 'visible';
 						view.style.opacity = 1;
-						view.focus();
 						console.log("a");
 					}
 				};
 				xmlhttp.open("GET", "inventoryview.php?id=" + id, true);
 				xmlhttp.send();
+			}
+
+			function close(elementId) {
+				var view = document.getElementById(elementId);
+				view.style.visibility = 'hidden';
+				view.style.opacity = 0;
 			}
 		</script>
     </head>
