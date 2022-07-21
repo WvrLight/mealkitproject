@@ -28,6 +28,7 @@
 
 			function close(elementId) {
 				console.log("a");
+				console.log(elementId);
 				var element = document.getElementById(elementId);
 				element.style.visibility = 'hidden';
 				element.style.opacity = 0;
@@ -150,7 +151,7 @@
 			</div>
 			<div id="formView" class="overlayView">
 				<div class="popupView">
-					<a class="close" href="#">×</a>
+					<input type='button' class='button' name='close' value='×' onclick="close('formView')">
 					<div class="viewProduct">
 						<img id="viewProductUrl" src="assets/img/pinakbet.jpg" class="viewPic"/>
 						<div class="viewDesc">
