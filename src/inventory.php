@@ -151,7 +151,7 @@
 			</div>
 			<div id="formView" class="overlayView">
 				<div class="popupView">
-					<input type='button' class='button' name='close' value='×' onclick="close('formView')">
+					<input type='button' class='close' name='close' value='×' onclick="close('formView')">
 					<div class="viewProduct">
 						<img id="viewProductUrl" src="assets/img/pinakbet.jpg" class="viewPic"/>
 						<div class="viewDesc">
