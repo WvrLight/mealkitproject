@@ -211,7 +211,7 @@ fieldset .product-thumb {
 
 .signuplink {
 	color: white;
-	>font-size: .8em;
+	font-size: .8em;
 }
 
 .loginbtn {
@@ -230,4 +230,271 @@ fieldset .product-thumb {
 	font-size: 1.1em;
 	height: 30px;
 	width: 30%;
+}
+
+/****** Added and modified for editing JULY 20 **********/
+.eBtn {
+	margin-top: 15px;
+	margin-left: 220px;
+}
+
+.remove {
+	margin-left: 230px;
+}
+
+.xButton {
+	position: relative;
+	width: 30px;
+	padding: 5px;
+	background-color: red;
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 1.2em;
+}
+
+/*add*/
+.button1 {
+	font-size: 2em;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: none;
+	float: right;
+	margin-right: 20px;
+	text-decoration: none;
+	background-color: burlywood;
+	color: brown;
+	cursor: pointer;
+	transition: all 0.3s ease-out;
+}
+
+.button1:hover {
+	background: brown;
+	color: white;
+}
+
+.overlayEdit,
+.overlayAdd,
+.overlayView {
+	margin-top: 20px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.overlayEdit:target,
+.overlayAdd:target,
+.overlayView:target {
+	visibility: visible;
+	opacity: 1;
+}
+
+.popupEdit,
+.popupAdd {
+	margin: 70px auto;
+	padding: 20px;
+	background: whitesmoke;
+	border-radius: 5px;
+	width: 50%;
+	position: relative;
+	transition: all 5s ease-in-out;
+}
+
+/**Description page**/
+.popupView {
+	margin: 70px auto;
+	padding: 20px;
+	background: whitesmoke;
+	border-radius: 5px;
+	width: 70%;
+	position: relative;
+	transition: all 5s ease-in-out;
+}
+
+.popupEdit h2,
+.popupAdd h2,
+.popupView h2 {
+	margin-top: 0;
+	color: brown;
+	font-family: Tahoma, Arial, sans-serif;
+}
+
+.popupEdit .close,
+.popupAdd .close,
+.popupView .close {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	transition: all 200ms;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}
+
+.popupEdit .close:hover,
+.popupAdd .close:hover,
+.popupView .close:hover {
+	color: orange;
+}
+
+
+.popupEdit .content,
+.popupAdd .content,
+.popupView .content {
+	font-size: 1em;
+	font-weight: bold;
+	margin-bottom: -10px;
+}
+
+/**Content Area for Add/Edit Overlay**/
+.prodContent {
+	width: 63%;
+	height: 32px;
+	margin-left: 30px;
+	margin-bottom: 5px;
+	border-color: brown;
+	background-color: white;
+}
+
+/**Text Area for Add/Edit Description**/
+.textareaDesc {
+	width: 63%;
+	margin-left: 32px;
+	margin-bottom: 5px;
+	border-color: brown;
+	background-color: white;
+	vertical-align: middle;
+}
+
+/**Labels for Add/Edit Overlay**/
+.content label {
+	display: inline-block;
+	width: 170px;
+	text-align: right;
+}
+
+​
+
+/********************JULY 20 for product view overlay************************/
+.price {
+	position: relative;
+	font-weight: 900;
+	font-size: 20px;
+	color: red;
+}
+
+.old-price {
+	opacity: 0.5;
+	text-decoration: line-through;
+}
+
+.view {
+	font-size: 1.2em;
+}
+
+.viewPic {
+	display: block;
+	height: 400px;
+	width: 300px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.viewDesc {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.viewProduct {
+	display: flex;
+}
+
+.paraTxt {
+	margin-right: 10px;
+}
+
+/*******************July 17 LOGIN FORM HTML ************/
+
+.login-form {
+	width: 500px;
+	margin: auto;
+	background-color: #333332;
+	color: white;
+	border: none;
+
+}
+
+.login-form .icon {
+	padding: 10px;
+	background: burlywood;
+	color: black;
+	min-width: 50px;
+	height: 20px;
+	text-align: center;
+}
+
+.username-login {
+	height: 35px;
+	width: 84%;
+	margin-left: -4px;
+}
+
+.pass-login {
+	height: 35px;
+	width: 84%;
+	margin-left: -7px;
+}
+
+.signuplink {
+	color: white;
+}
+
+.loginbtn {
+	border: none;
+	background-color: burlywood;
+	color: black;
+	font-size: 1.1em;
+	height: 30px;
+	width: 30%;
+}
+
+.clearbtn {
+	border: none;
+	background-color: #AC8655;
+	color: black;
+	font-size: 1.1em;
+	height: 30px;
+	width: 30%;
+}
+
+/****** for Profile JULY 20*******/
+.profile {
+	text-align: center;
+	background-color: white;
+	padding: 30px;
+	width: 60%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.profile p {
+	height: 30px;
+}
+
+.profile h2 {
+	border-bottom: 5px solid gray;
+}
+
+.profile .profile-pic {
+	border: 2px solid black;
+	height: 200px;
+	width: 200px;
 }

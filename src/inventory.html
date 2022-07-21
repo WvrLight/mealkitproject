@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content='text/html;charset=utf-8'/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Meal-kit Shop</title>
+        <link href="assets/css/styles_responsive.css" type="text/css" rel="stylesheet">
+		<link href="assets/css/styles.css" type="text/css" rel="stylesheet">
+    </head>
+    <body>
+		<div class="nav">
+			<img class="logo" src="assets/css/logo.png" id="CoffeeShopLogo" alt="Meal Kit Logo">
+			<ul class="home">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="about.html">About Us</a></li>
+				<li><a href="inventory.html">Subscriptions</a></li>
+				<li><a href="contact.html">Contact Us</a></li>
+			</ul>
+			<ul class="login">
+				<li><a href="paymentpage.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbspCart</a></li>
+				<li><a href="login.html">Log In </a></li>
+				<li><a href="signup.html">Sign Up </a></li>
+			</ul>
+		</div>
+	
+		<div class="wholecontainer">
+			<br><br><br><br><br><br>
+			 
+				<a href="#formAdd" class="button1">+</a>
+				<h1>Subscription Package 1</h1>
+			<div class="product-container">
+				
+				<form method="post" onsubmit="fnCheck(event)">
+				<fieldset class="product-card">
+					<div class="remove"> 
+						<a href="" class="xButton">X</a>
+					</div>
+					<div class="product-image">
+						<center><img src="assets/img/pinakbet.jpg" class="product-thumb" alt=""></center>
+					</div>
+					<div class="product-info">
+						<input type="hidden" class="productID" value="Product ID here">
+						<h2 class="product-brand">Pinakbet Meal-kit</h2>
+						<p class="price">Php 190.00 </p>
+					</div>
+					<div class="view">
+						<a href="#formView" class="button">View</a>
+						<a href="" class="button">Add to Cart</a>
+					</div>
+					<div>
+						<a href="#formEdit" class="eBtn">Edit</a>
+					</div>
+				</fieldset>
+				
+			</div>
+			<div id="formEdit" class="overlayEdit">
+				<div class="popupEdit">
+					  <h2>Editing MEAL-KIT</h2>
+						<a class="close" href="#">×</a>
+					  <div class="content">
+						<label>Product Name:</label>
+							<input type="text" name="productName" class="prodContent"/><br>
+						<label>Product Description:</label>
+							<textarea name="productDesc" class="textareaDesc" rows="4"> </textarea><br>
+						<label>Product Image URL:</label>
+							<input type="text" name="productImg" class="prodContent"/><br>
+						<label>Product Price:</label>
+							<input type="text" name="productPrice" class="prodContent"/><br>
+						<label>Product Sale Price:</label>
+							<input type="text" name="productSale" class="prodContent"/><br>
+						<label>Product Sale Date:</label>
+							<input type="date" name="saleDate" class="prodContent"><br><br><br>
+						<div align="right" style="margin-right: 30px">
+							<input type="submit" name="submit" value="Update" class="loginbtn">
+						</div>
+					  </div>
+				</div>
+			</div>
+			<div id="formAdd" class="overlayAdd">
+				<div class="popupAdd">
+					  <h2>Add new MEAL-KIT</h2>
+						<a class="close" href="#">×</a>
+					  <div class="content">
+						<label>Product Name:</label>
+							<input type="text" name="productName" placeholder="--Enter New Product Name--" class="prodContent"/><br>
+						<label>Product Description:</label>
+							<textarea name="productDesc" class="textareaDesc" rows="4"> </textarea><br>
+						<label>Product Image URL:</label>
+							<input type="text" name="productImg" placeholder="--Enter Url--" class="prodContent"/><br>
+						<label>Product Price:</label>
+							<input type="text" name="productPrice" placeholder="--Enter Original Price--" class="prodContent"/><br>
+						<label>Product Sale Price:</label>
+							<input type="text" name="productSale" placeholder="--Enter Discounted Price--" class="prodContent"/><br>
+						<label>Product Sale Date:</label>
+							<input type="date" name="saleDate" class="prodContent"><br><br><br>
+						<div align="right" style="margin-right: 30px">
+							<input type="submit" name="submit" value="Add" class="loginbtn">
+							<input type='reset' class="clearbtn" name='resetBtn' value='Clear'/>
+						</div>
+					  </div>
+				</div>
+			</div>
+			<div id="formView" class="overlayView">
+				<div class="popupView">
+					<a class="close" href="#">×</a>
+					  <div class="viewProduct">
+						<img src="assets/img/pinakbet.jpg" class="viewPic"/>
+						<div class="viewDesc">
+							<h2>Pinakbet Meal-kit</h2>
+							<h5>Sale until 07/25/22</h5>
+							<div class="prices">
+								<p class="old-price">Php 210.00 </p>
+								<p class="price">Php 190.00 </p>
+							</div>
+							<h3> Description: </h3>
+							<p class="paraTxt"> Pinakbet or pakbet is a popular vegetable dish in the 
+							Philippines which originated in Ilocos Region, the word pinakbet is derived from the 
+							Ilocano word pinakebbet, meaning “shrunk” or “shrivelled”. It is cooked with a different 
+							variety of vegetables such as bitter melon, string beans, eggplants, okra, tomatoes, lima beans, 
+							etc. (the list can go on) and flavoured with bagoong. It is a good dish on its own but it is 
+							better when paired with meat usually fried fish or grilled pork.  </p>
+						</div>
+					  </div>
+				</div>			 
+			</div>
+		</div>
+		
+		<div id="footer">
+            Copyright &copy; 2022 <a href="index.html">Filipino Meal Kits.</a> Rights Reserved. <br>
+            <a href="mailto:fmk@filipinomealkits.com">fmk@filipinomealkits.com</a>
+            <p> <a href="termsandconditions.html">Terms and Conditions.</a>&nbsp&nbsp&nbsp&nbsp<a href="privacypolicy.html">Privacy Policy.</a></p>
+            
+        </div>	
+		
+    </body>
+</html>

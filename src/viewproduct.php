@@ -7,7 +7,6 @@
         <link href="assets/css/styles_responsive.css" type="text/css" rel="stylesheet">
     </head>
     <body>
-        
 		<fieldset style="height:500px; width:900px; margin:auto; margin-top:30px; background-color: white; box-shadow:0 0 10px #999; border:none; font-family: arial;">
 		<div class="viewProduct">
 		<div>

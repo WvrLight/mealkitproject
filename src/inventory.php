@@ -18,14 +18,13 @@
             <ul class="home">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="inventory.php">Meal Kits</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
             <ul class="login">
-				<li><a href="payment.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbspCart</a></li>
             	<?php
                     if (isset($_SESSION['id'])) {
-                        echo "<li><a href='profile.php'>View Profile</a></li>
+                        echo "<li><a href='payment.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i>&nbspCart</a></li>
+                        <li><a href='profile.php'>View Profile</a></li>
                         <li><a href='logout.php'>Logout</a></li>";
                     }
                     else {
@@ -38,6 +37,11 @@
 
 		<div class="wholecontainer">
 			<div class="product-header">
+				<?php
+					if (isset($_SESSION['isadmin'])) {
+						echo "<a href='#formAdd' class='button1'>+</a>";
+					}
+				?>
 				<a href="" class="product-cart"><img src="assets/img/cart.png"></a>
 				<p id="cart-num" class="cart-count">0</p>
 				<h1>Products</h1>
@@ -65,12 +69,81 @@
 									echo "</div>";
 									echo "<div class='view'>
 									<input type='submit' class='button' name='view' value='View'>
-									<input type='submit' class='button' name='addtocart' value='Add to Cart'>
-								</div>";
+									<input type='submit' class='button' name='addtocart' value='Add to Cart'>";
+									if (isset($_SESSION['isadmin'])) {
+										echo "<input type='submit' class='button' name='edit' value='Edit'>
+										<input type='submit' class='button' name='remove' value='Remove'>";
+									}
+								echo "</div>";
 							echo "</fieldset>
 						</form>";
 					}
 				?>
+			</div>
+			<div id="formEdit" class="overlayEdit">
+				<div class="popupEdit">
+					  <h2>Editing MEAL-KIT</h2>
+						<a class="close" href="#">×</a>
+					  <div class="content">
+						<label>Product Name:</label>
+							<input type="text" name="productName" class="prodContent"/><br>
+						<label>Product Description:</label>
+							<textarea name="productDesc" class="textareaDesc" rows="4"> </textarea><br>
+						<label>Product Image URL:</label>
+							<input type="text" name="productImg" class="prodContent"/><br>
+						<label>Product Price:</label>
+							<input type="text" name="productPrice" class="prodContent"/><br>
+						<label>Product Sale Price:</label>
+							<input type="text" name="productSale" class="prodContent"/><br>
+						<label>Product Sale Date:</label>
+							<input type="date" name="saleDate" class="prodContent"><br><br><br>
+						<div align="right" style="margin-right: 30px">
+							<input type="submit" name="submit" value="Update" class="loginbtn">
+						</div>
+					  </div>
+				</div>
+			</div>
+			<div id="formAdd" class="overlayAdd">
+				<div class="popupAdd">
+					  <h2>Add new MEAL-KIT</h2>
+						<a class="close" href="#">×</a>
+					  <div class="content">
+						<label>Product Name:</label>
+							<input type="text" name="productName" placeholder="--Enter New Product Name--" class="prodContent"/><br>
+						<label>Product Description:</label>
+							<textarea name="productDesc" class="textareaDesc" rows="4"> </textarea><br>
+						<label>Product Image URL:</label>
+							<input type="text" name="productImg" placeholder="--Enter Url--" class="prodContent"/><br>
+						<label>Product Price:</label>
+							<input type="text" name="productPrice" placeholder="--Enter Original Price--" class="prodContent"/><br>
+						<label>Product Sale Price:</label>
+							<input type="text" name="productSale" placeholder="--Enter Discounted Price--" class="prodContent"/><br>
+						<label>Product Sale Date:</label>
+							<input type="date" name="saleDate" class="prodContent"><br><br><br>
+						<div align="right" style="margin-right: 30px">
+							<input type="submit" name="submit" value="Add" class="loginbtn">
+							<input type='reset' class="clearbtn" name='resetBtn' value='Clear'/>
+						</div>
+					  </div>
+				</div>
+			</div>
+			<div id="formView" class="overlayView">
+				<div class="popupView">
+					<a class="close" href="#">×</a>
+					  <div class="viewProduct">
+						<img id="viewProductUrl" src="assets/img/pinakbet.jpg" class="viewPic"/>
+						<div class="viewDesc">
+							<h2 id="viewProductName">Pinakbet Meal-kit</h2>
+							<h5 id="viewProductSaleDate">Sale until 07/25/22</h5>
+							<div class="prices">
+								<p id="viewProductOldPrice"class="old-price">Php 210.00 </p>
+								<p id="viewProductPrice" class="price">Php 190.00 </p>
+							</div>
+							<h3> Description: </h3>
+							<p id="viewProductDesc" class="paraTxt"> </p>
+						</div>
+					  </div>
+				</div>			 
 			</div>
 		</div>
 		
@@ -87,6 +160,30 @@
 			var count = document.getElementById('cart-num');
 			count.innerText = '" . count($_SESSION['cart']) . "';
 		</script>");
+?>
+
+<?php
+	if (isset($_POST['view'])) {
+		$sql = "SELECT * FROM Product WHERE productId = '" . $_POST['productId'] . "'";
+		$stmt = $pdo->prepare($sql);
+		$stmt->execute();
+
+		while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+			echo "<script>document.getElementById('viewProductName').innerHTML = '" . $row['productname'] . "'</script>";
+			echo "<script>document.getElementById('viewProductDesc').innerHTML = '" . $row['productdesc'] . "'</script>";
+			echo "<script>document.getElementById('viewProductUrl').innerHTML = '" . $row['productimgurl'] . "'</script>";
+			echo "<script>document.getElementById('viewProductSaleDate').innerHTML = '" . $row['productsaleend'] . "'</script>";
+
+			if ($row['productsaleprice'] == null) {
+				echo "<script>document.getElementById('viewProductOldPrice').innerHTML = ''</script>";
+				echo "<script>document.getElementById('viewProductPrice').innerHTML = '" . $row['productprice'] . "'</script>";
+			}
+			else {
+				echo "<script>document.getElementById('viewProductOldPrice').innerHTML = '" . $row['productprice'] . "'</script>";
+				echo "<script>document.getElementById('viewProductPrice').innerHTML = '" . $row['productsaleprice'] . "'</script>";
+			}
+		}
+	}
 ?>
 
 <?php

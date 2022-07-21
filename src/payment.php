@@ -30,7 +30,6 @@
         <ul class="home">
             <li><a href="index.php">Home</a></li>
             <li><a href="inventory.php">Meal Kits</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
             <li><a href="about.html">About Us</a></li>
         </ul>
         <ul class="login">

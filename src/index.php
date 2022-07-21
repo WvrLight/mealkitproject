@@ -16,14 +16,13 @@
             <ul class="home">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="inventory.php">Meal Kits</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
                 <li><a href="about.html">About Us</a></li>
             </ul>
             <ul class="login">
-                <li><a href="payment.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbspCart</a></li>
                 <?php
                     if (isset($_SESSION['id'])) {
-                        echo "<li><a href='profile.php'>View Profile</a></li>
+                        echo "<li><a href='payment.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i>&nbspCart</a></li>
+                        <li><a href='profile.php'>View Profile</a></li>
                         <li><a href='logout.php'>Logout</a></li>";
                     }
                     else {
