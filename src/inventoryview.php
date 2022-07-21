@@ -1,7 +1,7 @@
 <?php
-    echo "<script>console.log('a')</script>";
-    echo "<script>console.log('" . $_POST['productId'] . "')</script>";
-    $sql = "SELECT * FROM Product WHERE productId = " . $_POST['productId'];
+    $id = $_REQUEST['id'];
+
+    $sql = "SELECT * FROM Product WHERE productId = " . $id;
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
 

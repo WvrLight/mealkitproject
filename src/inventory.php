@@ -11,6 +11,18 @@
         <title>Meal-kit Shop</title>
         <link href="assets/css/styles_responsive.css" type="text/css" rel="stylesheet">
 		<link href="assets/css/styles.css" type="text/css" rel="stylesheet">
+		<script>
+			function viewProduct(id) {
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						document.getElementById("txtHint").innerHTML = this.responseText;
+					}
+				};
+				xmlhttp.open("GET", "inventoryview.php?id=" + id, true);
+				xmlhttp.send();
+			}
+		</script>
     </head>
     <body>
 		<div class="nav">
@@ -67,7 +79,7 @@
 									}
 									echo "</div>";
 									echo "<div class='view'>
-									<input type='button' class='button' name='view' value='View'>
+									<input type='button' class='button' name='view' value='View' onclick='viewProduct(" . $row['id'] . ")'>
 									<input type='submit' class='button' name='addtocart' value='Add to Cart'>";
 									if (isset($_SESSION['isadmin'])) {
 										echo "<input type='submit' class='button' name='edit' value='Edit'>
