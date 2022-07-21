@@ -67,11 +67,11 @@
 									}
 									echo "</div>";
 									echo "<div class='view'>
-									<input type='submit' class='button' name='view' value='View'>
+									<input type='submit' onclick=\"location.href='#formView'\" class='button' name='view' value='View'>
 									<input type='submit' class='button' name='addtocart' value='Add to Cart'>";
 									if (isset($_SESSION['isadmin'])) {
-										echo "<input type='submit' onclick='location.href='#formEdit'' class='button' name='edit' value='Edit'>
-										<input type='submit' onclick='location.href='#formView'' class='button' name='remove' value='Remove'>";
+										echo "<input type='submit' onclick=\"location.href='#formEdit'\" class='button' name='edit' value='Edit'>
+										<input type='submit' class='button' name='remove' value='Remove'>";
 									}
 								echo "</div>";
 							echo "</fieldset>
