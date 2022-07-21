@@ -11,6 +11,36 @@
         <title>Meal-kit Shop</title>
         <link href="assets/css/styles_responsive.css" type="text/css" rel="stylesheet">
 		<link href="assets/css/styles.css" type="text/css" rel="stylesheet">
+		<script>
+			function ViewProduct(id) {
+				alert("<?php
+					echo "<script>console.log('a')</script>";
+					echo "<script>console.log('" . $_POST['productId'] . "')</script>";
+					$sql = "SELECT * FROM Product WHERE productId = " . $_POST['productId'];
+					$stmt = $pdo->prepare($sql);
+					$stmt->execute();
+
+					while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+						echo "<script>document.getElementById('viewProductName').innerHTML = '" . $row['productname'] . "'</script>";
+						echo "<script>document.getElementById('viewProductDesc').innerHTML = '" . $row['productdesc'] . "'</script>";
+						echo "<script>document.getElementById('viewProductUrl').innerHTML = '" . $row['productimgurl'] . "'</script>";
+						echo "<script>document.getElementById('viewProductSaleDate').innerHTML = '" . $row['productsaleend'] . "'</script>";
+
+						if ($row['productsaleprice'] == null) {
+							echo "<script>document.getElementById('viewProductOldPrice').innerHTML = ''</script>";
+							echo "<script>document.getElementById('viewProductPrice').innerHTML = '" . $row['productprice'] . "'</script>";
+						}
+						else {
+							echo "<script>document.getElementById('viewProductOldPrice').innerHTML = '" . $row['productprice'] . "'</script>";
+							echo "<script>document.getElementById('viewProductPrice').innerHTML = '" . $row['productsaleprice'] . "'</script>";
+						}
+					}
+				?>")
+
+				var view = document.getElementById('formView');
+				view.focus();
+			}
+		</script>
     </head>
     <body>
 		<div class="nav">
@@ -153,37 +183,6 @@
         </div>	
     </body>
 </html>
-
-<script>
-	function ViewProduct(id) {
-		alert("<?php
-			echo "<script>console.log('a')</script>";
-			echo "<script>console.log('" . $_POST['productId'] . "')</script>";
-			$sql = "SELECT * FROM Product WHERE productId = " . $_POST['productId'];
-			$stmt = $pdo->prepare($sql);
-			$stmt->execute();
-
-			while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-				echo "<script>document.getElementById('viewProductName').innerHTML = '" . $row['productname'] . "'</script>";
-				echo "<script>document.getElementById('viewProductDesc').innerHTML = '" . $row['productdesc'] . "'</script>";
-				echo "<script>document.getElementById('viewProductUrl').innerHTML = '" . $row['productimgurl'] . "'</script>";
-				echo "<script>document.getElementById('viewProductSaleDate').innerHTML = '" . $row['productsaleend'] . "'</script>";
-
-				if ($row['productsaleprice'] == null) {
-					echo "<script>document.getElementById('viewProductOldPrice').innerHTML = ''</script>";
-					echo "<script>document.getElementById('viewProductPrice').innerHTML = '" . $row['productprice'] . "'</script>";
-				}
-				else {
-					echo "<script>document.getElementById('viewProductOldPrice').innerHTML = '" . $row['productprice'] . "'</script>";
-					echo "<script>document.getElementById('viewProductPrice').innerHTML = '" . $row['productsaleprice'] . "'</script>";
-				}
-			}
-		?>")
-
-		var view = document.getElementById('formView');
-		view.focus();
-	}
-</script>
 
 <?php
 	echo ("<script>
