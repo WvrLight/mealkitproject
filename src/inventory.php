@@ -224,6 +224,7 @@
 			$salePrice = "NULL";
 		}
 
+
 		if (isset($_POST['saleDate'])) {
 			$saleEndDate = "'" . $_POST['saleDate'] . "'";
 		}
@@ -231,6 +232,7 @@
 			$saleEndDate = "NULL";
 		}
 
+		echo "<script>console.log(" . isset($_POST['saleDate']) . ")</script>";
 		echo "<script>console.log(" . $saleEndDate . ")</script>";
 
 		echo "<script>console.log('a')</script>";
