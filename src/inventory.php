@@ -217,6 +217,7 @@
 	};
 
 	if (isset($_POST['submitEdit'])) {
+		echo "<script>console.log(" . $_POST['saleDate'] . ")</script>";
 		if (isset($_POST['productSale'])) {
 			$salePrice = $_POST['productSale'];
 		}
