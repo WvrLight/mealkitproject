@@ -224,8 +224,9 @@
 			$salePrice = "NULL";
 		}
 
-		$pattern = "^[0-9]{4}-[0-1][0-9]-[0-3][0-9]$";
+		$pattern = "/^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/";
 		$date = $_POST['saleDate'];
+		echo "<script>console.log(" . $_POST['date'] . ")</script>";
 
 		if (preg_match($pattern, $date)) {
 			$saleEndDate = "'" . $date . "'";
