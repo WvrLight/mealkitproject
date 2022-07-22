@@ -217,6 +217,20 @@
 	};
 
 	if (isset($_POST['submitEdit'])) {
+		if (isset($_POST['productSale'])) {
+			$salePrice = $_POST['productSale'];
+		}
+		else {
+			$salePrice = null;
+		}
+
+		if (isset($_POST['saleDate'])) {
+			$saleEndDate = $_POST['saleDate'];
+		}
+		else {
+			$saleEndDate = null;
+		}
+
 		echo "<script>console.log('a')</script>";
 		echo "<script>console.log(" . $_POST['productId'] . ")</script>";
 		$sql = "UPDATE Product
@@ -224,8 +238,8 @@
 					productDesc = '" . $_POST['productDesc'] . "',
 					productImgUrl = '" . $_POST['productImg'] . "',
 					productPrice = " . $_POST['productPrice'] . ",
-					productSalePrice = " . $_POST['productSale'] . ",
-					productSaleEnd = '" . $_POST['saleDate'] . "'
+					productSalePrice = " . $salePrice . ",
+					productSaleEnd = '" . $saleEndDate . "'
 				WHERE id = " . $_POST['productId'];
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
@@ -235,9 +249,23 @@
 	}
 
 	if (isset($_POST['submitAdd'])) {
+		if (isset($_POST['productSale'])) {
+			$salePrice = $_POST['productSale'];
+		}
+		else {
+			$salePrice = null;
+		}
+
+		if (isset($_POST['saleDate'])) {
+			$saleEndDate = $_POST['saleDate'];
+		}
+		else {
+			$saleEndDate = null;
+		}
+
 		echo "<script>console.log('a')</script>";
 		$sql = "INSERT INTO Product(productName, productDesc, productImgUrl, productPrice, productSalePrice, productSaleEnd)
-				VALUES('" . $_POST['productName'] . "', '" . $_POST['productDesc'] . "', '" . $_POST['productImg'] . "', " . $_POST['productPrice'] . ", " . $_POST['productSale'] . ", '" .  $_POST['saleDate'] . "')";
+				VALUES('" . $_POST['productName'] . "', '" . $_POST['productDesc'] . "', '" . $_POST['productImg'] . "', " . $_POST['productPrice'] . ", " . $salePrice . ", '" .  $saleEndDate . "')";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
