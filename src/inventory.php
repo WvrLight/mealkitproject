@@ -26,8 +26,21 @@
 				xmlhttp.send();
 			}
 
+			function editProduct(id) {
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						var view = document.getElementById('formEdit');
+						view.innerHTML = this.responseText;
+						view.style.visibility = 'visible';
+						view.style.opacity = 1;
+					}
+				};
+				xmlhttp.open("GET", "inventoryedit.php?id=" + id, true);
+				xmlhttp.send();
+			}
+
 			function closeView(elementId) {
-				console.log('aaaa');
 				console.log(elementId);
 				var element = document.getElementById(elementId);
 				element.style.visibility = 'hidden';
@@ -93,7 +106,7 @@
 									<input type='button' class='button' name='view' value='View' onclick='viewProduct(" . $row['id'] . ")'>
 									<input type='submit' class='button' name='addtocart' value='Add to Cart'>";
 									if (isset($_SESSION['isadmin'])) {
-										echo "<input type='submit' class='button' name='edit' value='Edit'>
+										echo "<input type='submit' class='button' name='edit' value='Edit' onclick='editProduct(" . $row['id'] . ")'>
 										<input type='submit' class='button' name='remove' value='Remove'>";
 									}
 								echo "</div>";
@@ -105,7 +118,7 @@
 			<div id="formEdit" class="overlayEdit">
 				<div class="popupEdit">
 					  <h2>Editing MEAL-KIT</h2>
-						<a class="close" href="#">×</a>
+						<input type='button' class='close' name='close' value='×' onclick="close('formEdit')">>
 					  <div class="content">
 						<label>Product Name:</label>
 							<input type="text" name="productName" class="prodContent"/><br>
@@ -191,7 +204,7 @@
 
 <?php
 	if (isset($_POST['addtocart'])) {
-		if (isset($_POST['id'])) {
+		if (isset($_SESSION['id'])) {
 			array_push($_SESSION['cart'], $_POST['productId']);
 
 			echo ("<script>

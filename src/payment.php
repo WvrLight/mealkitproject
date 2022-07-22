@@ -5,6 +5,10 @@
     if (!isset($_SESSION['id'])) {
         echo "<script>window.location.href='login.php'</script>";
     }
+    else if (count($_SESSION['cart']) == 0) {
+        echo "<script>alert('Add items to cart first!');</script>";
+        echo "<script>window.location.href='inventory.php'</script>";
+    }
     else {
         $sql = 'SELECT * FROM Orders';
         $stmt = $pdo->prepare($sql);
