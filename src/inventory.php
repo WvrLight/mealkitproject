@@ -134,35 +134,37 @@
 						<label>Product Sale Date:</label>
 							<input type="date" name="saleDate" class="prodContent"><br><br><br>
 						<div align="right" style="margin-right: 30px">
-							<input type="submit" name="submit" value="Update" class="loginbtn">
+							<input type="submit" name="submitEdit" value="Update" class="loginbtn">
 						</div>
 					  </div>
 				</div>
 			</form>
 			</div>
 			<div id="formAdd" class="overlayAdd">
+				<form method='post'>
 				<div class="popupAdd">
 					  <h2>Add new MEAL-KIT</h2>
 						<a class="close" href="#">×</a>
 					  <div class="content">
 						<label>Product Name:</label>
-							<input type="text" name="productName" placeholder="--Enter New Product Name--" class="prodContent"/><br>
+							<input type="text" name="productName" placeholder="--Enter New Product Name--" class="prodContent" required/><br>
 						<label>Product Description:</label>
-							<textarea name="productDesc" class="textareaDesc" rows="4"> </textarea><br>
+							<textarea name="productDesc" class="textareaDesc" rows="4" required> </textarea><br>
 						<label>Product Image URL:</label>
-							<input type="text" name="productImg" placeholder="--Enter Url--" class="prodContent"/><br>
+							<input type="text" name="productImg" placeholder="--Enter Url--" class="prodContent" required/><br>
 						<label>Product Price:</label>
-							<input type="text" name="productPrice" placeholder="--Enter Original Price--" class="prodContent"/><br>
+							<input type="text" name="productPrice" placeholder="--Enter Original Price--" class="prodContent" required/><br>
 						<label>Product Sale Price:</label>
 							<input type="text" name="productSale" placeholder="--Enter Discounted Price--" class="prodContent"/><br>
 						<label>Product Sale Date:</label>
 							<input type="date" name="saleDate" class="prodContent"><br><br><br>
 						<div align="right" style="margin-right: 30px">
-							<input type="submit" name="submit" value="Add" class="loginbtn">
+							<input type="submit" name="submitAdd" value="Add" class="loginbtn">
 							<input type='reset' class="clearbtn" name='resetBtn' value='Clear'/>
 						</div>
 					  </div>
 				</div>
+				</form>
 			</div>
 			<div id="formView" class="overlayView">
 				<div class="popupView">
@@ -214,9 +216,9 @@
 		}
 	};
 
-	if (isset($_POST['editProduct'])) {
+	if (isset($_POST['submitEdit'])) {
 		echo "<script>console.log('a')</script>";
-		echo "<script>console.log(" . $_POST['productId'] . ")</script>";
+		echo "<script>console.log(" . $_POST['productEditId'] . ")</script>";
 		$sql = "UPDATE Product
 				SET productName = '" . $_POST['productName'] . "',
 					productDesc = '" . $_POST['productDesc'] . "',
@@ -225,6 +227,17 @@
 					productSalePrice = " . $_POST['productSale'] . ",
 					productSaleEnd = '" . $_POST['saleDate'] . "'
 				WHERE id = " . $_POST['productId'];
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+		echo "<script>console.log('b')</script>";
+	}
+
+	if (isset($_POST['submitAdd'])) {
+		echo "<script>console.log('a')</script>";
+		echo "<script>console.log(" . $_POST['productEditId'] . ")</script>";
+		$sql = "INSERT INTO Product(productName, productDesc, productImgUrl, productPrice, productSalePrice, productSaleEnd)
+				VALUES('" . $_POST['productName'] . "', '" . $_POST['productDesc'] . "', '" . $_POST['productImg'] . "', " . $_POST['productPrice'] . ", " . $_POST['productSale'] . ", '" .  $_POST['saleDate'] . "')";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 

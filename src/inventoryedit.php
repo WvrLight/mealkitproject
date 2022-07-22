@@ -27,7 +27,7 @@
                     <label>Product Sale Date:</label>
                         <input type='date' name='saleDate' class='prodContent' value='" . $row['productsaleend'] . "'><br><br><br>
                     <div align='right' style='margin-right: 30px'>
-                        <input type='submit' name='editProduct' value='Update' class='loginbtn'>
+                        <input type='submit' name='submitEdit' value='Update' class='loginbtn'>
                     </div>
                 </div>
             </div>
