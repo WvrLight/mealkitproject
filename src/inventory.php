@@ -91,7 +91,7 @@
 							<fieldset class='product-card'>";
 								echo("<img src=" . $row['productimgurl'] . " class='product-thumb' alt=''>");
 								echo "<div class='product-info'>";
-									echo("<input type='hidden' class='productID' name='productId' value='" . $row['id'] . "'");
+									echo("<input type='hidden' class='productID' name='productId' value='" . $row['id'] . "'>");
 									echo("<h2 class='product-brand'>" . $row['productname'] . "</h2>");
 									if ($row['productsaleprice'] == null) {
 										echo("<p class='price'>₱" . $row['productprice'] . "</p>");	
@@ -120,6 +120,7 @@
 					  <h2>Editing MEAL-KIT</h2>
 						<input type='button' class='close' name='close' value='×' onclick="close('formEdit')">>
 					  <div class="content">
+						<input type='hidden' class='productID' name='productId' value=''>
 						<label>Product Name:</label>
 							<input type="text" name="productName" class="prodContent"/><br>
 						<label>Product Description:</label>
