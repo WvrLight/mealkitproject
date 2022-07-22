@@ -28,6 +28,6 @@
                     <input type='submit' name='submit' value='Update' class='loginbtn'>
                 </div>
             </div>
-        </div>"
+        </div>";
     }
 ?>
