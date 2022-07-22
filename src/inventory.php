@@ -190,11 +190,6 @@
     </body>
 </html>
 
-<script>
-	function ViewProduct(id) {
-		
-	}
-
 <?php
 	echo ("<script>
 			var count = document.getElementById('cart-num');
