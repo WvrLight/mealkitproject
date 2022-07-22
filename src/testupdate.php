@@ -1,3 +1,5 @@
+<?php include ('db.php')?>
+
 <?php
     $sql = "INSERT INTO Products(productName, productImgUrl, productPrice)
             VALUES ('test', 'assets\img\adobo.jpg', 150)";
