@@ -249,14 +249,14 @@
 	}
 
 	if (isset($_POST['submitAdd'])) {
-		if (isset($_POST['productSale'])) {
+		if (isset($_POST['productSale']) || empty($_POST['productSale'])) {
 			$salePrice = $_POST['productSale'];
 		}
 		else {
 			$salePrice = null;
 		}
 
-		if (isset($_POST['saleDate'])) {
+		if (isset($_POST['saleDate']) || empty($_POST['saleDate'])) {
 			$saleEndDate = $_POST['saleDate'];
 		}
 		else {
