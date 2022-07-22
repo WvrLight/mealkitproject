@@ -10,14 +10,14 @@
         echo "
         <div class='popupEdit'>
             <h2>Editing MEAL-KIT</h2>
-            <input type='button' class='close' name='close' value='×' onclick=' . 'closeView('formEdit')' . '>
+            <input type='button' class='close' name='close' value='×' onclick='" . "closeView('formEdit')" . "'>
             <div class='content'>
                 <label>Product Name:</label>
                     <input type='text' name='productName' class='prodContent' value='" . $row['productname'] . "'/><br>
                 <label>Product Description:</label>'
                     <textarea name='productDesc' class='textareaDesc' rows='4' value='" . $row['productdesc'] . "'> </textarea><br>
                 <label>Product Image URL:</label>
-                    <input type='text' name='productImg' class='prodContent' value='" . $row['productimgUrl'] . "'/><br>
+                    <input type='text' name='productImg' class='prodContent' value='" . $row['productimgurl'] . "'/><br>
                 <label>Product Price:</label>
                     <input type='text' name='productPrice' class='prodContent' value='" . $row['productprice'] . "'/><br>
                 <label>Product Sale Price:</label>
