@@ -1,7 +1,6 @@
 <?php
-    $sql = "UPDATE Product
-            SET productName = 'test'
-            WHERE id = 3";
+    $sql = "INSERT INTO Products(productName, productImgUrl, productPrice)
+            VALUES ('test', 'assets\img\adobo.jpg', 150)";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
 ?>
