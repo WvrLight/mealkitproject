@@ -217,7 +217,6 @@
 	};
 
 	if (isset($_POST['submitEdit'])) {
-		echo "<script>console.log(" . $_POST['saleDate'] . ")</script>";
 		if (isset($_POST['productSale'])) {
 			$salePrice = $_POST['productSale'];
 		}
@@ -232,6 +231,8 @@
 			$saleEndDate = null;
 		}
 
+		echo "<script>console.log(" . $saleEndDate . ")</script>";
+
 		echo "<script>console.log('a')</script>";
 		echo "<script>console.log(" . $_POST['productId'] . ")</script>";
 		$sql = "UPDATE Product
@@ -240,7 +241,7 @@
 					productImgUrl = '" . $_POST['productImg'] . "',
 					productPrice = " . $_POST['productPrice'] . ",
 					productSalePrice = " . $salePrice . ",
-					productSaleEnd = '" . $saleEndDate . "'
+					productSaleEnd = " . $saleEndDate . "
 				WHERE id = " . $_POST['productId'];
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
