@@ -106,7 +106,7 @@
 									<input type='button' class='button' name='view' value='View' onclick='viewProduct(" . $row['id'] . ")'>
 									<input type='submit' class='button' name='addtocart' value='Add to Cart'>";
 									if (isset($_SESSION['isadmin'])) {
-										echo "<input type='submit' class='button' name='edit' value='Edit' onclick='editProduct(" . $row['id'] . ")'>
+										echo "<input type='button' class='button' name='edit' value='Edit' onclick='editProduct(" . $row['id'] . ")'>
 										<input type='submit' class='button' name='remove' value='Remove'>";
 									}
 								echo "</div>";
