@@ -234,6 +234,7 @@
 			$saleEndDate = "NULL";
 		}
 
+		echo "<script>console.log(" . preg_match($pattern, $date) . ")</script>";
 		echo "<script>console.log(" . isset($_POST['saleDate']) . ")</script>";
 		echo "<script>console.log(" . $saleEndDate . ")</script>";
 
@@ -251,7 +252,6 @@
         $stmt->execute();
 
 		header("Refresh:0");
-		echo "<script>console.log('b')</script>";
 	}
 
 	if (isset($_POST['submitAdd'])) {
@@ -272,7 +272,7 @@
 			$saleEndDate = "NULL";
 		}
 
-		echo "<script>console.log('a')</script>";
+		echo "<script>console.log($saleEndDate)</script>";
 		$sql = "INSERT INTO Product(productName, productDesc, productImgUrl, productPrice, productSalePrice, productSaleEnd)
 				VALUES('" . $_POST['productName'] . "', '" . $_POST['productDesc'] . "', '" . $_POST['productImg'] . "', " . $_POST['productPrice'] . ", " . $salePrice . ", " .  $saleEndDate . ")";
         $stmt = $pdo->prepare($sql);
