@@ -218,12 +218,12 @@
 		echo "<script>console.log('a')</script>";
 		echo "<script>console.log(" . $_POST['productId'] . ")</script>";
 		$sql = "UPDATE Product
-				SET productName = " . $_POST['productName'] . ",
-					productDesc = " . $_POST['productDesc'] . ",
-					productImgUrl = " . $_POST['productImg'] . ",
+				SET productName = '" . $_POST['productName'] . "',
+					productDesc = '" . $_POST['productDesc'] . "',
+					productImgUrl = '" . $_POST['productImg'] . "',
 					productPrice = " . $_POST['productPrice'] . ",
 					productSalePrice = " . $_POST['productSale'] . ",
-					productSaleEnd = " . $_POST['saleDate'] . "
+					productSaleEnd = '" . $_POST['saleDate'] . "'
 				WHERE id = " . $_POST['productId'];
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
