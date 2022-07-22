@@ -81,15 +81,19 @@
 				VALUES('" . $_POST['fname'] . "', '" . $_POST['uname'] . "', '" . $_POST['psw'] . "', '" . $_POST['email'] . "', '" . $_POST['address'] . "', '" . $_POST['cnum'] . "')";
             $stmt = $pdo->prepare($sql);
             try {
+                echo "<script>console.log('b')</script>";
                 $stmt->execute();
                 echo "<script>alert('Successfully registered. You may now log in.');</script>";
                 echo "<script>window.location.href='login.php'</script>";	
                 header("Refresh:2; url=login.php");
-            } catch(PDOException $e) {
+            } catch (PDOException $pde) {
                 echo "<script>alert('Username already exists.');</script>";
+            } catch (Exception $e) {
+                echo "<script>alert('Error');</script>";
             }
         }
         else {
+            echo "<script>console.log('f')</script>";
             echo "<script>alert('Please enter the correct details.');</script>";
         }
 	}
