@@ -26,7 +26,6 @@
 		<br><br><br><br><br><br>
 		
 		<div class="profile">
-			<img src="assets/img/profile.jpg" class="profile-pic"/>
 			<h2> Juan Dela Cruz</h2><br>
 			<p>Delivery Address: 26 Katarungan Street, Santolan, Pasig City</p>
 			<p>Contact Number: 09932341238</p>

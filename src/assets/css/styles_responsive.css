@@ -497,6 +497,33 @@ fieldset .product-thumb {
 	width: 30%;
 }
 
+/*************for Signup July 21*****************/
+
+.signup-form {
+	width: 80%;
+	padding: 10px;
+	margin: auto;
+	background-color: #333332;
+	color: white;
+	border: none;
+}
+
+.signup-form p {
+	border-bottom: 2px solid white;
+}
+
+.signupbox {
+	height: 35px;
+	width: 95%;
+	margin-left: 20px;
+	margin-bottom: 10px;
+	background-color: whitesmoke;
+}
+
+.signup-form label {
+	color: burlywood;
+}
+
 /****** for Profile JULY 20*******/
 .profile {
 	text-align: center;

@@ -87,7 +87,7 @@
 			<div class="product-header">
 				<?php
 					if (isset($_SESSION['isadmin'])) {
-						echo "<a href='#formAdd' class='button1'>+</a>";
+						echo "<br><a href='#formAdd' class='button1'>+</a>";
 					}
 				?>
 				<a href="" class="product-cart"><img src="assets/img/cart.png"></a>
@@ -139,7 +139,7 @@
 		</div>
 		
 		<div id="footer">
-            Copyright &copy; 2022 <a href="index.html">Filipino Meal Kits.</a> Rights Reserved. <br>
+            Copyright &copy; 2022 <a href="index.php">Filipino Meal Kits.</a> Rights Reserved. <br>
             <a href="mailto:fmk@filipinomealkits.com">fmk@filipinomealkits.com</a>
             <p> <a href="termsandconditions.html">Terms and Conditions.</a>&nbsp&nbsp&nbsp&nbsp<a href="privacypolicy.html">Privacy Policy.</a></p>
         </div>	
@@ -198,7 +198,7 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
-		header("Refresh:0; url=inventory.php");
+		header("Refresh:2; url=inventory.php");
 	}
 
 	if (isset($_POST['submitAdd'])) {
@@ -225,7 +225,7 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
-		header("Refresh:0; url=inventory.php");
+		header("Refresh:2; url=inventory.php");
 	}
 
 	if (isset($_POST['submitRemove'])) {
@@ -234,6 +234,6 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
-		header("Refresh:0; url=inventory.php");
+		header("Refresh:2; url=inventory.php");
 	}
 ?>
