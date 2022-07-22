@@ -2,6 +2,7 @@ CREATE TABLE Customer (
     id SERIAL PRIMARY KEY NOT NULL,
     custFullName VARCHAR NOT NULL,
     custUsername VARCHAR NOT NULL,
+    custEmail VARCHAR NOT NULL,
     custPassword VARCHAR NOT NULL,
     custAddress VARCHAR,
     custNumber VARCHAR,

@@ -78,7 +78,7 @@
         echo "<script>console.log(" . strcmp($_POST['psw'], $_POST['psw-repeat']) . ")</script>";
         if (!strcmp($_POST['psw'], $_POST['psw-repeat'])) {
             echo "<script>console.log('bbbb')</script>";
-            $sql = "INSERT INTO Customer(custFullName, custUsername, custPassword, custAddress, custNumber)
+            $sql = "INSERT INTO Customer(custFullName, custUsername, custPassword, custEmail, custAddress, custNumber)
 				VALUES('" . $_POST['fname'] . "', '" . $_POST['uname'] . "', '" . $_POST['psw'] . "', '" . $_POST['email'] . "', '" . $_POST['address'] . "', '" . $_POST['cnum'] . "')";
             $stmt = $pdo->prepare($sql);
             try {
