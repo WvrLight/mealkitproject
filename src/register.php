@@ -89,6 +89,7 @@
                 header("Refresh:2; url=login.php");
             } catch (PDOException $pde) {
                 echo "<script>alert('Username already exists.');</script>";
+                echo "<script>console.log('" . $pde->getMessage() . "')</script>";
             } catch (Exception $e) {
                 echo "<script>alert('Error');</script>";
             }
