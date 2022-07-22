@@ -13,7 +13,7 @@
                 <h2>Editing MEAL-KIT</h2>
                 <input type='button' class='close' name='close' value='×' onclick=" . "closeView('formEdit')" . ">
                 <div class='content'>
-                    <input type='hidden' class='productID' name='productId' value='" . $row['id'] . "'>
+                    <input type='hidden' class='productID' name='productId' value='" . $id . "'>
                     <label>Product Name:</label>
                         <input type='text' name='productName' class='prodContent' value='" . $row['productname'] . "'/><br>
                     <label>Product Description:</label>'

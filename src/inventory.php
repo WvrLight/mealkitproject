@@ -222,7 +222,7 @@
 					productPrice = " . $_POST['productPrice'] . ",
 					productSalePrice = " . $_POST['productSale'] . ",
 					productSaleEnd = " . $_POST['saleDate'] . "
-				WHERE id = " . $_POST['id'];
+				WHERE id = " . $_POST['productId'];
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 	}
