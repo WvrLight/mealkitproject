@@ -234,7 +234,7 @@
 			$saleEndDate = "NULL";
 		}
 
-		echo "<script>console.log(" . preg_match($pattern, $date) . ")</script>";
+		echo "<script>console.log(" . $saleEndDate . ")</script>";
 		$sql = "UPDATE Product
 				SET productName = '" . $_POST['productName'] . "',
 					productDesc = '" . $_POST['productDesc'] . "',
