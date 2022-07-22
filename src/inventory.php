@@ -225,10 +225,10 @@
 		}
 
 		$pattern = "^[0-9]{4}-(((0[13578]|(10|12))-(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)-(0[1-9]|[1-2][0-9]|30)))$";
-		$date = $_POST['date'];
+		$date = $_POST['saleDate'];
 
 		if (preg_match($pattern, $date)) {
-			$saleEndDate = "'" . $_POST['saleDate'] . "'";
+			$saleEndDate = "'" . $date . "'";
 		}
 		else {
 			$saleEndDate = "NULL";
@@ -263,10 +263,10 @@
 		}
 
 		$pattern = "^[0-9]{4}-(((0[13578]|(10|12))-(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)-(0[1-9]|[1-2][0-9]|30)))$";
-		$date = $_POST['date'];
+		$date = $_POST['saleDate'];
 
 		if (preg_match($pattern, $date)) {
-			$saleEndDate = "'" . $_POST['saleDate'] . "'";
+			$saleEndDate = "'" . $date . "'";
 		}
 		else {
 			$saleEndDate = "NULL";
