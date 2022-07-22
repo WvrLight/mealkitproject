@@ -15,7 +15,6 @@
                     <img id='viewProductUrl' src='" . $row['productimgurl'] . "' class='viewPic'/>
                     <div class='viewDesc'>
                         <h2 id='viewProductName'>" . $row['productname'] ."</h2>
-                        <h5 id='viewProductSaleDate'>Sale until " . $row['productsaleend'] . "</h5>
                         <div class='prices'>
                             <p id='viewProductPrice' class='price'>Php " . $row['productprice'] . "</p>
                         </div>

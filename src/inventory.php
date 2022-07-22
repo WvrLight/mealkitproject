@@ -255,23 +255,26 @@
 	}
 
 	if (isset($_POST['submitAdd'])) {
-		if (isset($_POST['productSale']) || empty($_POST['productSale'])) {
+		if (isset($_POST['productSale'])) {
 			$salePrice = $_POST['productSale'];
 		}
 		else {
-			$salePrice = null;
+			$salePrice = "NULL";
 		}
 
-		if (isset($_POST['saleDate']) || empty($_POST['saleDate'])) {
-			$saleEndDate = $_POST['saleDate'];
+		$pattern = "^[0-9]{4}-(((0[13578]|(10|12))-(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)-(0[1-9]|[1-2][0-9]|30)))$";
+		$date = $_POST['date'];
+
+		if (preg_match($pattern, $date)) {
+			$saleEndDate = "'" . $_POST['saleDate'] . "'";
 		}
 		else {
-			$saleEndDate = null;
+			$saleEndDate = "NULL";
 		}
 
 		echo "<script>console.log('a')</script>";
 		$sql = "INSERT INTO Product(productName, productDesc, productImgUrl, productPrice, productSalePrice, productSaleEnd)
-				VALUES('" . $_POST['productName'] . "', '" . $_POST['productDesc'] . "', '" . $_POST['productImg'] . "', " . $_POST['productPrice'] . ", " . $salePrice . ", '" .  $saleEndDate . "')";
+				VALUES('" . $_POST['productName'] . "', '" . $_POST['productDesc'] . "', '" . $_POST['productImg'] . "', " . $_POST['productPrice'] . ", " . $salePrice . ", " .  $saleEndDate . ")";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
