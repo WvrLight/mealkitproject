@@ -215,6 +215,8 @@
 	};
 
 	if (isset($_POST['editProduct'])) {
+		echo "<script>console.log('a')</script>";
+		echo "<script>console.log(" . $_POST['productId'] . ")</script>";
 		$sql = "UPDATE Product
 				SET productName = " . $_POST['productName'] . ",
 					productDesc = " . $_POST['productDesc'] . ",
