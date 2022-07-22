@@ -217,7 +217,7 @@
 	};
 
 	if (isset($_POST['submitEdit'])) {
-		if (isset($_POST['productSale'])) {
+		if (!empty($_POST['productSale'])) {
 			$salePrice = $_POST['productSale'];
 		}
 		else {
@@ -235,8 +235,8 @@
 			$saleEndDate = "NULL";
 		}
 
-		echo "<script>console.log(" . $_POST['saleDate'] . ")</script>";
-		echo "<script>console.log(" . $saleEndDate . ")</script>";
+		echo "<script>console.log(" . $_POST['productSale'] . ")</script>";
+		echo "<script>console.log(" . $salePrice . ")</script>";
 		$sql = "UPDATE Product
 				SET productName = '" . $_POST['productName'] . "',
 					productDesc = '" . $_POST['productDesc'] . "',
