@@ -28,7 +28,7 @@
             <ul class="login">
 				<li><a href="payment.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbspCart</a></li>
                 <li><a href="login.php">Log In </a></li>
-                <li><a href="signup.php">Sign Up </a></li>
+                <li><a href="register.php">Sign Up </a></li>
             </ul>
         </div>
 		<br><br><br><br><br><br><br><br>
@@ -40,7 +40,7 @@
                             <input type="text" class="username" name="username" placeholder="Enter Username" required><br><br>
                         <i class="fa fa-key icon"></i>
                             <input type="password" class="password" name="password" placeholder="Enter Password" required><br><br>
-                        <p><a href="signup.html" class="signuplink">Don't have an account?</a> 
+                        <p><a href="register.php" class="signuplink">Don't have an account?</a> 
                         <br>
                         <div align="right">
                             <input type='submit' class="loginbtn" name='submitBtn' value='Login' />

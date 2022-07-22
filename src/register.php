@@ -73,7 +73,7 @@
 
 <?php
     if (isset($_POST['register'])) {
-        if (!strcmp($_POST['password'], $row['custpassword'])) {
+        if (!strcmp($_POST['psw'], $_POST['psw-repeat'])) {
             $sql = "INSERT INTO Customer(custFullName, custUsername, custPassword, custAddress, custNumber)
 				VALUES('" . $_POST['fname'] . "', '" . $_POST['uname'] . "', '" . $_POST['psw'] . "', '" . $_POST['email'] . "', '" . $_POST['address'] . "', '" . $_POST['cnum'] . "')";
             $stmt = $pdo->prepare($sql);
