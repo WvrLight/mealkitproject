@@ -73,9 +73,7 @@
 
 <?php
     if (isset($_POST['register'])) {
-        echo "<script>console.log('a')</script>";
-        echo "<script>console.log('" . $_POST['register'] . "')</script>";
-        echo "<script>console.log('" . $_POST['uname'] . "')</script>";
+        echo "<script>console.log(" . strcmp($_POST['psw'], $_POST['psw-repeat']) . ")</script>";
         if (!strcmp($_POST['psw'], $_POST['psw-repeat'])) {
             $sql = "INSERT INTO Customer(custFullName, custUsername, custPassword, custAddress, custNumber)
 				VALUES('" . $_POST['fname'] . "', '" . $_POST['uname'] . "', '" . $_POST['psw'] . "', '" . $_POST['email'] . "', '" . $_POST['address'] . "', '" . $_POST['cnum'] . "')";
