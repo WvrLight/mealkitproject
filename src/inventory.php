@@ -97,8 +97,8 @@
 										echo("<p class='price'>₱" . $row['productprice'] . "</p>");	
 									}
 									else {
-										echo("<p class='price'>₱" . $row['productsaleprice'] . "</p>");
 										echo("<p class='old-price'>₱" . $row['productprice'] . "</p>");
+										echo("<p class='price'>₱" . $row['productsaleprice'] . "</p>");
 									}
 									echo "</div>";
 									echo "<div class='view'>
@@ -227,5 +227,7 @@
 				WHERE id = " . $_POST['productId'];
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
+
+		echo "<script>console.log('b')</script>";
 	}
 ?>
