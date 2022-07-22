@@ -221,14 +221,14 @@
 			$salePrice = $_POST['productSale'];
 		}
 		else {
-			$salePrice = null;
+			$salePrice = "NULL";
 		}
 
 		if (isset($_POST['saleDate'])) {
-			$saleEndDate = $_POST['saleDate'];
+			$saleEndDate = "'" . $_POST['saleDate'] . "'";
 		}
 		else {
-			$saleEndDate = null;
+			$saleEndDate = "NULL";
 		}
 
 		echo "<script>console.log(" . $saleEndDate . ")</script>";
