@@ -3,7 +3,7 @@
     <head>
         <meta content='text/html;charset=utf-8'/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login Page</title>
+        <title>Sign Up Page</title>
         <link href="assets/css/styles_responsive.css" type="text/css" rel="stylesheet">
 		<link href="assets/css/styles.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -56,7 +56,7 @@
                     <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p><br>
                 
                             <div align="right">
-                                <input type='submit' class="loginbtn" name='register' value='Register' />
+                                <input type='submit' class="loginbtn" name='register' value='Register'/>
                                 <input type='reset' class="clearbtn" name='resetBtn' value='Reset'/>
                             </div>
                     </div>	
@@ -73,6 +73,9 @@
 
 <?php
     if (isset($_POST['register'])) {
+        echo "<script>console.log('a')</script>";
+        echo "<script>console.log('" . $_POST['register'] . "')</script>";
+        echo "<script>console.log('" . $_POST['uname'] . "')</script>";
         if (!strcmp($_POST['psw'], $_POST['psw-repeat'])) {
             $sql = "INSERT INTO Customer(custFullName, custUsername, custPassword, custAddress, custNumber)
 				VALUES('" . $_POST['fname'] . "', '" . $_POST['uname'] . "', '" . $_POST['psw'] . "', '" . $_POST['email'] . "', '" . $_POST['address'] . "', '" . $_POST['cnum'] . "')";
