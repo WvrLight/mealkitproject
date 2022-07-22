@@ -390,7 +390,7 @@ fieldset .product-thumb {
 }
 
 .popupRemove .content label {
-	width: 400px;
+	min-width: 350px;
 	text-align: left;
 }
 

@@ -187,8 +187,6 @@
 			$saleEndDate = "NULL";
 		}
 
-		echo "<script>console.log(" . $_POST['productSale'] . ")</script>";
-		echo "<script>console.log(" . $salePrice . ")</script>";
 		$sql = "UPDATE Product
 				SET productName = '" . $_POST['productName'] . "',
 					productDesc = '" . $_POST['productDesc'] . "',
@@ -222,9 +220,17 @@
 			$saleEndDate = "NULL";
 		}
 
-		echo "<script>console.log($saleEndDate)</script>";
 		$sql = "INSERT INTO Product(productName, productDesc, productImgUrl, productPrice, productSalePrice, productSaleEnd)
 				VALUES('" . $_POST['productName'] . "', '" . $_POST['productDesc'] . "', '" . $_POST['productImg'] . "', " . $_POST['productPrice'] . ", " . $salePrice . ", " .  $saleEndDate . ")";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+		header("Refresh:0; url=inventory.php");
+	}
+
+	if (isset($_POST['submitRemove'])) {
+		$sql = "DELETE FROM Product
+				WHERE id = " . $_POST['productId'];
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
