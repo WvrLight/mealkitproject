@@ -218,7 +218,7 @@
 
 	if (isset($_POST['submitEdit'])) {
 		echo "<script>console.log('a')</script>";
-		echo "<script>console.log(" . $_POST['productEditId'] . ")</script>";
+		echo "<script>console.log(" . $_POST['productId'] . ")</script>";
 		$sql = "UPDATE Product
 				SET productName = '" . $_POST['productName'] . "',
 					productDesc = '" . $_POST['productDesc'] . "',
@@ -235,7 +235,6 @@
 
 	if (isset($_POST['submitAdd'])) {
 		echo "<script>console.log('a')</script>";
-		echo "<script>console.log(" . $_POST['productEditId'] . ")</script>";
 		$sql = "INSERT INTO Product(productName, productDesc, productImgUrl, productPrice, productSalePrice, productSaleEnd)
 				VALUES('" . $_POST['productName'] . "', '" . $_POST['productDesc'] . "', '" . $_POST['productImg'] . "', " . $_POST['productPrice'] . ", " . $_POST['productSale'] . ", '" .  $_POST['saleDate'] . "')";
         $stmt = $pdo->prepare($sql);
