@@ -2,7 +2,7 @@
 <?php
     $id = $_GET['id'];
 
-    $sql = "ELECT * FROM Product WHERE id = " . $id;
+    $sql = "SELECT * FROM Product WHERE id = " . $id;
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
 
