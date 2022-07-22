@@ -115,6 +115,7 @@
 				?>
 			</div>
 			<div id="formEdit" class="overlayEdit">
+			<form method="post">
 				<div class="popupEdit">
 					  <h2>Editing MEAL-KIT</h2>
 						<input type='button' class='close' name='close' value='×' onclick="close('formEdit')">>
@@ -136,6 +137,7 @@
 						</div>
 					  </div>
 				</div>
+			</form>
 			</div>
 			<div id="formAdd" class="overlayAdd">
 				<div class="popupAdd">
@@ -211,30 +213,16 @@
 		}
 	};
 
-	if (isset($_POST['view'])) {
-		$sql = "SELECT * FROM Product WHERE productId = " . $_POST['productId'];
-		$stmt = $pdo->prepare($sql);
-		$stmt->execute();
-
-		while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-			echo "<script>document.getElementById('viewProductName').innerHTML = '" . $row['productname'] . "'</script>";
-			echo "<script>document.getElementById('viewProductDesc').innerHTML = '" . $row['productdesc'] . "'</script>";
-			echo "<script>document.getElementById('viewProductUrl').innerHTML = '" . $row['productimgurl'] . "'</script>";
-			echo "<script>document.getElementById('viewProductSaleDate').innerHTML = '" . $row['productsaleend'] . "'</script>";
-
-			if ($row['productsaleprice'] == null) {
-				echo "<script>document.getElementById('viewProductOldPrice').innerHTML = ''</script>";
-				echo "<script>document.getElementById('viewProductPrice').innerHTML = '" . $row['productprice'] . "'</script>";
-			}
-			else {
-				echo "<script>document.getElementById('viewProductOldPrice').innerHTML = '" . $row['productprice'] . "'</script>";
-				echo "<script>document.getElementById('viewProductPrice').innerHTML = '" . $row['productsaleprice'] . "'</script>";
-			}
-		}
-
-		echo "<script>
-			var view = document.getElementById('formView');
-			view.focus();
-		</script>";
+	if (isset($_POST['editProduct'])) {
+		$sql = "UPDATE Product
+				SET productName = " . $_POST['productName'] . ",
+					productDesc = " . $_POST['productDesc'] . ",
+					productImgUrl = " . $_POST['productImg'] . ",
+					productPrice = " . $_POST['productPrice'] . ",
+					productSalePrice = " . $_POST['productSale'] . ",
+					productSaleEnd = " . $_POST['saleDate'] . "
+				WHERE id = " . $_POST['id'];
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
 	}
 ?>

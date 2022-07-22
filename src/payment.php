@@ -130,14 +130,10 @@
         date_default_timezone_set('Asia/Manila');
         $orderId += 1;
 
-        echo "<script>console.log($orderId)</script>";
-
         $sql = "INSERT INTO Orders(custId, orderDate, orderStatus)
                 VALUES (" . $_SESSION['id'] . ", '" . date("Y-m-d") . "', 0)";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
-
-        echo "<script>console.log('b')</script>";
 
         foreach($_SESSION['cart'] as $ITEM) {
             $sql = "INSERT INTO OrderCart(productId, orderId)
