@@ -120,7 +120,7 @@
 									<input type='submit' class='button' name='addtocart' value='Add to Cart'>";
 									if (isset($_SESSION['isadmin'])) {
 										echo "<input type='button' class='button' name='edit' value='Edit' onclick='editProduct(" . $row['id'] . ")'>
-										<input type='submit' class='button' name='remove' value='Remove' onclick='removeProduct(" . $row['id'] . ")'>";
+										<input type='button' class='button' name='remove' value='Remove' onclick='removeProduct(" . $row['id'] . ")'>";
 									}
 								echo "</div>";
 							echo "</fieldset>
