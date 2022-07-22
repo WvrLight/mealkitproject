@@ -227,7 +227,7 @@
 		$pattern = "^[0-9]{4}-(((0[13578]|(10|12))-(0[1-9]|[1-2][0-9]|3[0-1]))|(02-(0[1-9]|[1-2][0-9]))|((0[469]|11)-(0[1-9]|[1-2][0-9]|30)))$";
 		$date = $_POST['saleDate'];
 
-		if (preg_match($pattern, $date)) {
+		if (!preg_match($pattern, $date)) {
 			$saleEndDate = "'" . $date . "'";
 		}
 		else {
@@ -235,11 +235,6 @@
 		}
 
 		echo "<script>console.log(" . preg_match($pattern, $date) . ")</script>";
-		echo "<script>console.log(" . isset($_POST['saleDate']) . ")</script>";
-		echo "<script>console.log(" . $saleEndDate . ")</script>";
-
-		echo "<script>console.log('a')</script>";
-		echo "<script>console.log(" . $_POST['productId'] . ")</script>";
 		$sql = "UPDATE Product
 				SET productName = '" . $_POST['productName'] . "',
 					productDesc = '" . $_POST['productDesc'] . "',
