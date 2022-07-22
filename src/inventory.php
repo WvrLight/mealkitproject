@@ -41,7 +41,6 @@
 			}
 
 			function closeView(elementId) {
-				console.log(elementId);
 				var element = document.getElementById(elementId);
 				element.style.visibility = 'hidden';
 				element.style.opacity = 0;

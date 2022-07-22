@@ -10,7 +10,7 @@
         echo "
         <div class='popupEdit'>
             <h2>Editing MEAL-KIT</h2>
-            <input type='button' class='close' name='close' value='×' onclick='" . "closeView('formEdit')" . "'>
+            <input type='button' class='close' name='close' value='×' onclick=" . "closeView('formEdit')" . ">
             <div class='content'>
                 <label>Product Name:</label>
                     <input type='text' name='productName' class='prodContent' value='" . $row['productname'] . "'/><br>
