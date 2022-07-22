@@ -5,7 +5,6 @@ CREATE TABLE Customer (
     custPassword VARCHAR NOT NULL,
     custAddress VARCHAR,
     custNumber VARCHAR,
-    isAdmin BOOLEAN,
     UNIQUE(custUsername)
 );
 

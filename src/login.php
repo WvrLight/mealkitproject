@@ -68,10 +68,10 @@
             if (!strcmp($_POST['password'], $row['custpassword'])) {
                 $loginResult = true;
                 $_SESSION['id'] = $row['id'];
-                $_SESSION['username']= $_POST['username'];
+                $_SESSION['username'] = $_POST['username'];
                 $_SESSION['cart'] = array();
 
-                if ($row['isadmin'] == true) {
+                if ($_POST['username'] == "admin") {
                     $_SESSION['isadmin'] = true;
                 }
                 

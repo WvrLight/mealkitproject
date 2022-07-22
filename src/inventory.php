@@ -40,6 +40,20 @@
 				xmlhttp.send();
 			}
 
+			function removeProduct(id) {
+				var xmlhttp = new XMLHttpRequest();
+				xmlhttp.onreadystatechange = function() {
+					if (this.readyState == 4 && this.status == 200) {
+						var view = document.getElementById('formRemove');
+						view.innerHTML = this.responseText;
+						view.style.visibility = 'visible';
+						view.style.opacity = 1;
+					}
+				};
+				xmlhttp.open("GET", "inventoryremove.php?id=" + id, true);
+				xmlhttp.send();
+			}
+
 			function closeView(elementId) {
 				var element = document.getElementById(elementId);
 				element.style.visibility = 'hidden';
@@ -106,7 +120,7 @@
 									<input type='submit' class='button' name='addtocart' value='Add to Cart'>";
 									if (isset($_SESSION['isadmin'])) {
 										echo "<input type='button' class='button' name='edit' value='Edit' onclick='editProduct(" . $row['id'] . ")'>
-										<input type='submit' class='button' name='remove' value='Remove'>";
+										<input type='submit' class='button' name='remove' value='Remove' onclick='removeProduct(" . $row['id'] . ")'>";
 									}
 								echo "</div>";
 							echo "</fieldset>
@@ -115,74 +129,12 @@
 				?>
 			</div>
 			<div id="formEdit" class="overlayEdit">
-			<form method="post">
-				<div class="popupEdit">
-					  <h2>Editing MEAL-KIT</h2>
-						<input type='button' class='close' name='close' value='×' onclick="close('formEdit')">>
-					  <div class="content">
-						<input type='hidden' class='productID' name='productId' value=''>
-						<label>Product Name:</label>
-							<input type="text" name="productName" class="prodContent"/><br>
-						<label>Product Description:</label>
-							<textarea name="productDesc" class="textareaDesc" rows="4"> </textarea><br>
-						<label>Product Image URL:</label>
-							<input type="text" name="productImg" class="prodContent"/><br>
-						<label>Product Price:</label>
-							<input type="text" name="productPrice" class="prodContent"/><br>
-						<label>Product Sale Price:</label>
-							<input type="text" name="productSale" class="prodContent"/><br>
-						<label>Product Sale Date:</label>
-							<input type="date" name="saleDate" class="prodContent"><br><br><br>
-						<div align="right" style="margin-right: 30px">
-							<input type="submit" name="submitEdit" value="Update" class="loginbtn">
-						</div>
-					  </div>
-				</div>
-			</form>
 			</div>
 			<div id="formAdd" class="overlayAdd">
-				<form method='post'>
-				<div class="popupAdd">
-					  <h2>Add new MEAL-KIT</h2>
-						<a class="close" href="#">×</a>
-					  <div class="content">
-						<label>Product Name:</label>
-							<input type="text" name="productName" placeholder="--Enter New Product Name--" class="prodContent" required/><br>
-						<label>Product Description:</label>
-							<textarea name="productDesc" class="textareaDesc" rows="4" required> </textarea><br>
-						<label>Product Image URL:</label>
-							<input type="text" name="productImg" placeholder="--Enter Url--" class="prodContent" required/><br>
-						<label>Product Price:</label>
-							<input type="text" name="productPrice" placeholder="--Enter Original Price--" class="prodContent" required/><br>
-						<label>Product Sale Price:</label>
-							<input type="text" name="productSale" placeholder="--Enter Discounted Price--" class="prodContent"/><br>
-						<label>Product Sale Date:</label>
-							<input type="date" name="saleDate" class="prodContent"><br><br><br>
-						<div align="right" style="margin-right: 30px">
-							<input type="submit" name="submitAdd" value="Add" class="loginbtn">
-							<input type='reset' class="clearbtn" name='resetBtn' value='Clear'/>
-						</div>
-					  </div>
-				</div>
-				</form>
 			</div>
 			<div id="formView" class="overlayView">
-				<div class="popupView">
-					<input type='button' class='close' name='close' value='×' onclick="close('formView')">
-					<div class="viewProduct">
-						<img id="viewProductUrl" src="assets/img/pinakbet.jpg" class="viewPic"/>
-						<div class="viewDesc">
-							<h2 id="viewProductName">Pinakbet Meal-kit</h2>
-							<h5 id="viewProductSaleDate">Sale until 07/25/22</h5>
-							<div class="prices">
-								<p id="viewProductOldPrice"class="old-price">Php 210.00 </p>
-								<p id="viewProductPrice" class="price">Php 190.00 </p>
-							</div>
-							<h3> Description: </h3>
-							<p id="viewProductDesc" class="paraTxt"> </p>
-						</div>
-					</div>
-				</div>			 
+			</div>
+			<div id="formRemove" class="overlayRemove">
 			</div>
 		</div>
 		
@@ -248,7 +200,7 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
-		header("Refresh:0");
+		header("Refresh:0; url=inventory.php");
 	}
 
 	if (isset($_POST['submitAdd'])) {
@@ -276,7 +228,6 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
-		header("Refresh:0");
-		echo "<script>console.log('b')</script>";
+		header("Refresh:0; url=inventory.php");
 	}
 ?>

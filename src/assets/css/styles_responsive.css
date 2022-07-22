@@ -60,7 +60,7 @@ fieldset .product-thumb {
 /* fieldsets of each meal-kit (inventory)*/
 .product-card {
 	display: inline-block;
-	height: 420px;
+	height: 470px;
 	width: 250px;
 	border: 0;
 	border-radius: 10px;
@@ -275,7 +275,8 @@ fieldset .product-thumb {
 
 .overlayEdit,
 .overlayAdd,
-.overlayView {
+.overlayView,
+.overlayRemove {
 	margin-top: 20px;
 	position: fixed;
 	top: 0;
@@ -290,7 +291,8 @@ fieldset .product-thumb {
 
 .overlayEdit:target,
 .overlayAdd:target,
-.overlayView:target {
+.overlayView:target,
+.overlayRemove:target {
 	visibility: visible;
 	opacity: 1;
 }
@@ -302,6 +304,16 @@ fieldset .product-thumb {
 	background: whitesmoke;
 	border-radius: 5px;
 	width: 50%;
+	position: relative;
+	transition: all 5s ease-in-out;
+}
+
+.popupRemove {
+	margin: 70px auto;
+	padding: 20px;
+	background: whitesmoke;
+	border-radius: 5px;
+	width: 30%;
 	position: relative;
 	transition: all 5s ease-in-out;
 }
@@ -319,7 +331,8 @@ fieldset .product-thumb {
 
 .popupEdit h2,
 .popupAdd h2,
-.popupView h2 {
+.popupView h2,
+.popupRemove h2 {
 	margin-top: 0;
 	color: brown;
 	font-family: Tahoma, Arial, sans-serif;
@@ -327,7 +340,8 @@ fieldset .product-thumb {
 
 .popupEdit .close,
 .popupAdd .close,
-.popupView .close {
+.popupView .close,
+.popupRemove .close {
 	position: absolute;
 	top: 20px;
 	right: 30px;
@@ -340,14 +354,16 @@ fieldset .product-thumb {
 
 .popupEdit .close:hover,
 .popupAdd .close:hover,
-.popupView .close:hover {
+.popupView .close:hover,
+.popupRemove .close:hover {
 	color: orange;
 }
 
 
 .popupEdit .content,
 .popupAdd .content,
-.popupView .content {
+.popupView .content,
+.popupRemove .content {
 	font-size: 1em;
 	font-weight: bold;
 	margin-bottom: -10px;
@@ -371,6 +387,11 @@ fieldset .product-thumb {
 	border-color: brown;
 	background-color: white;
 	vertical-align: middle;
+}
+
+.popupRemove .content label {
+	width: 400px;
+	text-align: left;
 }
 
 /**Labels for Add/Edit Overlay**/

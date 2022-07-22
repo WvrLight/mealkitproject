@@ -3,8 +3,8 @@ TRUNCATE TABLE Orders;
 TRUNCATE TABLE Customer;
 TRUNCATE TABLE Product;
 
-INSERT INTO Customer(custFullName, custUsername, custPassword, isAdmin)
-VALUES ('Admin', 'admin', '123', true);
+INSERT INTO Customer(custFullName, custUsername, custPassword)
+VALUES ('Admin', 'admin', '123');
 
 INSERT INTO Product(productName, productImgUrl, productPrice, productSalePrice)
 VALUES ('Pinakbet Meal-kit', 'assets\img\pinakbet.jpg', 210.00, 190.00);
