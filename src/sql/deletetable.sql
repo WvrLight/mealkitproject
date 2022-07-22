@@ -1,3 +1,4 @@
+DROP TABLE OrderCart;
+DROP TABLE Orders;
 DROP TABLE Customer;
 DROP TABLE Product;
-DROP TABLE Orders;

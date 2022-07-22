@@ -1,3 +1,8 @@
+TRUNCATE TABLE OrderCart;
+TRUNCATE TABLE Orders;
+TRUNCATE TABLE Customer;
+TRUNCATE TABLE Product;
+
 INSERT INTO Customer(custFullName, custUsername, custPassword, isAdmin)
 VALUES ('Admin', 'admin', '123', true);
 

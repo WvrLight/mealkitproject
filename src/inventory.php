@@ -230,6 +230,7 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
+		header("Refresh:0");
 		echo "<script>console.log('b')</script>";
 	}
 
@@ -240,6 +241,7 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
+		header("Refresh:0");
 		echo "<script>console.log('b')</script>";
 	}
 ?>
