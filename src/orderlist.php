@@ -31,7 +31,7 @@
                     echo "<li><a href='coupon.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i>&nbspCoupon List</a></li>";
                 }
                 if (isset($_SESSION['id'])) {
-                    echo "<li><a href='orderlist.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i>&nbspOrders</a></li>";
+                    echo "<li><a href='orderlist.php'>&nbspOrders</a></li>";
                     echo "<li><a href='payment.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i>&nbspCart</a></li>
                     <li><a href='profile.php'>View Profile</a></li>
                     <li><a href='logout.php'>Logout</a></li>";
@@ -45,7 +45,7 @@
     </div>
     <div class="cart-wrapper">
         <?php
-            $sql = 'SELECT * FROM Orders';
+            $sql = "SELECT * FROM Orders";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
 
@@ -53,7 +53,7 @@
                 echo "<div class='cart_payment'>
                     <h4 class='tracking_receiver'><i class='fa fa-address-card-o' aria-hidden='true'></i> Receiver</h4>";
 
-                $sqluser = "SELECT * FROM Customer WHERE id = " . $row['custId'];
+                $sqluser = "SELECT * FROM Customer WHERE id = " . $row['custid'];
                 $stmtuser = $pdo->prepare($sqluser);
                 $stmtuser->execute();
 
