@@ -1,3 +1,12 @@
+<?php include ('db.php')?>
+<?php
+    session_start();
+
+    if (!isset($_SESSION['id'])) {
+        echo "<script>window.location.href='login.php'</script>";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +23,7 @@
         <ul class="home">
             <li><a href="index.php">Home</a></li>
             <li><a href="inventory.php">Meal Kits</a></li>
-            <li><a href="contact.php>Contact Us</a></li>
+            <li><a href="contact.php">Contact Us</a></li>
         </ul>
         <ul class="login">
             <?php
