@@ -63,22 +63,26 @@
     </head>
     <body>
 		<div class="nav">
-            <img class="logo" src="assets/img/logo.png" id="Logo" alt="Meal Kit Logo">
+            <img class="logo" src="assets/img/logo.png" id="Meal Kit Logo" alt="Meal Kit Logo">
             <ul class="home">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="inventory.php">Meal Kits</a></li>
-                <li><a href="about.html">About Us</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
             </ul>
             <ul class="login">
-            	<?php
+                <?php
+                    if (isset($_SESSION['isadmin'])) {
+                        echo "<li><a href='coupon.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i>&nbspCoupon List</a></li>";
+                    }
                     if (isset($_SESSION['id'])) {
+                        echo "<li><a href='orderlist.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i>&nbspOrders</a></li>";
                         echo "<li><a href='payment.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i>&nbspCart</a></li>
                         <li><a href='profile.php'>View Profile</a></li>
                         <li><a href='logout.php'>Logout</a></li>";
                     }
                     else {
                         echo "<li><a href='login.php'>Log In</a></li>
-                        <li><a href='signup.php'>Sign Up</a></li>";
+                        <li><a href='register.php'>Sign Up</a></li>";
                     }
                 ?>
             </ul>
