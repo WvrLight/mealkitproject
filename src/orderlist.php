@@ -101,7 +101,7 @@
                     case 0:
                         echo "<p class='tracking_prepared'><i class='fa fa-tasks' aria-hidden='true'></i>&nbsp&nbspThe parcel is being prepared. </p>";
 
-                        if (isset($_SESSION['admin'])) {
+                        if (isset($_SESSION['isadmin'])) {
                             echo "<form method='post'>
                             <input type='hidden' name='orderId' value='" . $row['id'] . "'>
                             <div align='right' style='margin-right: 30px'>
@@ -113,7 +113,7 @@
                     case 1:
                         echo "<p class='tracking_out'><i class='fa fa-tasks' aria-hidden='true'></i>&nbsp&nbspThe parcel is out for delivery. </p>";
 
-                        if (!isset($_SESSION['admin'])) {
+                        if (!isset($_SESSION['isadmin'])) {
                             echo "<form method='post'>
                             <input type='hidden' name='orderId' value='" . $row['id'] . "'>
                             <div align='right' style='margin-right: 30px'>
