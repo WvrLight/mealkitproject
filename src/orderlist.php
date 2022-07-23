@@ -45,7 +45,12 @@
     </div>
     <div class="cart-wrapper">
         <?php
-            $sql = "SELECT * FROM Orders";
+            if (!isset($_SESSION['isadmin'])) {
+                $sql = "SELECT * FROM Orders WHERE custId = " . $_SESSION['id'];
+            }
+            else {
+                $sql = "SELECT * FROM Orders";
+            }
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
 
@@ -95,9 +100,27 @@
                 switch ($row['orderStatus']) {
                     case 0:
                         echo "<p class='tracking_prepared'><i class='fa fa-tasks' aria-hidden='true'></i>&nbsp&nbspThe parcel is being prepared. </p>";
+
+                        if (isset($_SESSION['admin'])) {
+                            echo "<form method='post'>
+                            <input type='hidden' name='orderId' value='" . $row['id'] . "'>
+                            <div align='right' style='margin-right: 30px'>
+                                <input type='submit' name='submitDeliver' value='Mark as Delivering' class='loginbtn'>
+                            </div>
+                            </form>";
+                        }
                         break;
                     case 1:
                         echo "<p class='tracking_out'><i class='fa fa-tasks' aria-hidden='true'></i>&nbsp&nbspThe parcel is out for delivery. </p>";
+
+                        if (!isset($_SESSION['admin'])) {
+                            echo "<form method='post'>
+                            <input type='hidden' name='orderId' value='" . $row['id'] . "'>
+                            <div align='right' style='margin-right: 30px'>
+                                <input type='submit' name='submitDelivered' value='Mark as Delivered' class='loginbtn'>
+                            </div>
+                            </form>";
+                        }
                         break;
                     case 2:
                         echo "<p class='tracking_delievered'><i class='fa fa-tasks' aria-hidden='true'></i>&nbsp&nbspThe parcel is delivered. </p>";
