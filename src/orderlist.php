@@ -59,7 +59,11 @@
 
                 while ($rowuser = $stmtuser->fetch(PDO::FETCH_ASSOC)) {
                     echo "<p class='tracking_name'>" . $rowuser['custfullname'] . "</p>";
+
+                    echo "<br><h4 class='tracking_receiver'>Address</h4>";
                     echo "<p class='tracking_address'>" . $rowuser['custaddress'] . "</p>";
+
+                    echo "<br><h4 class='tracking_receiver'>Contact Number</h4>";
                     echo "<p class='tracking_address'>" . $rowuser['custnumber'] . "</p>";
                 }
 
@@ -87,7 +91,7 @@
                     }
                 }
 
-                echo "<div id='tracking_section" . $row['id'] . "'>";
+                echo "<br><br><div id='tracking_section" . $row['id'] . "'>";
                 switch ($row['orderStatus']) {
                     case 0:
                         echo "<p class='tracking_prepared'><i class='fa fa-tasks' aria-hidden='true'></i>&nbsp&nbspThe parcel is being prepared. </p>";
@@ -103,36 +107,6 @@
                 </div>";
             }
         ?>
-        <div class='cart_payment'>;
-            <h1>Tracking Page</h1>
-            <h4 class="tracking_receiver"><i class="fa fa-address-card-o" aria-hidden="true"></i> Receiver</h4>
-            <p class="tracking_name"> Juan Dela Cruz</p>
-            <p class="tracking_address"> 35 Masagana St. Quezon City</p>
-
-            <h4 class="tracking_items">Item list</h4>
-            <div class="mealkit_cart">
-                <img src="assets/img/pinakbet.jpg" alt="Pinakbet"  class="meal_pic">
-                <p class="mealkit_title"> Pinakbet Meal-kit</p>
-                <p class="mealkit_price"> ₱190.00</p>  
-            </div>
-            <div class="mealkit_cart">
-                <img src="assets/img/tinola.jpg" alt="Tinola"  class="meal_pic">
-                <p class="mealkit_title"> Tinola Meal-kit</p>
-                <p class="mealkit_price"> ₱260.00</p>  
-            </div>
-            <div class="mealkit_cart">
-                <img src="assets/img/adobo.jpg" alt="Adobo" class="meal_pic">
-                <p class="mealkit_title"> Chicken Adobo Meal-kit</p>
-                <p class="mealkit_price"> ₱200.00</p>  
-            </div>
-            <p class="mealkit_total">Total:</p>
-            <p class="mealkit_totalprice"> ₱650.00</p>
-            <h3 class="tracking_status">Status: </h3>
-            <div id="tracking_section">
-                <p class="tracking_prepared"><i class="fa fa-tasks" aria-hidden="true"></i>&nbsp&nbspThe parcel is being prepared. </p>
-                <p class="tracking_out"><i class="fa fa-truck" aria-hidden="true"></i>&nbsp&nbspThe parcel is out for delivery. </p>
-                <p class="tracking_delivered"><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp&nbspThe parcel is delivered. </p>
-            </div>
     </div>
     <div id="footer">
         Copyright &copy; 2022 <a href="index.html">Filipino Meal Kits.</a> Rights Reserved. <br>
