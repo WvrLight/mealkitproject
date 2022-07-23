@@ -1,6 +1,6 @@
 <?php include ('db.php')?>
 <?php
-    $id = $_SESSION['id'];
+    $id = $_GET['id'];
 
     $sql = "SELECT * FROM Customer WHERE id = " . $id;
     $stmt = $pdo->prepare($sql);
