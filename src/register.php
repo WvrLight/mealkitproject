@@ -77,12 +77,10 @@
     if (isset($_POST['register'])) {
         echo "<script>console.log(" . strcmp($_POST['psw'], $_POST['psw-repeat']) . ")</script>";
         if (!strcmp($_POST['psw'], $_POST['psw-repeat'])) {
-            echo "<script>console.log('bbbb')</script>";
             $sql = "INSERT INTO Customer(custFullName, custUsername, custPassword, custEmail, custAddress, custNumber)
 				VALUES('" . $_POST['fname'] . "', '" . $_POST['uname'] . "', '" . $_POST['psw'] . "', '" . $_POST['email'] . "', '" . $_POST['address'] . "', '" . $_POST['cnum'] . "')";
             $stmt = $pdo->prepare($sql);
             try {
-                echo "<script>console.log('c')</script>";
                 $stmt->execute();
                 echo "<script>alert('Successfully registered. You may now log in.');</script>";
                 echo "<script>window.location.href='login.php'</script>";	
@@ -95,7 +93,6 @@
             }
         }
         else {
-            echo "<script>console.log('f')</script>";
             echo "<script>alert('Please enter the correct details.');</script>";
         }
 	}
