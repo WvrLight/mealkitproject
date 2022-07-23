@@ -90,9 +90,9 @@
 <?php
 	if (isset($_POST['submit'])) {
 		$sql = "UPDATE Customer
-				SET custFullName = '" . $_POST['productName'] . "',
-					custAddress = '" . $_POST['productDesc'] . "',
-					custNumber = '" . $_POST['productImg'] . "'
+				SET custFullName = '" . $_POST['fullName'] . "',
+					custAddress = '" . $_POST['Address'] . "',
+					custNumber = '" . $_POST['Contact'] . "'
 				WHERE id = " . $_POST['custId'];
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
