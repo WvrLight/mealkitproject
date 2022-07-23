@@ -66,10 +66,10 @@
 				while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 					echo "
 						<h2>" . $row['custfullname'] . "</h2><br>
-						<p>Email: " . $row['custaddress'] . "</p>
-						<p>Contact Number:" . $row['custnumber'] . "</p>
+						<p>Delivery Address: " . $row['custaddress'] . "</p>
+						<p>Contact Number: " . $row['custnumber'] . "</p>
 						<div align='right'>
-							<input type='button' class='button' name='edit' value='Edit' onclick='editProduct(" . $row['id'] . ")'>
+							<input type='button' class='button' name='edit' value='Edit' onclick='editProfile(" . $row['id'] . ")'>
 						</div>
 					";
 				}
