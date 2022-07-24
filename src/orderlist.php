@@ -87,10 +87,10 @@
                                 <img src='" . $rowproduct['productimgurl'] . "' class='meal_pic'>
                                 <p class='mealkit_title'>" . $rowproduct['productname'] . "</p>";
                         if ($rowproduct['productsaleprice'] == null) {
-                            echo "<p class='mealkit_price'>" . $rowproduct['productprice'] . "</p>";
+                            echo "<p class='mealkit_price'>₱ " . $rowproduct['productprice'] . "</p>";
                         }
                         else {
-                            echo "<p class='mealkit_price'>" . $rowproduct['productsaleprice'] . "</p>";
+                            echo "<p class='mealkit_price'>₱ " . $rowproduct['productsaleprice'] . "</p>";
                         }
                         echo "</div>";
                     }
@@ -99,14 +99,14 @@
                 echo "<br><br><form method='post'>
                 <input type='hidden' class='orderID' name='orderId' value='" . $row['id'] . "'>
                 <div id='tracking_section'>";
-                switch ($row['orderStatus']) {
+                switch ($row['orderstatus']) {
                     case 0:
                         echo "<p class='tracking_prepared'><i class='fa fa-tasks' aria-hidden='true'></i>&nbsp&nbspThe parcel is being prepared. </p>";
 
                         if (isset($_SESSION['isadmin'])) {
                             echo "<form method='post'>
                             <input type='hidden' name='orderId' value='" . $row['id'] . "'>
-                            <div align='right' style='margin-right: 30px'>
+                            <div align='right' style='margin-right: 30px width: 20%;'>
                                 <input type='submit' name='submitDeliver' value='Mark as Delivering' class='button'>
                             </div>
                             </form>";
@@ -118,7 +118,7 @@
                         if (!isset($_SESSION['isadmin'])) {
                             echo "<form method='post'>
                             <input type='hidden' name='orderId' value='" . $row['id'] . "'>
-                            <div align='right' style='margin-right: 30px'>
+                            <div align='right' style='margin-right: 30px width: 20%;'>
                                 <input type='submit' name='submitDelivered' value='Mark as Delivered' class='button'>
                             </div>
                             </form>";
@@ -144,6 +144,7 @@
 
 <?php
 	if (isset($_POST['submitDeliver'])) {
+        echo "<script>console.log('a'></script>";
 		$sql = "UPDATE Orders
 				SET orderStatus = 1
 				WHERE id = " . $_POST['orderId'];
@@ -151,6 +152,7 @@
         $stmt->execute();
 
 		header("Refresh:2; url=orderlist.php");
+        echo "<script>console.log('b'></script>";
 	}
 
     if (isset($_POST['submitDelivered'])) {
