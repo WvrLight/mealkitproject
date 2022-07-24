@@ -1,5 +1,9 @@
 <?php include ('db.php')?>
 <?php
+    if (!isset($_SESSION['isadmin'])) {
+        echo "<script>window.location.href='login.php'</script>";
+    }
+
     $id = $_GET['id'];
 
     $sql = "SELECT * FROM Product WHERE id = " . $id;
