@@ -7,12 +7,6 @@
             WHERE productSaleEnd < CURRENT_DATE";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
-
-    $sql = "UPDATE Coupon
-            SET isExpired = true
-            WHERE couponExpiry < CURRENT_DATE";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute();
 ?>
 
 <!DOCTYPE html>
