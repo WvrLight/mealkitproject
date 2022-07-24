@@ -15,6 +15,7 @@
     <title>Tracking</title>
     <link rel="stylesheet" type="text/css" href="assets/css/payment_style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles_responsive.css">
 </head>
 <body>
     <div class="nav">
@@ -143,7 +144,7 @@
 
 <?php
 	if (isset($_POST['submitDeliver'])) {
-		$sql = "UPDATE Order
+		$sql = "UPDATE Orders
 				SET orderStatus = 1
 				WHERE id = " . $_POST['orderId'];
         $stmt = $pdo->prepare($sql);
@@ -153,7 +154,7 @@
 	}
 
     if (isset($_POST['submitDelivered'])) {
-		$sql = "UPDATE Order
+		$sql = "UPDATE Orders
 				SET orderStatus = 2
 				WHERE id = " . $_POST['orderId'];
         $stmt = $pdo->prepare($sql);

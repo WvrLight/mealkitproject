@@ -31,7 +31,7 @@
         function checkCoupon(code, price) {
             if (code.length == 0) {
                 document.getElementById("couponValidity").innerHTML = "";
-                document.getElementById("totalPrice").innerHTML = price;
+                document.getElementById("totalPrice").innerHTML = "₱ " + price;
                 return;
             } else {
                 console.log("<?php echo $totalPrice; ?>");
@@ -39,12 +39,13 @@
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         if (this.responseText == "Invalid") {
+                            document.getElementById("totalPrice").innerHTML = "₱ " +  price;
                             document.getElementById("couponValidity").innerHTML = this.responseText;
                         }
                         else {
                             var discount = this.responseText;
 
-                            document.getElementById("totalPrice").innerHTML = (price - (price * discount));
+                            document.getElementById("totalPrice").innerHTML = "₱ " + (price - (price * discount));
                             document.getElementById("couponValidity").innerHTML = "Valid";
                         }
                     }
@@ -106,7 +107,6 @@
                 <?php
                     echo $totalPrice;
                 ?>
-            <script>console.log("<?php echo $totalPrice; ?>");</script>
             </p>
             <h3>Payment method</h3>
             <label class="method_radio" for="method_cod">

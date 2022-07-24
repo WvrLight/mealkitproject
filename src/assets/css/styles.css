@@ -1,9 +1,10 @@
-@import url('//fonts.googleapis.com/css?family=Lato:400,700');
+@import url('//fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Roboto:wght@300&family=Sora&display=swap');
+@import url('//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
 
 body {
     background-color:#fdfcf7;
     color: #000000;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     height: 100%;
     margin: 0;
     padding: 0;

@@ -21,10 +21,10 @@
             <ul class="login">
                 <?php
                     if (isset($_SESSION['isadmin'])) {
-                        echo "<li><a href='coupon.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i>&nbspCoupon List</a></li>";
+                        echo "<li><a href='coupon.php'>&nbspCoupon List</a></li>";
                     }
                     if (isset($_SESSION['id'])) {
-                        echo "<li><a href='orderlist.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i>&nbspOrders</a></li>";
+                        echo "<li><a href='orderlist.php'>&nbspOrders</a></li>";
                         echo "<li><a href='payment.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i>&nbspCart</a></li>
                         <li><a href='profile.php'>View Profile</a></li>
                         <li><a href='logout.php'>Logout</a></li>";
