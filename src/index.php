@@ -1,5 +1,18 @@
 <?php 
 	session_start();
+
+    $sql = "UPDATE Product
+            SET productSalePrice = NULL,
+                productSaleEnd = NULL
+            WHERE productSaleEnd < CURRENT_DATE";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
+
+    $sql = "UPDATE Coupon
+            SET isExpired = true
+            WHERE couponExpiry < CURRENT_DATE";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute();
 ?>
 
 <!DOCTYPE html>
