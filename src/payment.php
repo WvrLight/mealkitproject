@@ -1,6 +1,7 @@
 <?php include ('db.php')?>
 <?php 
 	session_start();
+    $totalPrice = 0.0;
 
     if (!isset($_SESSION['id'])) {
         echo "<script>window.location.href='login.php'</script>";
@@ -85,8 +86,6 @@
         <div class="cart_payment">
             <h1>Shopping cart</h1>
             <?php
-                $totalPrice = 0.0;
-
                 foreach($_SESSION['cart'] as $ITEM) {
                     $sql = "SELECT * FROM Product WHERE id = " . $ITEM;
                     $stmt = $pdo->prepare($sql);
