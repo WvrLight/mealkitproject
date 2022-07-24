@@ -96,6 +96,10 @@
                         echo        "<img src='" . $row['productimgurl'] . "' class='meal_pic'>";
                         echo        "<p class='mealkit_title'>" . $row['productname'] . "</p>";
                         echo        "<p class='mealkit_price'>₱" . $row['productprice'] . "</p>";
+                        echo        "<div class='button_remove'>";
+                        echo            "<input type='hidden' class='productID' name='productId' value='" . $row['id'] . "'>";
+                        echo            "<input type='button' name='submitRemove' value='Remove' class='mealkit_price'>";
+                        echo        "</div>";
                         echo "</div>";
 
                         $totalPrice += $row['productprice'];
