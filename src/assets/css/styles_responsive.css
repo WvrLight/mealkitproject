@@ -169,10 +169,11 @@ fieldset .product-thumb {
 
 .button{
 	width: 100px;
-      padding: 10px;
-      background-color: #FF8C00;
-      font-weight:bold;
-      text-decoration:none;
+	max-width: 200px;
+    padding: 10px;
+    background-color: #FF8C00;
+    font-weight:bold;
+    text-decoration:none;
 }
 
 /*******************July 17 LOGIN FORM HTML ************/
