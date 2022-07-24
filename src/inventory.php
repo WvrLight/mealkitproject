@@ -135,6 +135,30 @@
 			<div id="formEdit" class="overlayEdit">
 			</div>
 			<div id="formAdd" class="overlayAdd">
+				<form method="post">
+				<div class="popupAdd">
+					  <h2>Add new MEAL-KIT</h2>
+						<a class="close" href="#">×</a>
+					  <div class="content">
+						<label>Product Name:</label>
+							<input type="text" name="productName" placeholder="--Enter New Product Name--" class="prodContent" required/><br>
+						<label>Product Description:</label>
+							<textarea name="productDesc" class="textareaDesc" rows="4" required> </textarea><br>
+						<label>Product Image URL:</label>
+							<input type="text" name="productImg" placeholder="--Enter Url--" class="prodContent" required/><br>
+						<label>Product Price:</label>
+							<input type="text" name="productPrice" placeholder="--Enter Original Price--" class="prodContent" required/><br>
+						<label>Product Sale Price:</label>
+							<input type="text" name="productSale" placeholder="--Enter Discounted Price--" class="prodContent"/><br>
+						<label>Product Sale Date:</label>
+							<input type="date" name="saleDate" class="prodContent"><br><br><br>
+						<div align="right" style="margin-right: 30px">
+							<input type="submit" name="submitAdd" value="Add" class="loginbtn">
+							<input type='reset' class="clearbtn" name='resetBtn' value='Clear'/>
+						</div>
+					  </div>
+				</div>
+				</form>
 			</div>
 			<div id="formView" class="overlayView">
 			</div>

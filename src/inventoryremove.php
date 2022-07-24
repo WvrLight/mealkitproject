@@ -12,7 +12,7 @@
         <div class='popupRemove'>
             <h2>Removing MEAL-KIT</h2>
             <input type='hidden' class='productID' name='productId' value='" . $id . "'>
-            <input type='button' class='close' name='close' value='×' onclick=' . 'closeView('formRemove')' . '>
+            <input type='button' class='close' name='close' value='×' onclick='" . "closeView('formRemove')" . ">
             <div class='content'>
                 <label>Please confirm removal of the selected mealkit: <b>" . $row['productname'] . "</b></label>
                 <div align='right' style='margin-right: 30px'>

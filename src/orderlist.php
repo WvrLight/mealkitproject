@@ -144,7 +144,6 @@
 
 <?php
 	if (isset($_POST['submitDeliver'])) {
-        echo "<script>console.log('a'></script>";
 		$sql = "UPDATE Orders
 				SET orderStatus = 1
 				WHERE id = " . $_POST['orderId'];
@@ -152,7 +151,6 @@
         $stmt->execute();
 
 		header("Refresh:2; url=orderlist.php");
-        echo "<script>console.log('b'></script>";
 	}
 
     if (isset($_POST['submitDelivered'])) {
