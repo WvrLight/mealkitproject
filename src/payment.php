@@ -42,6 +42,8 @@
                             document.getElementById("couponValidity").innerHTML = this.responseText;
                         }
                         else {
+                            var discount = this.responseText;
+
                             document.getElementById("totalPrice").innerHTML = (price - (price * discount));
                             document.getElementById("couponValidity").innerHTML = "Valid";
                         }
