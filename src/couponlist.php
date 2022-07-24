@@ -85,7 +85,7 @@
                         echo "<h4 class='tracking_receiver'>Expiry</h4>";
                         if (!$row['isexpired']) {
                             echo "<p class='tracking_name'>Expires on " . $row['couponexpiry']. "</p><br>";
-                            echo "<input type='button' class='button' name='expire' value='Set as Expired' onclick=" . "'expireCoupon('" . $row['code'] . "\")" . "\">";
+                            echo "<input type='button' class='button' name='expire' value='Set as Expired' onclick=" . "\"expireCoupon(\"".$row['code'] . "\")" . "\">";
                         }
                         else {
                             echo "<p class='tracking_name' style='color: red'>Expired on " . $row['couponexpiry'] . "</p><br>";
@@ -134,7 +134,7 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
-		header("Refresh:2; url=couponlist.php");
+		echo "<script>window.location.href='couponlist.php'</script>";
 	}
 
     if (isset($_POST['submitExpire'])) {
