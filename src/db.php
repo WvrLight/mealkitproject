@@ -17,4 +17,27 @@
     catch (PDOException $e) {
         echo 'Connection failed: ' . $e->getMessage();
     }
+
+    try {
+        $sql = "UPDATE Product
+            SET productSalePrice = NULL,
+                productSaleEnd = NULL
+            WHERE productSaleEnd < CURRENT_DATE";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+    }
+    catch (PDOException $e) {
+        echo "<script>console.log('Connection failed: " . $e->getMessage() . "')</script>";
+    }
+
+    try {
+        $sql = "UPDATE Coupon
+            SET isExpired = true
+            WHERE couponExpiry < CURRENT_DATE";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+    }
+    catch (PDOException $e) {
+        echo "<script>console.log('Connection failed: " . $e->getMessage() . "')</script>";
+    }
 ?>
