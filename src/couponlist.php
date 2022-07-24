@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
     <link rel="stylesheet" type="text/css" href="assets/css/styles_responsive.css">
     <script>
-        function expireCoupon(id) {
+        function expireCoupon(code) {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
@@ -27,7 +27,7 @@
                     view.style.opacity = 1;
                 }
             };
-            xmlhttp.open("GET", "inventoryremove.php?id=" + id, true);
+            xmlhttp.open("GET", "inventoryremove.php?code=" + code, true);
             xmlhttp.send();
         }
 
