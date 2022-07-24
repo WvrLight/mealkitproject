@@ -99,10 +99,12 @@
                         echo        "<img src='" . $row['productimgurl'] . "' class='meal_pic'>";
                         echo        "<p class='mealkit_title'>" . $row['productname'] . "</p>";
                         echo        "<p class='mealkit_price'>₱" . $row['productprice'] . "</p>";
+                        echo        "<form method='post'>";
                         echo        "<div class='button_remove'>";
                         echo            "<input type='hidden' name='cartIndex' value='" . $i . "'>";
                         echo            "<input type='button' name='submitRemove' value='Remove' class='mealkit_price'>";
                         echo        "</div>";
+                        echo        "</form>";
                         echo "</div>";
 
                         $totalPrice += $row['productprice'];
