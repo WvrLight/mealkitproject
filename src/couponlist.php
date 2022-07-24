@@ -27,7 +27,7 @@
                     view.style.opacity = 1;
                 }
             };
-            xmlhttp.open("GET", "inventoryremove.php?code=" + code, true);
+            xmlhttp.open("GET", "couponexpire.php?code=" + code, true);
             xmlhttp.send();
         }
 
