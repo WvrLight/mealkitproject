@@ -86,7 +86,10 @@
         <div class="cart_payment">
             <h1>Shopping cart</h1>
             <?php
+                $i = -1;
                 foreach($_SESSION['cart'] as $ITEM) {
+                    $i++;
+
                     $sql = "SELECT * FROM Product WHERE id = " . $ITEM;
                     $stmt = $pdo->prepare($sql);
                     $stmt->execute();
@@ -97,7 +100,7 @@
                         echo        "<p class='mealkit_title'>" . $row['productname'] . "</p>";
                         echo        "<p class='mealkit_price'>₱" . $row['productprice'] . "</p>";
                         echo        "<div class='button_remove'>";
-                        echo            "<input type='hidden' class='productID' name='productId' value='" . $row['id'] . "'>";
+                        echo            "<input type='hidden' name='cartIndex' value='" . $i . "'>";
                         echo            "<input type='button' name='submitRemove' value='Remove' class='mealkit_price'>";
                         echo        "</div>";
                         echo "</div>";
@@ -172,8 +175,12 @@
 </html>
 
 <?php
+    if (isset($_POST['submitRemove'])) { 
+        unset($_SESSION['cart'][$_POST['cartIndex']]);
+        echo "<script>window.location.href='payment.php'</script>";
+    }
+
     if (isset($_POST['pay'])) {
-        echo "<script>console.log('test')</script>";
         date_default_timezone_set('Asia/Manila');
         $orderId += 1;
 
