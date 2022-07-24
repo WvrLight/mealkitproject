@@ -23,7 +23,7 @@
     function checkDates() {
         $sql = "UPDATE Product
                 SET productSalePrice = NULL,
-                    productSaleEnd = NULL,
+                    productSaleEnd = NULL
                 WHERE productSaleEnd < CURRENT_DATE";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
