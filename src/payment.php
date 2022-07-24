@@ -31,9 +31,10 @@
         function checkCoupon(code) {
             if (code.length == 0) {
                 document.getElementById("couponValidity").innerHTML = "";
-                document.getElementById("totalPrice").innerHTML = "<?php print $totalPrice; ?>"
+                document.getElementById("totalPrice").innerHTML = "<?php echo $totalPrice; ?>"
                 return;
             } else {
+                console.log("<?php echo $totalPrice; ?>");
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -41,7 +42,7 @@
                             document.getElementById("couponValidity").innerHTML = this.responseText;
                         }
                         else {
-                            var newPrice = "<?php print $totalPrice; ?>"
+                            var newPrice = "<?php echo $totalPrice; ?>"
                             var discount = this.responseText;
                             newPrice -= (newPrice * discount)
 
