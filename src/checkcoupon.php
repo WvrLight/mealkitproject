@@ -8,7 +8,7 @@
     $couponResult = false;
 		
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-        if (!strcmp($_POST['code'], $row['code'])) {
+        if (!strcmp($_GET['code'], $row['code'])) {
             $couponResult = true;
             echo $row['discountpercent'];
         }
