@@ -15,7 +15,6 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
         $orderId = $stmt->rowCount();
-        echo "<script>console.log($orderId)</script>";
     }
 ?>
 
@@ -102,7 +101,7 @@
                         echo        "<form method='post'>";
                         echo        "<div class='button_remove'>";
                         echo            "<input type='hidden' name='cartIndex' value='" . $i . "'>";
-                        echo            "<input type='button' name='submitRemove' value='Remove'>";
+                        echo            "<input type='submit' name='submitRemove' value='Remove'>";
                         echo        "</div>";
                         echo        "</form>";
                         echo "</div>";

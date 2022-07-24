@@ -13,8 +13,25 @@
         $pdo->setAttribute(PDO::ATTR_EMULATE_PREPARES,false);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $pdo->setAttribute(PDO::ATTR_CASE, PDO::CASE_NATURAL);
+
+        checkDates();
     }
     catch (PDOException $e) {
         echo 'Connection failed: ' . $e->getMessage();
+    }
+
+    function checkDates() {
+        $sql = "UPDATE Product
+                SET productSalePrice = NULL,
+                    productSaleEnd = NULL,
+                WHERE productSaleEnd < CURRENT_DATE";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+        $sql = "UPDATE Coupon
+                SET isExpired = true
+                WHERE couponExpiry < CURRENT_DATE";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
     }
 ?>
