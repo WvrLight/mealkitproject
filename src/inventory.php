@@ -72,10 +72,10 @@
             <ul class="login">
                 <?php
                     if (isset($_SESSION['isadmin'])) {
-                        echo "<li><a href='coupon.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i>&nbspCoupon List</a></li>";
+                        echo "<li><a href='couponlist.php'>&nbspCoupon List</a></li>";
                     }
                     if (isset($_SESSION['id'])) {
-                        echo "<li><a href='orderlist.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i>&nbspOrders</a></li>";
+                        echo "<li><a href='orderlist.php'>&nbspOrders</a></li>";
                         echo "<li><a href='payment.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i>&nbspCart</a></li>
                         <li><a href='profile.php'>View Profile</a></li>
                         <li><a href='logout.php'>Logout</a></li>";
@@ -165,12 +165,11 @@
 			<div id="formRemove" class="overlayRemove">
 			</div>
 		</div>
-		
 		<div id="footer">
             Copyright &copy; 2022 <a href="index.php">Filipino Meal Kits.</a> Rights Reserved. <br>
             <a href="mailto:fmk@filipinomealkits.com">fmk@filipinomealkits.com</a>
-            <p> <a href="termsandconditions.html">Terms and Conditions.</a>&nbsp&nbsp&nbsp&nbsp<a href="privacypolicy.html">Privacy Policy.</a></p>
-        </div>	
+            <p> <a href="termsandconditions.php">Terms and Conditions.</a>&nbsp&nbsp&nbsp&nbsp<a href="termsandconditions.php">Privacy Policy.</a></p>
+        </div>
     </body>
 </html>
 

@@ -1,3 +1,7 @@
+<?php 
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,18 +14,28 @@
 </head>
 <body>
     <div class="nav">
-        <img class="logo" src="assets/css/logo.png" id="CoffeeShopLogo" alt="Meal Kit Logo">
+        <img class="logo" src="assets/img/logo.png" id="Meal Kit Logo" alt="Meal Kit Logo">
         <ul class="home">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="inventory.html">Subscriptions</a></li>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="inventory.php">Meal Kits</a></li>
             <li><a href="contact.php">Contact Us</a></li>
-            <li><a href="trackingpage.html">Tracking</a></li>
         </ul>
         <ul class="login">
-            <li><a href="paymentpage.html"><i class="fa fa-shopping-cart" aria-hidden="true"></i>&nbspCart</a></li>
-            <li><a href="login.html">Log In </a></li>
-            <li><a href="signup.html">Sign Up </a></li>
+            <?php
+                if (isset($_SESSION['isadmin'])) {
+                    echo "<li><a href='couponlist.php'>&nbspCoupon List</a></li>";
+                }
+                if (isset($_SESSION['id'])) {
+                    echo "<li><a href='orderlist.php'>&nbspOrders</a></li>";
+                    echo "<li><a href='payment.php'><i class='fa fa-shopping-cart' aria-hidden='true'></i>&nbspCart</a></li>
+                    <li><a href='profile.php'>View Profile</a></li>
+                    <li><a href='logout.php'>Logout</a></li>";
+                }
+                else {
+                    echo "<li><a href='login.php'>Log In</a></li>
+                    <li><a href='register.php'>Sign Up</a></li>";
+                }
+            ?>
         </ul>
     </div>
     <div class="aboutus-wrapper">
@@ -114,14 +128,9 @@
     </div>
 
     <div id="footer">
-        Copyright &copy; 2022 <a href="index.html">Filipino Meal Kits.</a> Rights Reserved. <br>
+        Copyright &copy; 2022 <a href="index.php">Filipino Meal Kits.</a> Rights Reserved. <br>
         <a href="mailto:fmk@filipinomealkits.com">fmk@filipinomealkits.com</a>
-        <p> <a href="termsandconditions.html">Terms and Conditions.</a>&nbsp&nbsp&nbsp&nbsp<a href="privacypolicy.html">Privacy Policy.</a></p>
-        
-    </div>	
-
-
+        <p> <a href="termsandconditions.php">Terms and Conditions.</a>&nbsp&nbsp&nbsp&nbsp<a href="termsandconditions.php">Privacy Policy.</a></p>
+    </div>
 </body>
-
-
 </html>
