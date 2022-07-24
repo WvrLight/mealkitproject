@@ -138,7 +138,7 @@
 	}
 
     if (isset($_POST['submitExpire'])) {
-        echo "<script>console.log('" . date("Y-m-d") . "')</script>";
+        echo "<script>console.log('" . $_POST['couponCode'] . "')</script>";
 
 		$sql = "UPDATE Coupon
 				SET isExpired = true,
