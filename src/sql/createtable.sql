@@ -40,3 +40,12 @@ CREATE TABLE OrderCart (
         FOREIGN KEY (orderId)
         REFERENCES Orders(id)
 );
+
+CREATE TABLE Coupon (
+    code VARCHAR PRIMARY KEY NOT NULL,
+    discountPercent FLOAT NOT NULL,
+    isOneTimeUse BOOLEAN NOT NULL,
+    couponExpiry DATE NOT NULL,
+    isExpired BOOLEAN NOT NULL,
+    UNIQUE(code)
+)

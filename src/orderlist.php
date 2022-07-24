@@ -15,7 +15,6 @@
     <title>Tracking</title>
     <link rel="stylesheet" type="text/css" href="assets/css/payment_style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-
 </head>
 <body>
     <div class="nav">
@@ -96,7 +95,9 @@
                     }
                 }
 
-                echo "<br><br><div id='tracking_section" . $row['id'] . "'>";
+                echo "<br><br><form method='post'>
+                <input type='hidden' class='orderID' name='orderId' value='" . $row['id'] . "'>
+                <div id='tracking_section'>";
                 switch ($row['orderStatus']) {
                     case 0:
                         echo "<p class='tracking_prepared'><i class='fa fa-tasks' aria-hidden='true'></i>&nbsp&nbspThe parcel is being prepared. </p>";
@@ -105,7 +106,7 @@
                             echo "<form method='post'>
                             <input type='hidden' name='orderId' value='" . $row['id'] . "'>
                             <div align='right' style='margin-right: 30px'>
-                                <input type='submit' name='submitDeliver' value='Mark as Delivering' class='loginbtn'>
+                                <input type='submit' name='submitDeliver' value='Mark as Delivering' class='button'>
                             </div>
                             </form>";
                         }
@@ -117,7 +118,7 @@
                             echo "<form method='post'>
                             <input type='hidden' name='orderId' value='" . $row['id'] . "'>
                             <div align='right' style='margin-right: 30px'>
-                                <input type='submit' name='submitDelivered' value='Mark as Delivered' class='loginbtn'>
+                                <input type='submit' name='submitDelivered' value='Mark as Delivered' class='button'>
                             </div>
                             </form>";
                         }
@@ -131,15 +132,33 @@
             }
         ?>
     </div>
+    <br><br><br><br>
     <div id="footer">
-        Copyright &copy; 2022 <a href="index.html">Filipino Meal Kits.</a> Rights Reserved. <br>
+        Copyright &copy; 2022 <a href="index.php">Filipino Meal Kits.</a> Rights Reserved. <br>
         <a href="mailto:fmk@filipinomealkits.com">fmk@filipinomealkits.com</a>
-        <p> <a href="termsandconditions.html">Terms and Conditions.</a>&nbsp&nbsp&nbsp&nbsp<a href="privacypolicy.html">Privacy Policy.</a></p>
-        
-    </div>	
-
-
+        <p> <a href="termsandconditions.html">Terms and Conditions.</a>&nbsp&nbsp&nbsp&nbsp<a href="termsandconditions.html">Privacy Policy.</a></p>
+    </div>
 </body>
-
-
 </html>
+
+<?php
+	if (isset($_POST['submitDeliver'])) {
+		$sql = "UPDATE Order
+				SET orderStatus = 1
+				WHERE id = " . $_POST['orderId'];
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+		header("Refresh:2; url=orderlist.php");
+	}
+
+    if (isset($_POST['submitDelivered'])) {
+		$sql = "UPDATE Order
+				SET orderStatus = 2
+				WHERE id = " . $_POST['orderId'];
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+		header("Refresh:2; url=orderlist.php");
+	}
+?>

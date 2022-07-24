@@ -26,7 +26,34 @@
     <title>Payment Page</title>
     <link rel="stylesheet" type="text/css" href="assets/css/payment_style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <script>
+        function checkCoupon(code) {
+            if (str.length == 0) {
+                document.getElementById("couponValidity").innerHTML = "";
+                document.getElementById("totalPrice").innerHTML = "<?php print $totalPrice; ?>"
+                return;
+            } else {
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        if (this.responseText == "Invalid") {
+                            document.getElementById("couponValidity").innerHTML = this.responseText;
+                        }
+                        else {
+                            var newPrice = "<?php print $totalPrice; ?>"
+                            var discount = this.responseText;
+                            newPrice -= (newPrice * discount)
 
+                            document.getElementById("totalPrice").innerHTML = newPrice;
+                            document.getElementById("couponValidity").innerHTML = "Valid";
+                        }
+                    }
+                };
+                xmlhttp.open("GET", "checkcoupon.php?code=" + code, true);
+                xmlhttp.send();
+            }
+        }
+    </script>
 </head>
 <body>
     <div class="nav">
@@ -75,10 +102,9 @@
                         $totalPrice += $row['productprice'];
                     }
                 }
-                
             ?>
             <p class="mealkit_total">Total:</p>
-            <p class="mealkit_totalprice">₱
+            <p id="totalPrice" class="mealkit_totalprice">₱
                 <?php
                     echo $totalPrice;
                 ?>
@@ -93,6 +119,10 @@
                 &nbspDebit / Credit Card
               </label>
         </div>
+        <br>
+        <label class="label">Coupon Code:</label>
+        <input type="text" class="input" name="coupon" onkeyup="checkCoupon(this.value)">
+        <p id="couponValidity" style="position: relative; float: right; margin-right: 12%;"></p>
     </div>
     <div class="wrapper">
         <div class="payment">

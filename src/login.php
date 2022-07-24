@@ -97,6 +97,5 @@
             echo "<script>alert('Incorrect login details.');</script>";
             echo "<script>window.location.href='login.php'</script>";		
         }
-		
 	}
 ?>
