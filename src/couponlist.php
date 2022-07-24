@@ -55,7 +55,7 @@
                 echo "<h4 class='tracking_receiver'>Discount</h4>
                     <p class='tracking_name'>" . $row['discountpercent'] * 100 . "%</p><br>";
 
-                if ($row['isExpired'] == 0) {
+                if ($row['isexpired'] == "false") {
                     echo "<h4 class='tracking_receiver'>Expiry</h4>
                     <p class='tracking_name'>Expires on " . $row['expirydate']. "</p><br>";
                 }

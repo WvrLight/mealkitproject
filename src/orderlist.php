@@ -87,10 +87,10 @@
                                 <img src='" . $rowproduct['productimgurl'] . "' class='meal_pic'>
                                 <p class='mealkit_title'>" . $rowproduct['productname'] . "</p>";
                         if ($rowproduct['productsaleprice'] == null) {
-                            echo "<p class='mealkit_price'>₱ " . $rowproduct['productprice'] . "</p>";
+                            echo "<p class='mealkit_price'>₱" . $rowproduct['productprice'] . "</p>";
                         }
                         else {
-                            echo "<p class='mealkit_price'>₱ " . $rowproduct['productsaleprice'] . "</p>";
+                            echo "<p class='mealkit_price'>₱" . $rowproduct['productsaleprice'] . "</p>";
                         }
                         echo "</div>";
                     }
