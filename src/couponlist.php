@@ -142,7 +142,7 @@
 
 		$sql = "UPDATE Coupon
 				SET isExpired = true,
-                SET couponExpiry = '" . date("Y-m-d") . "' 
+                    couponExpiry = '" . date("Y-m-d") . "' 
                 WHERE code = " . $_POST['couponCode'];
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
