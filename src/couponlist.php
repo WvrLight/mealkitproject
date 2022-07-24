@@ -44,7 +44,7 @@
     </div>
     <div class="cart-wrapper">
         <?php
-            $sql = "SELECT * FROM Coupons";
+            $sql = "SELECT * FROM Coupon";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
 

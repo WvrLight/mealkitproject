@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
     <script>
         function checkCoupon(code) {
-            if (str.length == 0) {
+            if (code.length == 0) {
                 document.getElementById("couponValidity").innerHTML = "";
                 document.getElementById("totalPrice").innerHTML = "<?php print $totalPrice; ?>"
                 return;
@@ -113,16 +113,16 @@
             <label class="method_radio" for="method_cod">
                 <input type="radio" class="radio_input" name="method_cod" id="radio_cod">
                 &nbspCash on Delivery
-              </label>
-              <label class="method_radio" for="method_card">
+            </label>
+            <label class="method_radio" for="method_card">
                 <input type="radio" class="radio_input" name="method_card" id="radio_card">
                 &nbspDebit / Credit Card
-              </label>
+            </label>
+            <br>
+            <label class="label">Coupon Code:</label>
+            <input type="text" class="input" name="coupon" onkeyup="checkCoupon(this.value)">
+            <p id="couponValidity" style="position: relative; float: right; margin-right: 12%;"></p>
         </div>
-        <br>
-        <label class="label">Coupon Code:</label>
-        <input type="text" class="input" name="coupon" onkeyup="checkCoupon(this.value)">
-        <p id="couponValidity" style="position: relative; float: right; margin-right: 12%;"></p>
     </div>
     <div class="wrapper">
         <div class="payment">
