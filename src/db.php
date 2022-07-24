@@ -21,16 +21,7 @@
     }
 
     function checkDates() {
-        $sql = "UPDATE Product
-                SET productSalePrice = NULL,
-                    productSaleEnd = NULL
-                WHERE productSaleEnd < CURRENT_DATE";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
-
-        $sql = "UPDATE Coupon
-                SET isExpired = true
-                WHERE couponExpiry < CURRENT_DATE";
+        $sql = "SELECT CURRENT_DATE;";
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
     }
