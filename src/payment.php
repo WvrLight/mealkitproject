@@ -102,7 +102,7 @@
                         echo        "<form method='post'>";
                         echo        "<div class='button_remove'>";
                         echo            "<input type='hidden' name='cartIndex' value='" . $i . "'>";
-                        echo            "<input type='button' name='submitRemove' value='Remove' class='mealkit_price'>";
+                        echo            "<input type='button' name='submitRemove' value='Remove'>";
                         echo        "</div>";
                         echo        "</form>";
                         echo "</div>";
@@ -178,6 +178,8 @@
 
 <?php
     if (isset($_POST['submitRemove'])) { 
+        echo "<script>console.log('a');</script>";
+
         unset($_SESSION['cart'][$_POST['cartIndex']]);
         echo "<script>window.location.href='payment.php'</script>";
     }
