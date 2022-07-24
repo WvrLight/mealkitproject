@@ -64,33 +64,36 @@
             ?>
         </ul>
     </div>
-    <div class="product-header">
-        <br><a href='#formAdd' class='button1'>+</a>
-        <h1>Coupons</h1>
-    </div>
-    <div class="cart-wrapper">
-        <?php
-            $sql = "SELECT * FROM Coupon";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute();
+    <div class="wholecontainer">
+        <div class="product-header">
+            <br><a href='#formAdd' class='button1'>+</a>
+            <h1>Coupons</h1>
+        </div>
+        <div class="cart-wrapper">
+            <?php
+                $sql = "SELECT * FROM Coupon";
+                $stmt = $pdo->prepare($sql);
+                $stmt->execute();
 
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                echo "<div class='cart_payment'>";
-                echo "<h4 class='tracking_receiver'>Coupon Code</h4>
-                    <p class='tracking_name'>" . $row['code'] . "</p><br>";
-                echo "<h4 class='tracking_receiver'>Discount</h4>
-                    <p class='tracking_name'>" . $row['discountpercent'] * 100 . "%</p><br>";
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<div class='cart_payment'>";
+                    echo "<h4 class='tracking_receiver'>Coupon Code</h4>
+                        <p class='tracking_name'>" . $row['code'] . "</p><br>";
+                    echo "<h4 class='tracking_receiver'>Discount</h4>
+                        <p class='tracking_name'>" . $row['discountpercent'] * 100 . "%</p><br>";
 
-                echo "echo <h4 class='tracking_receiver'>Expiry</h4>";
-                if (!strcmp($row['isexpired'], "false")) {
-                    echo "<p class='tracking_name'>Expires on " . $row['couponexpiry']. "</p><br>";
+                    echo "echo <h4 class='tracking_receiver'>Expiry</h4>";
+                    if (!$row['isexpired']) {
+                        echo "<p class='tracking_name'>Expires on " . $row['couponexpiry']. "</p><br>";
+                        echo "<input type='button' class='button' name='expire' value='Set as Expired' onclick='expireCoupon(" . $row['code'] . ")'>";
+                    }
+                    else {
+                        echo "<p class='tracking_name' style='color: red'>Expired on " . $row['couponexpiry'] . "</p><br>";
+                    }
+                    echo "</div>";
                 }
-                else {
-                    echo "<p class='tracking_name' style='color: red'>Expired on " . $row['couponexpiry'] . "</p><br>";
-                }
-                echo "</div>";
-            }
-        ?>
+            ?>
+        </div>
     </div>
     <br><br><br><br><br><br><br><br>
     <div id="footer">
