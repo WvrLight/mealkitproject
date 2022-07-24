@@ -28,10 +28,10 @@
     <link rel="stylesheet" type="text/css" href="assets/css/payment_style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
     <script>
-        function checkCoupon(code) {
+        function checkCoupon(code, price) {
             if (code.length == 0) {
                 document.getElementById("couponValidity").innerHTML = "";
-                document.getElementById("totalPrice").innerHTML = "<?php echo $totalPrice; ?>"
+                document.getElementById("totalPrice").innerHTML = price;
                 return;
             } else {
                 console.log("<?php echo $totalPrice; ?>");
@@ -42,11 +42,7 @@
                             document.getElementById("couponValidity").innerHTML = this.responseText;
                         }
                         else {
-                            var newPrice = "<?php echo $totalPrice; ?>"
-                            var discount = this.responseText;
-                            newPrice -= (newPrice * discount)
-
-                            document.getElementById("totalPrice").innerHTML = newPrice;
+                            document.getElementById("totalPrice").innerHTML = (price - (price * discount));
                             document.getElementById("couponValidity").innerHTML = "Valid";
                         }
                     }
@@ -121,7 +117,9 @@
             </label>
             <br><br>
             <label class="label">Coupon Code:</label>
-            <input type="text" class="input" name="coupon" onkeyup="checkCoupon(this.value)">
+            <?php
+                echo "<input type='text' class='input' name='coupon' onkeyup='checkCoupon(this.value, $totalPrice)'>";
+            ?>
             <p id="couponValidity" style="position: relative; float: right; margin-right: 12%;"></p>
         </div>
     </div>
