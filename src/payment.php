@@ -108,6 +108,7 @@
                 <?php
                     echo $totalPrice;
                 ?>
+            <script>console.log("<?php echo $totalPrice; ?>");</script>
             </p>
             <h3>Payment method</h3>
             <label class="method_radio" for="method_cod">
@@ -118,7 +119,7 @@
                 <input type="radio" class="radio_input" name="method_card" id="radio_card">
                 &nbspDebit / Credit Card
             </label>
-            <br>
+            <br><br>
             <label class="label">Coupon Code:</label>
             <input type="text" class="input" name="coupon" onkeyup="checkCoupon(this.value)">
             <p id="couponValidity" style="position: relative; float: right; margin-right: 12%;"></p>
