@@ -54,7 +54,6 @@
         }
 
         function checkCard(number) {
-            console.log("a");
             var visa = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
             var mastercard = /^(?:5[1-5][0-9]{14})$/;
             if (number.length == 0) {
@@ -71,42 +70,40 @@
             }
         }
 
-        var cod = document.getElementById("radio_cod");
-        cod.addEventListener('change', setToCOD);
-        
-        function setToCOD() {
-             document.getElementById("card_holder").required = false;
-             document.getElementById("card_holder").innerText = "";
-             document.getElementById("card_holder").setAttribute('disabled', '');
+        const radios = document.querySelectorAll('method')
+        for (const radio of radios) {
+            radio.onclick = (e) => {
+                if (!strcmp(e, "radio_cod")) {
+                    document.getElementById("card_holder").required = false;
+                    document.getElementById("card_holder").innerText = "";
+                    document.getElementById("card_holder").setAttribute('disabled', '');
 
-             document.getElementById("card_number").required = false;
-             document.getElementById("card_number").innerText = "";
-             document.getElementById("card_number").setAttribute('disabled', '');
+                    document.getElementById("card_number").required = false;
+                    document.getElementById("card_number").innerText = "";
+                    document.getElementById("card_number").setAttribute('disabled', '');
 
-             document.getElementById("expiry_date").required = false;
-             document.getElementById("expiry_date").innerText = "";
-             document.getElementById("expiry_date").setAttribute('disabled', '');
+                    document.getElementById("expiry_date").required = false;
+                    document.getElementById("expiry_date").innerText = "";
+                    document.getElementById("expiry_date").setAttribute('disabled', '');
 
-             document.getElementById("cvc").required = false;
-             document.getElementById("cvc").innerText = "";
-             document.getElementById("cvc").setAttribute('disabled', '');
-        }
+                    document.getElementById("cvc").required = false;
+                    document.getElementById("cvc").innerText = "";
+                    document.getElementById("cvc").setAttribute('disabled', '');
+                }
+                else {
+                    document.getElementById("card_holder").required = true;
+                    document.getElementById("card_holder").removeAttribute('disabled');
 
-        var card = document.getElementById("radio_card");
-        cod.addEventListener('change', setToCard);
-        
-        function setToCard() {
-             document.getElementById("card_holder").required = true;
-             document.getElementById("card_holder").removeAttribute('disabled');
+                    document.getElementById("card_number").required = true;
+                    document.getElementById("card_number").removeAttribute('disabled');
 
-             document.getElementById("card_number").required = true;
-             document.getElementById("card_number").removeAttribute('disabled');
+                    document.getElementById("expiry_date").required = true;
+                    document.getElementById("expiry_date").removeAttribute('disabled');
 
-             document.getElementById("expiry_date").required = true;
-             document.getElementById("expiry_date").removeAttribute('disabled');
-
-             document.getElementById("cvc").required = true;
-             document.getElementById("cvc").removeAttribute('disabled');
+                    document.getElementById("cvc").required = true;
+                    document.getElementById("cvc").removeAttribute('disabled');
+                }
+            }
         }
     </script>
 </head>
@@ -173,11 +170,11 @@
             </p>
             <h3>Payment method</h3>
             <label class="method_radio" for="method_cod">
-                <input type="radio" class="radio_input" name="method_cod" id="radio_cod">
+                <input type="radio" class="radio_input" name="method" value="radio_cod">
                 &nbspCash on Delivery
             </label>
             <label class="method_radio" for="method_card">
-                <input type="radio" class="radio_input" name="method_card" id="radio_card">
+                <input type="radio" class="radio_input" name="method" value="radio_card">
                 &nbspDebit / Credit Card
             </label>
             <br><br>
