@@ -78,7 +78,7 @@
         $loginResult = false;
 		
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            if (!strcmp($_POST['password'], $row['custpassword'])) {
+            if (password_verify($_POST['password'], $row['custpassword'])) {
                 $loginResult = true;
                 $_SESSION['id'] = $row['id'];
                 $_SESSION['username'] = $_POST['username'];

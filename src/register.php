@@ -88,8 +88,10 @@
     if (isset($_POST['register'])) {
         echo "<script>console.log(" . strcmp($_POST['psw'], $_POST['psw-repeat']) . ")</script>";
         if (!strcmp($_POST['psw'], $_POST['psw-repeat'])) {
+            $encrytedPass = password_hash($_POST['psw'], PASSWORD_DEFAULT);
+
             $sql = "INSERT INTO Customer(custFullName, custUsername, custPassword, custEmail, custAddress, custNumber)
-				VALUES('" . $_POST['fname'] . "', '" . $_POST['uname'] . "', '" . $_POST['psw'] . "', '" . $_POST['email'] . "', '" . $_POST['address'] . "', '" . $_POST['cnum'] . "')";
+				VALUES('" . $_POST['fname'] . "', '" . $_POST['uname'] . "', '" . $encrytedPass . "', '" . $_POST['email'] . "', '" . $_POST['address'] . "', '" . $_POST['cnum'] . "')";
             $stmt = $pdo->prepare($sql);
             try {
                 $stmt->execute();
