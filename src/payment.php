@@ -70,7 +70,7 @@
             }
         }
 
-        const radios = document.querySelectorAll("input[name='method']")
+        const radios = document.querySelectorAll("method")
         for (const radio of radios) {
             radio.addEventListener('change', setPaymentMethod);
         }
