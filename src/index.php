@@ -45,7 +45,8 @@
             
         </div>
         <div class="content">
-           About Us
+           <h2>About Us</h2>
+                We are a business looking to expand into the meal-kit niche for all your Filipino food ingredient needs!
         </div>
         <div id="footer">
             Copyright &copy; 2022 <a href="index.php">Filipino Meal Kits.</a> Rights Reserved. <br>

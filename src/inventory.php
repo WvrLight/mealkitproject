@@ -225,7 +225,7 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
-		header("Refresh:2; url=inventory.php");
+		echo "<script>window.location.href='inventory.php'</script>";
 	}
 
 	if (isset($_POST['submitAdd'])) {
@@ -252,7 +252,7 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
-		header("Refresh:2; url=inventory.php");
+		echo "<script>window.location.href='inventory.php'</script>";
 	}
 
 	if (isset($_POST['submitRemove'])) {
@@ -261,6 +261,6 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
-		header("Refresh:2; url=inventory.php");
+		echo "<script>window.location.href='inventory.php'</script>";
 	}
 ?>

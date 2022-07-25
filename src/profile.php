@@ -107,6 +107,6 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
-		header("Refresh:2; url=profile.php");
+		echo "<script>window.location.href='profile.php'</script>";
 	}
 ?>

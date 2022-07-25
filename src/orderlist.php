@@ -150,7 +150,7 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
-		header("Refresh:2; url=orderlist.php");
+		echo "<script>window.location.href='orderlist.php'</script>";
 	}
 
     if (isset($_POST['submitDelivered'])) {
@@ -160,6 +160,6 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
-		header("Refresh:2; url=orderlist.php");
+		echo "<script>window.location.href='orderlist.php'</script>";
 	}
 ?>

@@ -97,7 +97,6 @@
                 $stmt->execute();
                 echo "<script>alert('Successfully registered. You may now log in.');</script>";
                 echo "<script>window.location.href='login.php'</script>";	
-                header("Refresh:2; url=login.php");
             } catch (PDOException $pde) {
                 echo "<script>alert('Username already exists.');</script>";
                 echo "<script>console.log('" . $pde->getMessage() . "')</script>";

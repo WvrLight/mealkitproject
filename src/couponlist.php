@@ -152,6 +152,6 @@
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
 
-		header("Refresh:2; url=couponlist.php");
+		echo "<script>window.location.href='couponlist.php'</script>";
 	}
 ?>
