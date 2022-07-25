@@ -29,8 +29,8 @@
     <script>
         function checkCoupon(code, price) {
             if (code.length == 0) {
-                document.getElementById("couponValidity").innerHTML = "";
-                document.getElementById("totalPrice").innerHTML = "₱ " + price;
+                document.getElementById("couponValidity").innerText = "";
+                document.getElementById("totalPrice").innerText = "₱ " + price;
                 return;
             } else {
                 console.log("<?php echo $totalPrice; ?>");
@@ -38,20 +38,71 @@
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
                         if (this.responseText == "Invalid") {
-                            document.getElementById("totalPrice").innerHTML = "₱ " +  price;
-                            document.getElementById("couponValidity").innerHTML = this.responseText;
+                            document.getElementById("totalPrice").innerText = "₱ " +  price;
+                            document.getElementById("couponValidity").innerText = this.responseText;
                         }
                         else {
                             var discount = this.responseText;
 
-                            document.getElementById("totalPrice").innerHTML = "₱ " + (price - (price * discount));
-                            document.getElementById("couponValidity").innerHTML = (discount * 100) + "% off";
+                            document.getElementById("totalPrice").innerText = "₱ " + (price - (price * discount));
+                            document.getElementById("couponValidity").innerText = (discount * 100) + "% off";
                         }
                     }
                 };
                 xmlhttp.open("GET", "checkcoupon.php?code=" + code, true);
                 xmlhttp.send();
             }
+        }
+
+        function checkCard(number) {
+            var visa = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+            var mastercard = /^(?:5[1-5][0-9]{14})$/;
+            if (number.length == 0) {
+                document.getElementById("cardValidity").innerText = "";
+            }
+            if (number.value.match(visa)) {
+                document.getElementById("cardValidity").innerText = "Valid (VISA)";
+            }
+            else if (number.value.match(mastercard)) {
+                document.getElementById("cardValidity").innerText = "Valid (MasterCard)";
+            }
+            else {
+                document.getElementById("cardValidity").innerText = "Invalid";
+            }
+        }
+
+        var cod = document.getElementById("radio_cod");
+        cod.onclick => {
+             document.getElementById("card_holder").required = false;
+             document.getElementById("card_holder").innerText = "";
+             document.getElementById("card_holder").setAttribute('disabled', '');
+
+             document.getElementById("card_number").required = false;
+             document.getElementById("card_number").innerText = "";
+             document.getElementById("card_number").setAttribute('disabled', '');
+
+             document.getElementById("expiry_date").required = false;
+             document.getElementById("expiry_date").innerText = "";
+             document.getElementById("expiry_date").setAttribute('disabled', '');
+
+             document.getElementById("cvc").required = false;
+             document.getElementById("cvc").innerText = "";
+             document.getElementById("cvc").setAttribute('disabled', '');
+        }
+
+        var card = document.getElementById("radio_card");
+        card.onclick => {
+             document.getElementById("card_holder").required = true;
+             document.getElementById("card_holder").removeAttribute('disabled');
+
+             document.getElementById("card_number").required = true;
+             document.getElementById("card_number").removeAttribute('disabled');
+
+             document.getElementById("expiry_date").required = true;
+             document.getElementById("expiry_date").removeAttribute('disabled');
+
+             document.getElementById("cvc").required = true;
+             document.getElementById("cvc").removeAttribute('disabled');
         }
     </script>
 </head>
@@ -140,23 +191,24 @@
                 <div class="form">
                     <div class="card space icon-relative">
                         <label class="label">Card holder:</label>
-                        <input type="text" class="input" name="card_holder" placeholder="Name">
+                        <input type="text" class="input" id="card_holder" placeholder="Name">
                         <i class="fa fa-user" aria-hidden="true"></i>
                     </div>
                     <div class="card space icon-relative">
                         <label class="label">Card number:</label>
-                        <input type="text" class="input" name="card_number" placeholder="Card Number">
+                        <input type="text" class="input" id="card_number" onkeyup="checkCard(this.value)" placeholder="Card Number">
                         <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
                     </div>
+                    <label style="text-align: center" id="cardValidity" class="label"></label>
                     <div class="card_info space">
                         <div class="card_data icon-relative">
                             <label class="label">Expiration Date:</label>
-                            <input type="text" class="input" name="expiry_date" placeholder="00 / 00">
+                            <input type="text" class="input" id="expiry_date" placeholder="00 / 00">
                             <i class="fa fa-calendar" aria-hidden="true"></i>
                         </div>
                         <div class="card_data icon-relative">
                             <label class="label">CVV:</label>
-                            <input type="text" class="input" name="cvc" placeholder="00 / 00">
+                            <input type="text" class="input" id="cvc" placeholder="00 / 00">
                             <i class="fa fa-lock" aria-hidden="true"></i>
                         </div>
                     </div>

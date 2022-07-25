@@ -1,0 +1,25 @@
+.termscons_des {
+    background-color: #2b2926;
+    margin: auto;
+    top: 120px;
+    max-width: 1000px;
+    padding: 30px;
+    position: relative;
+    border-radius: 10px;
+    color: white;
+    height: 3250px;
+    text-align: justify;
+}
+
+.pripol_des {
+    background-color: #2b2926;
+    margin: auto;
+    top: 120px;
+    max-width: 1000px;
+    padding: 30px;
+    position: relative;
+    border-radius: 10px;
+    color: white;
+    height: 4520px;
+    text-align: justify;
+}

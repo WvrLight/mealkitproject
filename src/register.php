@@ -66,7 +66,7 @@
                     <label for="psw-repeat"><b>Repeat Password:</b></label> <br>
                     <input type="password" placeholder="Repeat Password" name="psw-repeat" class="signupbox" required> <br>
                 
-                    <p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p><br>
+                    <p>By creating an account you agree to our <a href="termsandconditions.php" style="color:dodgerblue">Terms & Privacy</a>.</p><br>
                 
                             <div align="right">
                                 <input type='submit' class="loginbtn" name='register' value='Register'/>

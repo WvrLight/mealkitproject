@@ -20,7 +20,7 @@
                     <input type='hidden' class='productID' name='productId' value='" . $id . "'>
                     <label>Product Name:</label>
                         <input type='text' name='productName' class='prodContent' value='" . $row['productname'] . "'/><br>
-                    <label>Product Description:</label>'
+                    <label>Product Description:</label>
                         <textarea name='productDesc' class='textareaDesc' rows='4'>" . $row['productdesc'] . "</textarea><br>
                     <label>Product Image URL:</label>
                         <input type='text' name='productImg' class='prodContent' value='" . $row['productimgurl'] . "'/><br>

@@ -43,6 +43,9 @@
             ?>
         </ul>
     </div>
+    <div class="product-header">
+        <h1>Orders</h1>
+    </div>
     <div class="cart-wrapper">
         <?php
             if (!isset($_SESSION['isadmin'])) {
