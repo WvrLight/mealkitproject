@@ -70,11 +70,6 @@
             }
         }
 
-        const radios = document.querySelectorAll("method")
-        for (const radio of radios) {
-            radio.addEventListener('change', setPaymentMethod);
-        }
-
         function setPaymentMethod(e) {
             console.log('a');
             if (e === "radio_cod") {
@@ -175,11 +170,11 @@
             </p>
             <h3>Payment method</h3>
             <label class="method_radio" for="method_cod">
-                <input type="radio" class="radio_input" name="method" value="radio_cod">
+                <input type="radio" class="radio_input" name="method" value="radio_cod" onclick="setPaymentMethod('radio_cod')">
                 &nbspCash on Delivery
             </label>
             <label class="method_radio" for="method_card">
-                <input type="radio" class="radio_input" name="method" value="radio_card">
+                <input type="radio" class="radio_input" name="method" value="radio_card" onclick="setPaymentMethod('radio_card')">
                 &nbspDebit / Credit Card
             </label>
             <br><br>
