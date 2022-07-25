@@ -75,7 +75,7 @@
         var cod = document.getElementById("radio_cod");
         cod.onclick = setToCOD;
         
-        setToCOD() {
+        function setToCOD() {
              document.getElementById("card_holder").required = false;
              document.getElementById("card_holder").innerText = "";
              document.getElementById("card_holder").setAttribute('disabled', '');
@@ -96,7 +96,7 @@
         var card = document.getElementById("radio_card");
         card.onclick = setToCard;
         
-        setToCard() {
+        function setToCard() {
              document.getElementById("card_holder").required = true;
              document.getElementById("card_holder").removeAttribute('disabled');
 
