@@ -2,7 +2,7 @@
 <?php
     $code = $_GET['code'];
 
-    $sql = "SELECT * FROM Coupon WHERE code = '" . $code . "'" . " AND isExpired != true";
+    $sql = "SELECT * FROM Coupon WHERE code = '" . $code . "' AND isExpired != true";
     $stmt = $pdo->prepare($sql);
     $stmt->execute();
     $couponResult = false;
