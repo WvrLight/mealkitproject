@@ -73,7 +73,7 @@
         const radios = document.querySelectorAll('method')
         for (const radio of radios) {
             radio.onclick = (e) => {
-                if (!strcmp(e, "radio_cod")) {
+                if (e === "radio_cod") {
                     document.getElementById("card_holder").required = false;
                     document.getElementById("card_holder").innerText = "";
                     document.getElementById("card_holder").setAttribute('disabled', '');
