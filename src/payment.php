@@ -70,39 +70,44 @@
             }
         }
 
-        const radios = document.querySelectorAll('method')
+        const radios = document.querySelectorAll("input[name='method']")
         for (const radio of radios) {
-            radio.onclick = (e) => {
-                if (e === "radio_cod") {
-                    document.getElementById("card_holder").required = false;
-                    document.getElementById("card_holder").innerText = "";
-                    document.getElementById("card_holder").setAttribute('disabled', '');
+            radio.addEventListener('change', setPaymentMethod);
+        }
 
-                    document.getElementById("card_number").required = false;
-                    document.getElementById("card_number").innerText = "";
-                    document.getElementById("card_number").setAttribute('disabled', '');
+        function setPaymentMethod(e) {
+            console.log('a');
+            if (e === "radio_cod") {
+                console.log('b');
+                document.getElementById("card_holder").required = false;
+                document.getElementById("card_holder").innerText = "";
+                document.getElementById("card_holder").setAttribute('disabled', '');
 
-                    document.getElementById("expiry_date").required = false;
-                    document.getElementById("expiry_date").innerText = "";
-                    document.getElementById("expiry_date").setAttribute('disabled', '');
+                document.getElementById("card_number").required = false;
+                document.getElementById("card_number").innerText = "";
+                document.getElementById("card_number").setAttribute('disabled', '');
 
-                    document.getElementById("cvc").required = false;
-                    document.getElementById("cvc").innerText = "";
-                    document.getElementById("cvc").setAttribute('disabled', '');
-                }
-                else {
-                    document.getElementById("card_holder").required = true;
-                    document.getElementById("card_holder").removeAttribute('disabled');
+                document.getElementById("expiry_date").required = false;
+                document.getElementById("expiry_date").innerText = "";
+                document.getElementById("expiry_date").setAttribute('disabled', '');
 
-                    document.getElementById("card_number").required = true;
-                    document.getElementById("card_number").removeAttribute('disabled');
+                document.getElementById("cvc").required = false;
+                document.getElementById("cvc").innerText = "";
+                document.getElementById("cvc").setAttribute('disabled', '');
+            }
+            else {
+                console.log('c');
+                document.getElementById("card_holder").required = true;
+                document.getElementById("card_holder").removeAttribute('disabled');
 
-                    document.getElementById("expiry_date").required = true;
-                    document.getElementById("expiry_date").removeAttribute('disabled');
+                document.getElementById("card_number").required = true;
+                document.getElementById("card_number").removeAttribute('disabled');
 
-                    document.getElementById("cvc").required = true;
-                    document.getElementById("cvc").removeAttribute('disabled');
-                }
+                document.getElementById("expiry_date").required = true;
+                document.getElementById("expiry_date").removeAttribute('disabled');
+
+                document.getElementById("cvc").required = true;
+                document.getElementById("cvc").removeAttribute('disabled');
             }
         }
     </script>
