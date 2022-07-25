@@ -74,20 +74,20 @@
             console.log('a');
             if (e === "radio_cod") {
                 console.log('b');
+                document.getElementById("card_holder").value = "";
                 document.getElementById("card_holder").required = false;
-                document.getElementById("card_holder").innerText = "";
                 document.getElementById("card_holder").setAttribute('disabled', '');
 
+                document.getElementById("card_number").value = "";
                 document.getElementById("card_number").required = false;
-                document.getElementById("card_number").innerText = "";
                 document.getElementById("card_number").setAttribute('disabled', '');
 
+                document.getElementById("expiry_date").value = "";
                 document.getElementById("expiry_date").required = false;
-                document.getElementById("expiry_date").innerText = "";
                 document.getElementById("expiry_date").setAttribute('disabled', '');
 
+                document.getElementById("cvc").value = "";
                 document.getElementById("cvc").required = false;
-                document.getElementById("cvc").innerText = "";
                 document.getElementById("cvc").setAttribute('disabled', '');
             }
             else {
