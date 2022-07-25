@@ -55,12 +55,13 @@
         }
 
         function checkCard(number) {
+            console.log("a");
             var visa = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
             var mastercard = /^(?:5[1-5][0-9]{14})$/;
             if (number.length == 0) {
                 document.getElementById("cardValidity").innerText = "";
             }
-            if (number.value.match(visa)) {
+            else if (number.value.match(visa)) {
                 document.getElementById("cardValidity").innerText = "Valid (VISA)";
             }
             else if (number.value.match(mastercard)) {
