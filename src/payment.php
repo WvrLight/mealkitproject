@@ -33,7 +33,6 @@
                 document.getElementById("totalPrice").innerText = "₱ " + price;
                 return;
             } else {
-                console.log("<?php echo $totalPrice; ?>");
                 var xmlhttp = new XMLHttpRequest();
                 xmlhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
@@ -61,10 +60,10 @@
             if (number.length == 0) {
                 document.getElementById("cardValidity").innerText = "";
             }
-            else if (number.value.match(visa)) {
+            else if (number.match(visa)) {
                 document.getElementById("cardValidity").innerText = "Valid (VISA)";
             }
-            else if (number.value.match(mastercard)) {
+            else if (number.match(mastercard)) {
                 document.getElementById("cardValidity").innerText = "Valid (MasterCard)";
             }
             else {
@@ -73,7 +72,7 @@
         }
 
         var cod = document.getElementById("radio_cod");
-        cod.onclick = setToCOD;
+        cod.addEventListener('change', setToCOD);
         
         function setToCOD() {
              document.getElementById("card_holder").required = false;
@@ -94,7 +93,7 @@
         }
 
         var card = document.getElementById("radio_card");
-        card.onclick = setToCard;
+        cod.addEventListener('change', setToCard);
         
         function setToCard() {
              document.getElementById("card_holder").required = true;
