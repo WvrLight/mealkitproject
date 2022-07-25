@@ -10,7 +10,7 @@
     <title>Terms and Conditions</title>
     <link rel="stylesheet" type="text/css" href="assets/css/payment_style.css">
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-
+    <link rel="stylesheet" type="text/css" href="assets/css/termsprivacy.css">
 </head>
 <body>
     <div class="nav">
