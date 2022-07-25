@@ -201,7 +201,7 @@
                     </div>
                     <div class="card space icon-relative">
                         <label class="label">Card number:</label>
-                        <input type="text" class="input" id="card_number" onkeyup="checkCard(this.value)" placeholder="Card Number">
+                        <input type="text" class="input" id="card_number" onkeyup="checkCard('this.value')" placeholder="Card Number">
                         <i class="fa fa-credit-card-alt" aria-hidden="true"></i>
                     </div>
                     <label style="text-align: center" id="cardValidity" class="label"></label>
