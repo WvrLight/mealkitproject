@@ -221,8 +221,6 @@
 
 <?php
     if (isset($_POST['submitRemove'])) { 
-        echo "<script>console.log('a');</script>";
-
         unset($_SESSION['cart'][$_POST['cartIndex']]);
         echo "<script>window.location.href='payment.php'</script>";
     }
@@ -242,8 +240,8 @@
         $stmt->execute();
 
         foreach($_SESSION['cart'] as $ITEM) {
-            $sql = "INSERT INTO OrderCart(productId, orderId)
-                    VALUES (" . $ITEM . ", " . $orderId . ")";
+            $sql = "INSERT INTO OrderCart(orderId, productId)
+                    VALUES (" . $orderId . ", " . $ITEM . ")";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
         }
