@@ -1,2 +1,2 @@
-ALTER TABLE Customer
-ADD COLUMN custEmail VARCHAR;
+DELETE FROM Orders
+WHERE id = 2;

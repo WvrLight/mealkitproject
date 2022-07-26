@@ -10,12 +10,6 @@
         echo "<script>alert('Add items to cart first!');</script>";
         echo "<script>window.location.href='inventory.php'</script>";
     }
-    else {
-        $sql = 'SELECT * FROM Orders';
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute();
-        $orderId = $stmt->rowCount();
-    }
 ?>
 
 <!DOCTYPE html>
@@ -238,19 +232,14 @@
 
     if (isset($_POST['pay'])) {
         date_default_timezone_set('Asia/Manila');
-        $orderId += 1;
 
-        $sql = "INSERT INTO Orders(custId, orderDate, orderStatus)
-                VALUES (" . $_SESSION['id'] . ", '" . date("Y-m-d") . "', 0)";
+        $sql = 'SELECT * FROM Orders';
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
+        $orderId = $stmt->rowCount();
+        $orderId += 1;
 
-        foreach($_SESSION['cart'] as $ITEM) {
-            $sql = "INSERT INTO OrderCart(productId, orderId)
-                    VALUES (" . $ITEM . ", " . $orderId . ")";
-            $stmt = $pdo->prepare($sql);
-            $stmt->execute();
-        }
+        echo "<script>console.log($orderId)</script>";
 
         echo "<script>alert('Order successful!');</script>";
         echo "<script>window.location.href='inventory.php'</script>";

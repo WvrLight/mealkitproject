@@ -47,7 +47,7 @@
     <div class="product-header">
         <h1>Orders</h1>
     </div>
-    <div class="card-container">
+    <div class="coupon-container">
         <?php
             if (!isset($_SESSION['isadmin'])) {
                 $sql = "SELECT * FROM Orders WHERE custId = " . $_SESSION['id'];
