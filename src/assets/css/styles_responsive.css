@@ -158,30 +158,42 @@ fieldset .product-thumb {
 /********************************************/
 /*subscribing/description page*/
 
+.price {
+	position: relative;
+	font-weight: 900;
+	font-size: 20px;
+	color: green;
+}
+
+.old-price {
+	opacity: 0.5;
+	text-decoration: line-through;
+}
+
+.view {
+	font-size: 1.2em;
+}
+
 .viewPic {
 	display: block;
 	height: 400px;
 	width: 300px;
-	margin-top: 50px;
-	margin-left: 50px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
 }
 
-.viewDesc{
-	margin-top: 50px;
+.viewDesc {
+	margin-top: 20px;
 	margin-left: 20px;
 }
 
-
 .viewProduct {
-	display:flex;
-	height: 450px;
-	width: 1200px;
+	display: flex;
 }
 
-
 .paraTxt {
-	font-size:1.5em;
-	margin-right: 60px;
+	margin-right: 10px;
 }
 
 .button{
