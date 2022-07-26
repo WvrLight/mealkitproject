@@ -89,11 +89,19 @@ fieldset .product-thumb {
 	opacity: 1;
 }
 
+.salePercent {
+	font-size: 20px;
+	float: right;
+	margin-top: -2%;
+	margin-right: 50%;
+	color: green;
+}
+
 .inventoryprice {
     font-weight: 900;
     font-size: 20px;
 	color: green;
-	margin: 0 auto;
+	text-align: center;
 }
 
 .old-price {
@@ -416,14 +424,6 @@ fieldset .product-thumb {
 .old-price {
 	opacity: 0.5;
 	text-decoration: line-through;
-}
-
-.salePercent {
-	font-size: 20px;
-	float: right;
-	margin-top: 0;
-	margin-right: 50%;
-	color: green;
 }
 
 .view {
