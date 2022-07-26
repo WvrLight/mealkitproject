@@ -92,10 +92,10 @@ fieldset .product-thumb {
 .price{
     font-weight: 900;
     font-size: 20px;
-	color: red;
+	color: green;
 }
 
-.old-price{
+.old-price {
     margin-right: 170px;
     opacity: 0.5;
     text-decoration: line-through;
@@ -409,12 +409,20 @@ fieldset .product-thumb {
 	position: relative;
 	font-weight: 900;
 	font-size: 20px;
-	color: red;
+	color: green;
 }
 
 .old-price {
 	opacity: 0.5;
 	text-decoration: line-through;
+}
+
+.salePercent {
+	font-size: 20px;
+	float: right;
+	margin-top: 0;
+	margin-right: 50%;
+	color: green;
 }
 
 .view {

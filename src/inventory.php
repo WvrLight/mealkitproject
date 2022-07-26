@@ -115,6 +115,7 @@
 										echo("<p class='price'>₱" . $row['productprice'] . "</p>");	
 									}
 									else {
+										echo("<p class='salePercent'>-" . round(1 - ($row['productsaleprice'] / $row['productprice']), 2, PHP_ROUND_HALF_DOWN) * 100 . "%</p>");
 										echo("<p class='old-price'>₱" . $row['productprice'] . "</p>");
 										echo("<p class='price'>₱" . $row['productsaleprice'] . "</p>");
 									}
