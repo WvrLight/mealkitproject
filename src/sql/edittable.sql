@@ -1,4 +1,5 @@
-DELETE FROM Orders
-WHERE id > 1;
+INSERT INTO OrderCart(productId, orderId)
+VALUES(3, 1);
 
-ALTER SEQUENCE orders_id_seq RESTART WITH 2
+INSERT INTO OrderCart(productId, orderId)
+VALUES(2, 1)

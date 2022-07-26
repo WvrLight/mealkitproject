@@ -240,8 +240,8 @@
         $stmt->execute();
 
         foreach($_SESSION['cart'] as $ITEM) {
-            $sql = "INSERT INTO OrderCart(orderId, productId)
-                    VALUES (" . $orderId . ", " . $ITEM . ")";
+            $sql = "INSERT INTO OrderCart(productId, orderId)
+                    VALUES (" . $ITEM . ", " . $orderId . ")";
             $stmt = $pdo->prepare($sql);
             $stmt->execute();
         }

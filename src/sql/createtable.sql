@@ -31,8 +31,8 @@ CREATE TABLE Orders (
 );
 
 CREATE TABLE OrderCart (
-    orderId INT PRIMARY KEY NOT NULL,
     productId INT NOT NULL,
+    orderId INT NOT NULL,
     CONSTRAINT c_product
         FOREIGN KEY (productId)
         REFERENCES Product(id),
