@@ -89,10 +89,11 @@ fieldset .product-thumb {
 	opacity: 1;
 }
 
-.price{
+.inventoryprice {
     font-weight: 900;
     font-size: 20px;
 	color: green;
+	text-align: center;
 }
 
 .old-price {
