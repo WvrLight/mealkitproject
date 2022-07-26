@@ -69,6 +69,7 @@
             <br><a href='#formAdd' class='button1'>+</a>
             <h1>Coupons</h1>
         </div>
+        <div class="card-container">
             <?php
                 $sql = "SELECT * FROM Coupon";
                 $stmt = $pdo->prepare($sql);

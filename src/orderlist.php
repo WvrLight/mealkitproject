@@ -43,10 +43,11 @@
             ?>
         </ul>
     </div>
+    <div class="wholecontainer">
     <div class="product-header">
         <h1>Orders</h1>
     </div>
-    <div class="cart-wrapper">
+    <div class="card-container">
         <?php
             if (!isset($_SESSION['isadmin'])) {
                 $sql = "SELECT * FROM Orders WHERE custId = " . $_SESSION['id'];
