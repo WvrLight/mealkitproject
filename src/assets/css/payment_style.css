@@ -150,6 +150,18 @@ body {
     cursor: pointer;
 }
 
+.button_mark {
+    width: 125px;
+    height: 25px;
+    font-size: 12px;
+    text-anchor: middle;
+    text-align: center;
+    background-color: white;
+    font-family: 'Open Sans', sans-serif;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .method_radio {
     display: inline-flex;
     position: relative;

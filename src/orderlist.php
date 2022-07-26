@@ -111,7 +111,7 @@
                             echo "<form method='post'>
                             <input type='hidden' name='orderId' value='" . $row['id'] . "'>
                             <div align='right' style='margin-right: 30px width: 20%;'>
-                                <input type='submit' name='submitDeliver' value='Mark as Delivering' class='button'>
+                                <input type='submit' name='submitDeliver' value='Mark as Delivering' class='button_mark'>
                             </div>
                             </form>";
                         }
@@ -123,7 +123,7 @@
                             echo "<form method='post'>
                             <input type='hidden' name='orderId' value='" . $row['id'] . "'>
                             <div align='right' style='margin-right: 30px width: 20%;'>
-                                <input type='submit' name='submitDelivered' value='Mark as Delivered' class='button'>
+                                <input type='submit' name='submitDelivered' value='Mark as Delivered' class='button_mark'>
                             </div>
                             </form>";
                         }
