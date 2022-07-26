@@ -65,9 +65,7 @@
         }
 
         function setPaymentMethod(e) {
-            console.log('a');
             if (e === "radio_cod") {
-                console.log('b');
                 document.getElementById("card_holder").value = "";
                 document.getElementById("card_holder").required = false;
                 document.getElementById("card_holder").setAttribute('disabled', '');
@@ -85,7 +83,6 @@
                 document.getElementById("cvc").setAttribute('disabled', '');
             }
             else {
-                console.log('c');
                 document.getElementById("card_holder").required = true;
                 document.getElementById("card_holder").removeAttribute('disabled');
 
@@ -239,7 +236,17 @@
         $orderId = $stmt->rowCount();
         $orderId += 1;
 
-        echo "<script>console.log($orderId)</script>";
+        $sql = "INSERT INTO Orders(custId, orderDate, orderStatus)
+                VALUES (" . $_SESSION['id'] . ", '" . date("Y-m-d") . "', 0)";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+
+        foreach($_SESSION['cart'] as $ITEM) {
+            $sql = "INSERT INTO OrderCart(productId, orderId)
+                    VALUES (" . $ITEM . ", " . $orderId . ")";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute();
+        }
 
         echo "<script>alert('Order successful!');</script>";
         echo "<script>window.location.href='inventory.php'</script>";

@@ -69,15 +69,14 @@
             <br><a href='#formAdd' class='button1'>+</a>
             <h1>Coupons</h1>
         </div>
-        <div class="card-container">
+        <div class="coupon-container">
             <?php
                 $sql = "SELECT * FROM Coupon";
                 $stmt = $pdo->prepare($sql);
                 $stmt->execute();
 
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<div class='cart-wrapper'>";
-                        echo "<div class='cart_payment'>";
+                    echo "<div class='cart_payment'>";
                         echo "<h4 class='tracking_receiver'>Coupon Code</h4>
                             <p class='tracking_name'>" . $row['code'] . "</p><br>";
                         echo "<h4 class='tracking_receiver'>Discount</h4>
@@ -91,8 +90,7 @@
                         else {
                             echo "<p class='tracking_name' style='color: red'>Expired on " . $row['couponexpiry'] . "</p><br>";
                         }
-                    echo "</div>
-                    </div><br>";
+                    echo "</div><br>";
                 }
             ?>
         </div>

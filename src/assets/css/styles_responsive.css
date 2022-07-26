@@ -46,6 +46,14 @@ fieldset .product-thumb {
 	margin-left: auto;
 }
 
+.coupon-container {
+	display: grid;
+	grid-template-columns: 250px 250px 250px 250px 250px;
+	grid-gap: 10%;
+	border-collapse: collapse;
+	width: 100%;
+}
+
 /* Collection of fieldsets (inventory)*/
 .card-container{
 	display: flex;
@@ -556,4 +564,15 @@ fieldset .product-thumb {
 	border: 2px solid black;
 	height: 200px;
 	width: 200px;
+}
+
+.cart_payment {
+	background-color: #2b2926;
+	margin: auto;
+	top: 120px;
+	max-width: 400px;
+	padding: 20px;
+	position: relative;
+	border-radius: 10px;
+	color: white;
 }
