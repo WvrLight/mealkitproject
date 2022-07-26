@@ -94,7 +94,7 @@
 						echo "<br><a href='#formAdd' class='button1'>+</a>";
 					}
 				?>
-				<a href="" class="product-cart"><img src="assets/img/cart.png"></a>
+				<a href="payment.php" class="product-cart"><img src="assets/img/cart.png"></a>
 				<p id="cart-num" class="cart-count">0</p>
 				<h1>Products</h1>
 			</div>
