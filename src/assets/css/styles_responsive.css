@@ -93,7 +93,7 @@ fieldset .product-thumb {
     font-weight: 900;
     font-size: 20px;
 	color: green;
-	text-align: center;
+	margin: 0 auto;
 }
 
 .old-price {
