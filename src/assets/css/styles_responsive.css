@@ -1,0 +1,590 @@
+@import url('//fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Roboto:wght@300&family=Sora&display=swap');
+
+body {
+	background-color: whitesmoke;
+}
+
+.wholecontainer {
+	font-family: arial;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.product-header {
+	position: static;
+	display: block;
+	margin-top: 10%;
+}
+
+.cart-count {
+	position: relative;
+	float: right;
+}
+
+.product-cart img {
+	position: relative;
+	float: right;
+	height: 50px;
+	width: 50px;
+	object-fit: contain;
+}
+
+h1 {
+	margin-left: 20px;
+}
+
+/*Meal-kit Name*/
+.product-brand {
+	height: 50px;
+}
+
+fieldset .product-thumb {
+	height: 200px;
+	width: 200px;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.coupon-container {
+	display: grid;
+	grid-template-columns: 250px 250px 250px 250px 250px;
+	grid-gap: 10%;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+/* Collection of fieldsets (inventory)*/
+.card-container{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	border-collapse: collapse;
+	width: 100%;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+/* fieldsets of each meal-kit (inventory)*/
+.product-card {
+	display: inline-block;
+	height: 470px;
+	width: 250px;
+	border: 0;
+	border-radius: 10px;
+	background-color: white;
+	margin-top: 23px;
+	margin-right: 20px;
+	text-align: center;
+	transition: transform .2s; /* Animation */
+	opacity: .8;
+	box-shadow:0 0 5px #999;
+}
+
+.product-card img {
+	width: 110%;
+	margin-left: -5%;
+	margin-top: -4%;
+	object-fit: cover;
+	border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.product-card:hover{
+	
+	transform: scale(1.1);
+	background-color: burlywood;
+	opacity: 1;
+}
+
+.salePercent {
+	font-size: 20px;
+	float: right;
+	margin-top: -2%;
+	margin-right: 50%;
+	color: green;
+}
+
+.inventoryprice {
+    font-weight: 900;
+    font-size: 20px;
+	color: green;
+	text-align: center;
+}
+
+.old-price {
+    margin-right: 170px;
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.view {
+	font-size:1.2em;
+}
+/*fieldset below subscription package page*/
+.option{ 
+	width:900px;
+	margin:auto; 
+	background-color:white; 
+}
+.confirm{
+	height: 30px;
+	width: 90px;
+	background-color: burlywood;
+	color: blue;
+	margin-left: 800px;
+	
+}
+
+/********************************************/
+/*order list page*/
+/* fieldsets of each meal-kit (inventory)*/
+.order-card {
+	display: inline-block;
+	height: 350px;
+	width: 500px;
+	border: 0;
+	border-radius: 10px;
+	background-color: white;
+	margin-top: 23px;
+	margin-right: 20px;
+	text-align: center;
+	transition: transform .2s;
+	/* Animation */
+	opacity: .8;
+	box-shadow: 0 0 5px #999;
+}
+
+/********************************************/
+/*subscribing/description page*/
+
+.price {
+	position: relative;
+	font-weight: 900;
+	font-size: 20px;
+	color: green;
+}
+
+.old-price {
+	opacity: 0.5;
+	text-decoration: line-through;
+}
+
+.view {
+	font-size: 1.2em;
+}
+
+.viewPic {
+	display: block;
+	height: 400px;
+	width: 300px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+}
+
+.viewDesc {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.viewProduct {
+	display: flex;
+}
+
+.paraTxt {
+	margin-right: 10px;
+}
+
+.button{
+	width: 100px;
+	max-width: 250px;
+    padding: 10px;
+    background-color: #FF8C00;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+/*******************July 17 LOGIN FORM HTML ************/
+
+.login-form {
+	width: 500px;
+	margin: auto;
+	margin-top: 10%;
+	background-color: #333332;
+	color: white;
+	border: none;
+	border-radius: 10px;
+
+}
+
+.login-form .icon {
+	padding: 10px;
+	background: burlywood;
+	color: black;
+	min-width: 50px;
+	height: 20px;
+	text-align: center;
+}
+
+.username {
+	height: 35px;
+	width: 84%;
+	margin-left: -4px;
+}
+
+.password {
+	height: 35px;
+	width: 84%;
+	margin-left: -7px;
+}
+
+.signuplink {
+	color: white;
+	font-size: .8em;
+}
+
+.loginbtn {
+	border: none;
+	background-color: burlywood;
+	color: black;
+	font-size: 1.1em;
+	height: 30px;
+	width: 30%;
+}
+
+.clearbtn {
+	border: none;
+	background-color: #AC8655;
+	color: black;
+	font-size: 1.1em;
+	height: 30px;
+	width: 30%;
+}
+
+/****** Added and modified for editing JULY 20 **********/
+.eBtn {
+	margin-top: 15px;
+	margin-left: 220px;
+}
+
+.remove {
+	margin-left: 230px;
+}
+
+.xButton {
+	position: relative;
+	width: 30px;
+	padding: 5px;
+	background-color: red;
+	color: white;
+	font-weight: bold;
+	text-decoration: none;
+	font-size: 1.2em;
+}
+
+/*add*/
+.button1 {
+	font-size: 2em;
+	padding-left: 10px;
+	padding-right: 10px;
+	border: none;
+	float: right;
+	margin-right: 20px;
+	text-decoration: none;
+	background-color: burlywood;
+	color: brown;
+	cursor: pointer;
+	transition: all 0.3s ease-out;
+}
+
+.button1:hover {
+	background: brown;
+	color: white;
+}
+
+.overlayEdit,
+.overlayAdd,
+.overlayView,
+.overlayRemove {
+	margin-top: 20px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.7);
+	transition: opacity 500ms;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.overlayEdit:target,
+.overlayAdd:target,
+.overlayView:target,
+.overlayRemove:target {
+	visibility: visible;
+	opacity: 1;
+}
+
+.popupEdit,
+.popupAdd {
+	margin: 70px auto;
+	padding: 20px;
+	background: whitesmoke;
+	border-radius: 5px;
+	width: 50%;
+	position: relative;
+	transition: all 5s ease-in-out;
+}
+
+.popupRemove {
+	margin: 70px auto;
+	padding: 20px;
+	background: whitesmoke;
+	border-radius: 5px;
+	width: 30%;
+	position: relative;
+	transition: all 5s ease-in-out;
+}
+
+/**Description page**/
+.popupView {
+	margin: 70px auto;
+	padding: 20px;
+	background: whitesmoke;
+	border-radius: 5px;
+	width: 70%;
+	position: relative;
+	transition: all 5s ease-in-out;
+}
+
+.popupEdit h2,
+.popupAdd h2,
+.popupView h2,
+.popupRemove h2 {
+	margin-top: 0;
+	color: brown;
+	font-family: Tahoma, Arial, sans-serif;
+}
+
+.popupEdit .close,
+.popupAdd .close,
+.popupView .close,
+.popupRemove .close {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	transition: all 200ms;
+	font-size: 30px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #333;
+}
+
+.popupEdit .close:hover,
+.popupAdd .close:hover,
+.popupView .close:hover,
+.popupRemove .close:hover {
+	color: orange;
+}
+
+
+.popupEdit .content,
+.popupAdd .content,
+.popupView .content,
+.popupRemove .content {
+	font-size: 1em;
+	font-weight: bold;
+	margin-bottom: -10px;
+}
+
+/**Content Area for Add/Edit Overlay**/
+.prodContent {
+	width: 63%;
+	height: 32px;
+	margin-left: 30px;
+	margin-bottom: 5px;
+	border-color: brown;
+	background-color: white;
+}
+
+/**Text Area for Add/Edit Description**/
+.textareaDesc {
+	width: 63%;
+	margin-left: 32px;
+	margin-bottom: 5px;
+	border-color: brown;
+	background-color: white;
+	vertical-align: middle;
+}
+
+.popupRemove .content label {
+	min-width: 350px;
+	text-align: left;
+}
+
+/**Labels for Add/Edit Overlay**/
+.content label {
+	display: inline-block;
+	width: 170px;
+	text-align: right;
+}
+
+​
+
+/********************JULY 20 for product view overlay************************/
+.price {
+	position: relative;
+	font-weight: 900;
+	font-size: 20px;
+	color: green;
+}
+
+.old-price {
+	opacity: 0.5;
+	text-decoration: line-through;
+}
+
+.view {
+	font-size: 1.2em;
+}
+
+.viewPic {
+	display: block;
+	height: 400px;
+	width: 300px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-bottom: 10px;
+	object-fit: cover;
+}
+
+.viewDesc {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.viewProduct {
+	display: flex;
+}
+
+.paraTxt {
+	margin-right: 10px;
+}
+
+/*******************July 17 LOGIN FORM HTML ************/
+
+.login-form {
+	width: 500px;
+	margin: auto;
+	background-color: #333332;
+	color: white;
+	border: none;
+
+}
+
+.login-form .icon {
+	padding: 10px;
+	background: burlywood;
+	color: black;
+	min-width: 50px;
+	height: 20px;
+	text-align: center;
+}
+
+.username-login {
+	height: 35px;
+	width: 84%;
+	margin-left: -4px;
+}
+
+.pass-login {
+	height: 35px;
+	width: 84%;
+	margin-left: -7px;
+}
+
+.signuplink {
+	color: white;
+}
+
+.loginbtn {
+	border: none;
+	background-color: burlywood;
+	color: black;
+	font-size: 1.1em;
+	height: 30px;
+	width: 30%;
+}
+
+.clearbtn {
+	border: none;
+	background-color: #AC8655;
+	color: black;
+	font-size: 1.1em;
+	height: 30px;
+	width: 30%;
+}
+
+/*************for Signup July 21*****************/
+
+.signup-form {
+	width: 80%;
+	padding: 10px;
+	margin: auto;
+	background-color: #333332;
+	color: white;
+	border: none;
+}
+
+.signup-form p {
+	border-bottom: 2px solid white;
+}
+
+.signupbox {
+	height: 35px;
+	width: 95%;
+	margin-left: 20px;
+	margin-bottom: 10px;
+	background-color: whitesmoke;
+}
+
+.signup-form label {
+	color: burlywood;
+}
+
+/****** for Profile JULY 20*******/
+.profile {
+	text-align: center;
+	background-color: white;
+	padding: 30px;
+	width: 60%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.profile p {
+	height: 30px;
+}
+
+.profile h2 {
+	border-bottom: 5px solid gray;
+}
+
+.profile .profile-pic {
+	border: 2px solid black;
+	height: 200px;
+	width: 200px;
+}
+
+.cart_payment {
+	background-color: #2b2926;
+	margin: auto;
+	top: 120px;
+	max-width: 400px;
+	padding: 20px;
+	position: relative;
+	border-radius: 10px;
+	color: white;
+}
